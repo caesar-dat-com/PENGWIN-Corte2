@@ -24,7 +24,7 @@ Analítica de Datos · UAO 2026-2 · Prof. Carlos A. Ferro.
 | Semana | Entregable | Estado |
 |---|---|---|
 | 8 (sem. 1) | Splits fijos, carga + ventaneo HU, EDA, visualizador 1 (MIP) | ✅ |
-| 9 | Backbone FundidoraPC + CBAM + cabeza de detección, overfit de un batch | — |
+| 9 (sem. 2) | Backbone FundidoraPC + CBAM + cabeza detección grid + NMS propio + overfit batch | ✅ |
 | 10 | Pipeline completo, distancia en mm, SAM, métricas §5 | — |
 | 11 | Visualizadores 2 y 3, dashboard, túnel Cloudflare, model card, pitch | — |
 
