@@ -5,6 +5,17 @@ Detección, segmentación y clasificación de fragmentos pélvicos en CT (datase
 [10927452](https://zenodo.org/records/10927452)).
 Analítica de Datos · UAO 2026-2 · Prof. Carlos A. Ferro.
 
+
+## 1. Integrantes
+
+> ⚠️ **Obligatorio:** el enunciado exige que *todos* los integrantes estén relacionados en el documento entregado. Completar esta tabla antes de la entrega.
+
+| Nombre completo | Código | Correo institucional |
+|---|---|---|
+| César Armando Reyes Oliveros | 2236379 | cesar_armando.reyes@uao.edu.co |
+| Yesenia Díaz | 2231783 |yesenia.diaz@uao.edu.co |
+| Juan Pablo Maya | 2236377 |juan_pablo.maya@uao.edu.co |
+
 > ⚠️ **Uso exclusivamente académico.** No es un dispositivo médico, no está validado
 > clínicamente y no debe usarse para apoyar decisiones quirúrgicas reales.
 
