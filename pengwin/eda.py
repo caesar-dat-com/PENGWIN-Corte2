@@ -70,7 +70,14 @@ def resumen_caso(ruta_etiqueta: Path) -> tuple[dict, list[dict]]:
             continue
         mayor = max(etiquetas, key=vol.get)
         caso[f"principal_es_mayor_{s}"] = mayor == lo
-        principal = lb == lo if lo in vol else lb == mayor
+        if lo in vol:
+            principal = lb == lo
+            caso[f"alerta_falta_principal_{s}"] = False
+        else:
+            caso[f"alerta_falta_principal_{s}"] = True
+            principal = lb == mayor  # fallback registrado explícitamente en metadatos
+
+        struct_26 = ndimage.generate_binary_structure(rank=3, connectivity=3)
 
         for v in etiquetas:
             frag = {"caso": id_caso, "region": s, "etiqueta": v,
@@ -82,8 +89,10 @@ def resumen_caso(ruta_etiqueta: Path) -> tuple[dict, list[dict]]:
                 frag["n_componentes"] = int(ndimage.label(m)[1])
                 d = distancia_borde_a_borde(principal, m, sp)
                 frag["dist_mm_gt"] = round(d, 2)
-                # vecindad-26: la diagonal de un vóxel es el máximo para "tocarse"
-                frag["en_contacto"] = d <= float(np.sqrt(np.sum(np.square(sp)))) + 1e-6
+                # Vecindad de 26 conectividad directa en cuadrícula 3D (caras, aristas, vértices)
+                caja = _union_bbox(_bbox(principal), _bbox(m), lb.shape)
+                dil_m = ndimage.binary_dilation(m[caja], structure=struct_26)
+                frag["en_contacto"] = bool(np.any(dil_m & principal[caja]))
             fragmentos.append(frag)
 
     caso["n_frag_total"] = sum(caso[f"n_frag_{i['sigla']}"] for i in REGIONES.values())

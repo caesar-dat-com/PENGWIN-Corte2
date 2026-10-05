@@ -1,0 +1,8 @@
+Umbral N (vóxeles),Cajas Conservadas,Instancias Ignoradas,% Ignorado,Efecto en la Red
+N = 0,"62,738",0,0.00%,Sin filtro (admite ruido de 1 vóxel y artefactos metálicos)
+N < 5,"62,299",439,0.70%,Filtro mínimo (elimina píxeles aislados de 1-4 vóxeles)
+N < 10,"61,797",941,1.50%,Filtro intermedio (elimina bordes tangenciales mínimos)
+N < 15,"61,232","1,506",2.40%,★ RECOMENDADO: Elimina ruido espurio sin perder fragmentos reales
+N < 20,"60,668","2,070",3.30%,Filtro conservador (puede empezar a afectar ápice del cóccix)
+N < 30,"59,476","3,262",5.20%,Filtro agresivo (riesgo de pérdida en cortes de transición)
+N < 50,"57,217","5,521",8.80%,Demasiado estricto (elimina fragmentos pequeños válidos)

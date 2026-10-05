@@ -1,6 +1,5 @@
 """Dataset PyTorch para cortes axiales 2D y extracción de Bounding Boxes.
 
-Requisitos de la sección 3 y 4 del proyecto:
 - Cada muestra corresponde a un corte axial 2D con ventaneo HU calibrado.
 - Genera anotaciones de detección (bounding boxes por región anatómica: Sacro, Coxal Izq, Coxal Der).
 - Genera etiquetas de clasificación multietiqueta (presencia de las 3 regiones).
@@ -23,13 +22,21 @@ NOMBRE_CLASES = ["Sacro", "Coxal izquierdo", "Coxal derecho"]
 SIGLAS_CLASES = ["SA", "LI", "RI"]
 
 
-def extraer_bboxes_region(etiqueta_2d: np.ndarray, normalizado: bool = True) -> list[dict]:
+def extraer_bboxes_region(
+    etiqueta_2d: np.ndarray,
+    normalizado: bool = True,
+    min_pixeles: int = 15,
+) -> list[dict]:
     """Extrae bounding boxes por región anatómica (1..3) presentes en el corte 2D.
+
+    Filtra componentes o artefactos espurios con menos de `min_pixeles` para
+    evitar que ruido de segmentación o artefactos metálicos generen cajas falsas.
 
     Retorna una lista de diccionarios con:
     - 'clase_idx': 0 (Sacro), 1 (Coxal Izq), 2 (Coxal Der)
     - 'sigla': 'SA', 'LI', 'RI'
     - 'bbox': [xmin, ymin, xmax, ymax]
+    - 'n_pixeles': int
     """
     h, w = etiqueta_2d.shape
     cajas = []
@@ -38,7 +45,8 @@ def extraer_bboxes_region(etiqueta_2d: np.ndarray, normalizado: bool = True) -> 
         lo, hi = info["rango"]
         # Máscara binaria de la región macro
         mask_region = (etiqueta_2d >= lo) & (etiqueta_2d <= hi)
-        if not mask_region.any():
+        conteo_pixeles = int(np.sum(mask_region))
+        if conteo_pixeles < min_pixeles:
             continue
 
         ys, xs = np.nonzero(mask_region)
@@ -54,6 +62,7 @@ def extraer_bboxes_region(etiqueta_2d: np.ndarray, normalizado: bool = True) -> 
             "clase_idx": r_id - 1,  # 0, 1, 2
             "sigla": info["sigla"],
             "bbox": bbox,
+            "n_pixeles": conteo_pixeles,
         })
 
     return cajas
@@ -71,6 +80,7 @@ class PelvisSliceDataset(Dataset):
         target_size: tuple[int, int] = (256, 256),
         solo_con_hueso: bool = True,
         canales: int = 3,
+        min_pixeles: int = 15,
         transform: Callable | None = None,
     ):
         """
@@ -79,10 +89,12 @@ class PelvisSliceDataset(Dataset):
             target_size: (H, W) de salida recomendada (por defecto 256x256)
             solo_con_hueso: Si True, filtra cortes sin ninguna región anotada
             canales: 1 o 3 (3 repite el canal en escala de grises para backbones preentrenados)
+            min_pixeles: Umbral mínimo de vóxeles por región en 2D (ignora ruido espurio < 15 px)
             transform: Transformaciones opcionales de aumento de datos
         """
         self.target_size = target_size
         self.canales = canales
+        self.min_pixeles = min_pixeles
         self.transform = transform
         self.muestras = []
 
@@ -129,7 +141,7 @@ class PelvisSliceDataset(Dataset):
 
         if caso.etiqueta is not None:
             mask_z = caso.etiqueta[z]
-            cajas_dict = extraer_bboxes_region(mask_z, normalizado=True)
+            cajas_dict = extraer_bboxes_region(mask_z, normalizado=True, min_pixeles=self.min_pixeles)
 
             for item in cajas_dict:
                 c_idx = item["clase_idx"]

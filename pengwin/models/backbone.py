@@ -119,9 +119,9 @@ class PelvisBackbone(nn.Module):
         else:
             raise ValueError(f"Tipo de backbone no soportado: {tipo}")
 
-        # Bloque de atención CBAM aplicado a la salida del backbone
+        # Bloque de atención CBAM aplicado a la salida del backbone (kernel 9x9 para pelvis)
         if self.usar_cbam:
-            self.cbam = CBAM(in_planes=self.out_channels, ratio=16, kernel_size=7)
+            self.cbam = CBAM(in_planes=self.out_channels, ratio=16, kernel_size=9)
         else:
             self.cbam = nn.Identity()
 

@@ -45,7 +45,7 @@ def fragmento_de_etiqueta(valor: int) -> int:
 @dataclass
 class Caso:
     id: str
-    ct: np.ndarray          # (z, y, x) en HU, int16
+    ct: np.ndarray          # (z, y, x) en HU, float32 (previene desbordamiento de int16 > 32767)
     etiqueta: np.ndarray | None  # (z, y, x) uint8, valores 0..30
     spacing: tuple          # (sz, sy, sx) en mm, mismo orden que el array
     origen: tuple
@@ -68,19 +68,26 @@ def cargar_caso(id_caso: str, dir_imagenes: Path, dir_etiquetas: Path | None = N
     img = sitk.ReadImage(str(ruta_ct))
     direccion = img.GetDirection()
     img = sitk.DICOMOrient(img, ORIENTACION)
-    ct = sitk.GetArrayFromImage(img).astype(np.int16)
+    ct = sitk.GetArrayFromImage(img).astype(np.float32)
 
     etiqueta = None
     if dir_etiquetas is not None:
         lb = _leer(Path(dir_etiquetas) / f"{id_caso}.mha")
         verificar_alineacion(img, lb, id_caso)
-        etiqueta = sitk.GetArrayFromImage(lb).astype(np.uint8)
+        raw_lb = sitk.GetArrayFromImage(lb)
+        unicos = np.unique(raw_lb)
+        # Comprobar que todas las etiquetas sean enteras y estén en 0..30
+        if not np.all(np.equal(np.mod(unicos, 1), 0)):
+            raise ValueError(f"{id_caso}: se encontraron etiquetas no enteras en la máscara: {unicos}")
+        if np.any((unicos < 0) | (unicos > 30)):
+            raise ValueError(f"{id_caso}: etiquetas fuera del rango oficial PENGWIN 0..30: {unicos}")
+        etiqueta = raw_lb.astype(np.uint8)
 
     return Caso(id_caso, ct, etiqueta, spacing_zyx(img), img.GetOrigin(), direccion)
 
 
 def verificar_alineacion(img: sitk.Image, lb: sitk.Image, id_caso: str, tol: float = 1e-3) -> None:
-    """CT y máscara deben compartir tamaño, espaciado, origen y dirección."""
+    """CT y máscara deben compartir tamaño, espaciado, origen y los 9 componentes de dirección."""
     if img.GetSize() != lb.GetSize():
         raise ValueError(f"{id_caso}: tamaño CT {img.GetSize()} != máscara {lb.GetSize()}")
     for nombre, a, b in [("spacing", img.GetSpacing(), lb.GetSpacing()),
@@ -91,7 +98,7 @@ def verificar_alineacion(img: sitk.Image, lb: sitk.Image, id_caso: str, tol: flo
 
 
 def leer_header(ruta: Path) -> dict:
-    """Metadatos sin cargar los vóxeles (rápido, sirve para el EDA de los 100 casos)."""
+    """Metadatos sin cargar los vóxeles (rápido, sirve para el QC de los 100 casos)."""
     r = sitk.ImageFileReader()
     r.SetFileName(str(ruta))
     r.ReadImageInformation()
@@ -101,7 +108,7 @@ def leer_header(ruta: Path) -> dict:
     return {
         "nx": nx, "ny": ny, "nz": nz,
         "sx_mm": sx, "sy_mm": sy, "sz_mm": sz,
-        "direccion": tuple(round(v) for v in r.GetDirection()[::4]),  # diagonal
+        "direccion": tuple(round(float(v), 4) for v in r.GetDirection()),  # los 9 componentes completos
         "scl_slope": float(meta.get("scl_slope", 1) or 1),
         "scl_inter": float(meta.get("scl_inter", 0) or 0),
     }
