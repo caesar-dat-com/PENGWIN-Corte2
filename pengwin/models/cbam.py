@@ -46,13 +46,14 @@ class SpatialAttention(nn.Module):
 
     Aprende 'dónde' enfocar la atención espacialmente en el corte pélvico.
     Aplica pool de canal promedio y máximo, los concatena y utiliza una
-    convolución 7x7 para generar el mapa de atención 2D.
+    convolución con kernel amplio (por defecto 9x9) para generar el mapa de atención 2D
+    con un campo receptivo enriquecido sobre las macro-estructuras óseas.
     """
 
-    def __init__(self, kernel_size: int = 7):
+    def __init__(self, kernel_size: int = 9):
         super().__init__()
-        assert kernel_size in (3, 7), "El tamaño de kernel debe ser 3 o 7"
-        padding = 3 if kernel_size == 7 else 1
+        assert kernel_size in (3, 7, 9), "El tamaño de kernel debe ser 3, 7 o 9"
+        padding = kernel_size // 2
 
         self.conv = nn.Conv2d(2, 1, kernel_size=kernel_size, padding=padding, bias=False)
         self.sigmoid = nn.Sigmoid()
@@ -69,10 +70,10 @@ class CBAM(nn.Module):
     """Bloque de atención dual compuesto: Canal + Espacio.
 
     Aplica primero atención de canal y sobre la salida aplica atención espacial.
-    Opcionalmente suma la conexión residual x.
+    Por recomendación para tomografía pélvica, utiliza kernel_size=9 en atención espacial.
     """
 
-    def __init__(self, in_planes: int, ratio: int = 16, kernel_size: int = 7, residual: bool = True):
+    def __init__(self, in_planes: int, ratio: int = 16, kernel_size: int = 9, residual: bool = True):
         super().__init__()
         self.ca = ChannelAttention(in_planes, ratio=ratio)
         self.sa = SpatialAttention(kernel_size=kernel_size)

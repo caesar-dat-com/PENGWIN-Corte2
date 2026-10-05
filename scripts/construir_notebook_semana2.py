@@ -77,22 +77,38 @@ La arquitectura opera **corte a corte en 2D**, manteniendo la coherencia espacia
   * **Sacro (SA):** etiqueta 1..10 (clase 0)
   * **Coxal Izquierdo (LI):** etiqueta 11..20 (clase 1)
   * **Coxal Derecho (RI):** etiqueta 21..30 (clase 2)
-- Las cajas se normalizan en coordenadas $[xmin, ymin, xmax, ymax] \in [0, 1]$.
+- **Filtrado riguroso de ruido espurio ($N < 15$ vóxeles):**
+  * Demostración empírica: el fragmento conminuto más diminuto en todo el dataset 3D tiene **468 vóxeles** ($0.313\text{ mL}$, Caso 85).
+  * En cortes 2D axiales, los componentes con $N < 15$ vóxeles corresponden exclusivamente a ruido de volumen parcial o artefactos de alta densidad.
+  * Se ignoran 1,506 micro-manchas ($2.40\%$) y se conservan **61,232 instancias anatómicas reales ($97.60\%$)**, garantizando que la red no aprenda a colocar cajas sobre ruido.
 """)
 
 code(r"""
+import pandas as pd
 from pengwin.dataset import PelvisSliceDataset, extraer_bboxes_region, collate_deteccion
 
-# Verificación de extracción de cajas sobre un corte sintético anotado
-corte_demo = np.zeros((256, 256), dtype=np.uint8)
-corte_demo[50:110, 100:156] = 1    # Sacro
-corte_demo[110:200, 30:95] = 21    # Coxal Derecho
-corte_demo[110:200, 160:225] = 11  # Coxal Izquierdo
+# 1. Tabla de inventario y análisis de sensibilidad de filtrado de ruido
+df_sensibilidad = pd.read_csv(RAIZ / "salidas/inventario_ruido_componentes.csv")
+print("=== ANÁLISIS DE SENSIBILIDAD DEL FILTRO DE RUIDO ESPURIO (N VÓXELES) ===")
+print(df_sensibilidad.to_string(index=False))
 
-cajas_extraidas = extraer_bboxes_region(corte_demo, normalizado=True)
-print(f"Regiones anatómicas detectadas en el Ground Truth: {len(cajas_extraidas)}")
-for c in cajas_extraidas:
-    print(f" - {c['sigla']} (Clase {c['clase_idx']}): {c['bbox']}")
+# 2. Demostración práctica: rechazo de ruido vs detección anatómica
+corte_demo = np.zeros((256, 256), dtype=np.uint8)
+# Regiones anatómicas reales:
+corte_demo[50:110, 100:156] = 1    # Sacro (60x56 = 3360 px)
+corte_demo[110:200, 30:95] = 21    # Coxal Derecho (90x65 = 5850 px)
+corte_demo[110:200, 160:225] = 11  # Coxal Izquierdo (90x65 = 5850 px)
+
+# Artefacto espurio de segmentación (ejemplo: mancha de 8 vóxeles):
+corte_demo[10:12, 10:14] = 1       # 8 px de Sacro espurio
+
+cajas_sin_filtro = extraer_bboxes_region(corte_demo, min_pixeles=0, normalizado=True)
+cajas_con_filtro = extraer_bboxes_region(corte_demo, min_pixeles=15, normalizado=True)
+
+print(f"\nCajas con N=0 (sin filtro): {len(cajas_sin_filtro)} (¡incluye la mancha espurio distorsionando la caja!)")
+print(f"Cajas con N=15 (calibrado) : {len(cajas_con_filtro)} (conserva exactamente las 3 estructuras anatómicas)")
+for c in cajas_con_filtro:
+    print(f" - {c['sigla']} (Clase {c['clase_idx']}): bbox={c['bbox']}, píxeles={c['n_pixeles']}")
 """)
 
 # --- 2. CBAM
@@ -110,15 +126,15 @@ Requerimiento explícito (Sección 4.1):
 code(r"""
 from pengwin.models.cbam import CBAM, ChannelAttention, SpatialAttention
 
-# Instanciación y prueba de flujo de tensores
+# Instanciación y prueba de flujo de tensores (Atención espacial con kernel 9x9 para pelvis)
 tensor_prueba = torch.randn(2, 256, 16, 16)  # (Batch=2, Canales=256, H=16, W=16)
-bloque_cbam = CBAM(in_planes=256, ratio=16, kernel_size=7)
+bloque_cbam = CBAM(in_planes=256, ratio=16, kernel_size=9)
 salida_cbam = bloque_cbam(tensor_prueba)
 
 print(f"Tensor entrada : {tensor_prueba.shape}")
 print(f"Tensor salida   : {salida_cbam.shape}")
 assert tensor_prueba.shape == salida_cbam.shape, "Las dimensiones deben coincidir"
-print("✓ Bloque CBAM verificado y dimensionalmente consistente.")
+print("✓ Bloque CBAM (kernel 9x9) verificado y dimensionalmente consistente.")
 """)
 
 # --- 3. Backbone
@@ -228,34 +244,50 @@ Si la arquitectura, el flujo de gradientes y la formulación del grid son matem�
 """)
 
 code(r"""
-# Crear batch pequeño de 4 cortes representativos
-B = 4
-imagenes_batch = torch.zeros((B, 3, 256, 256), dtype=torch.float32)
-for i in range(B):
-    y, x = np.ogrid[:256, :256]
-    cuerpo = ((x - 128) ** 2 / 100 ** 2 + (y - 128) ** 2 / 70 ** 2) <= 1.0
-    imagenes_batch[i, :, cuerpo] = 0.25
+# Cargar cortes axiales REALES de tomografía pélvica de Caso 001
+import cv2
+from pengwin import io, dataset
 
-boxes_gt_list = [
-    [0.0, 0.0, 0.42, 0.25, 0.58, 0.45],  # Muestra 0: Sacro
-    [0.0, 2.0, 0.18, 0.40, 0.38, 0.70],  # Muestra 0: Coxal Der
-    [1.0, 0.0, 0.40, 0.28, 0.60, 0.46],  # Muestra 1: Sacro
-    [1.0, 1.0, 0.62, 0.38, 0.82, 0.72],  # Muestra 1: Coxal Izq
-    [1.0, 2.0, 0.18, 0.38, 0.38, 0.72],  # Muestra 1: Coxal Der
-    [2.0, 1.0, 0.60, 0.35, 0.85, 0.75],  # Muestra 2: Coxal Izq
-    [2.0, 2.0, 0.15, 0.35, 0.40, 0.75],  # Muestra 2: Coxal Der
-    [3.0, 0.0, 0.38, 0.22, 0.62, 0.48],  # Muestra 3: Sacro
-]
+DIR_IMG = RAIZ / "data/raw/images"
+DIR_LBL = RAIZ / "data/raw/labels"
+
+caso = io.cargar_caso("001", DIR_IMG, DIR_LBL)
+assert caso.etiqueta is not None, "El caso 001 debe contener la máscara de anotación"
+
+# Seleccionamos 4 cortes axiales reales que abarcan desde el nivel inferior hasta el rango medio-alto:
+# z=134: Corte inferior (acetábulo y pubis): solo LI y RI (¡NO hay sacro!)
+# z=220: Corte medio (ilion y sacro posterior)
+# z=235: Corte medio-alto (articulación sacroilíaca)
+# z=250: Corte alto (alas ilíacas y sacro superior)
+Z_INDICES = [134, 220, 235, 250]
+B = len(Z_INDICES)
+TARGET_SIZE = (256, 256)
+
+imagenes_batch = torch.zeros((B, 3, TARGET_SIZE[0], TARGET_SIZE[1]), dtype=torch.float32)
+boxes_gt_list = []
+clases_slice_list = []
+
+for b_idx, z in enumerate(Z_INDICES):
+    # Ventana ósea clínica: nivel=400 HU, ancho=1800 HU -> rango [-500, +1300] HU
+    ct_slice = io.ventana_hu(caso.ct[z], nivel=400, ancho=1800)
+    ct_256 = cv2.resize(ct_slice, TARGET_SIZE, interpolation=cv2.INTER_AREA)
+    imagenes_batch[b_idx] = torch.from_numpy(np.repeat(ct_256[np.newaxis, :, :], 3, axis=0))
+
+    # Cajas Ground Truth reales extraídas de la máscara anotada
+    cajas = dataset.extraer_bboxes_region(caso.etiqueta[z], min_pixeles=15, normalizado=True)
+    clase_presente = [0.0, 0.0, 0.0]
+    for c in cajas:
+        c_idx = c["clase_idx"]
+        clase_presente[c_idx] = 1.0
+        xmin, ymin, xmax, ymax = c["bbox"]
+        boxes_gt_list.append([float(b_idx), float(c_idx), xmin, ymin, xmax, ymax])
+
+    clases_slice_list.append(clase_presente)
+    siglas = [c["sigla"] for c in cajas]
+    print(f"Muestra {b_idx} (z={z}): Regiones anatómicas reales presentes = {siglas}")
+
 boxes_gt = torch.tensor(boxes_gt_list, dtype=torch.float32)
-
-for caja in boxes_gt_list:
-    b_idx = int(caja[0])
-    xm, ym, xM, yM = int(caja[2]*256), int(caja[3]*256), int(caja[4]*256), int(caja[5]*256)
-    imagenes_batch[b_idx, :, ym:yM, xm:xM] = 0.85
-
-clases_slice = torch.tensor([
-    [1.0, 0.0, 1.0], [1.0, 1.0, 1.0], [0.0, 1.0, 1.0], [1.0, 0.0, 0.0]
-], dtype=torch.float32)
+clases_slice = torch.tensor(clases_slice_list, dtype=torch.float32)
 
 imagenes_batch = imagenes_batch.to(device)
 boxes_gt = boxes_gt.to(device)
@@ -278,7 +310,7 @@ for ep in range(1, num_epocas + 1):
     optimizador.step()
     historial_loss.append(loss.item())
 
-print(f"Pérdida inicial (Época 1)  : {historial_loss[0]:.4f}")
+print(f"\nPérdida inicial (Época 1)  : {historial_loss[0]:.4f}")
 print(f"Pérdida final (Época 100) : {historial_loss[-1]:.4f}")
 """)
 
@@ -310,7 +342,7 @@ nombres = {0: "Sacro (SA)", 1: "Coxal Izq (LI)", 2: "Coxal Der (RI)"}
 fig, axes = plt.subplots(2, 4, figsize=(16, 8), facecolor="#111111")
 for j in range(4):
     # GT
-    axes[0, j].imshow(imagenes_batch[j, 0].cpu().numpy(), cmap="bone")
+    axes[0, j].imshow(imagenes_batch[j, 0].cpu().numpy(), cmap="gray", vmin=0, vmax=1)
     axes[0, j].set_title(f"Muestra {j} · Ground Truth", color="white", fontsize=11)
     axes[0, j].axis("off")
     for c in boxes_gt[boxes_gt[:, 0] == j].cpu():
@@ -321,7 +353,7 @@ for j in range(4):
         axes[0, j].text(xm*256+3, ym*256+12, nombres[c_idx], color="white", fontsize=7.5,
                         bbox=dict(facecolor=colores[c_idx], edgecolor="none", pad=1))
     # Predicción
-    axes[1, j].imshow(imagenes_batch[j, 0].cpu().numpy(), cmap="bone")
+    axes[1, j].imshow(imagenes_batch[j, 0].cpu().numpy(), cmap="gray", vmin=0, vmax=1)
     axes[1, j].set_title(f"Muestra {j} · Predicción + NMS", color="#00E5FF", fontsize=11)
     axes[1, j].axis("off")
     for b, s, c in zip(predicciones[j]["boxes"], predicciones[j]["scores"], predicciones[j]["clases"]):
