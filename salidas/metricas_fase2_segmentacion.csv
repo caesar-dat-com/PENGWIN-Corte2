@@ -1,0 +1,5 @@
+Estructura,Dice_Score,IoU_Jaccard,Area_Pred_px,Area_GT_px
+Fondo,0.9928,0.9858,251873,252419
+Sacro (SA),0.4687,0.3061,5116,1950
+Coxal Izquierdo (LI),0.0666,0.0344,179,4087
+Coxal Derecho (RI),0.8262,0.7038,4976,3688
