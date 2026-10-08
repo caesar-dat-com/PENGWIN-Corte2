@@ -12,6 +12,7 @@ import torch.nn as nn
 
 from .backbone import PelvisBackbone
 from .nms import nms_por_clase
+from .segmenter import PelvisSegmentationHead
 
 
 class GridDetectionHead(nn.Module):
@@ -47,13 +48,14 @@ class GridDetectionHead(nn.Module):
 
 
 class PelvisDetector(nn.Module):
-    """Modelo completo para detección y clasificación de regiones pélvicas.
+    """Modelo multitarea completo para detección, clasificación y segmentación de regiones pélvicas.
 
     Integra:
     1. Backbone compartido (FundidoraPC o ResNet18)
-    2. Bloque de atención CBAM
-    3. Cabeza de Detección por Grid (Bounding Boxes)
-    4. Cabeza de Clasificación multietiqueta a nivel de corte
+    2. Bloque de atención CBAM (kernel 9x9)
+    3. Cabeza 1: Detección por Grid propio (Bounding Boxes S x S)
+    4. Cabeza 2: Clasificación multietiqueta a nivel de corte
+    5. Cabeza 3: Segmentación densa de regiones anatómicas (reconstrucción <= 10 canales)
     """
 
     def __init__(
@@ -63,9 +65,13 @@ class PelvisDetector(nn.Module):
         num_clases: int = 3,
         usar_cbam: bool = True,
         pretrained: bool = True,
+        con_segmentacion: bool = True,
+        num_clases_seg: int = 4,
+        canales_latentes_seg: int = 8,
     ):
         super().__init__()
         self.num_clases = num_clases
+        self.con_segmentacion = con_segmentacion
         self.backbone = PelvisBackbone(
             tipo=backbone_tipo,
             in_channels=in_channels,
@@ -87,16 +93,32 @@ class PelvisDetector(nn.Module):
             nn.Linear(64, num_clases),
         )
 
+        # Cabeza 3: Segmentación anatómica de instancias/regiones (Semana 10)
+        # Cumple estrictamente la restricción de reconstruir en <= 10 canales (usa 8)
+        if con_segmentacion:
+            self.segmentation_head = PelvisSegmentationHead(
+                in_channels=feat_channels,
+                num_clases=num_clases_seg,
+                latent_channels=canales_latentes_seg,
+            )
+        else:
+            self.segmentation_head = None
+
     def forward(self, x: torch.Tensor) -> dict[str, torch.Tensor]:
         features = self.backbone(x)
         pred_grid = self.detection_head(features)
         pred_cls = self.classification_head(features)
 
-        return {
+        salida = {
             "grid": pred_grid,     # (B, 8, S, S)
             "clases": pred_cls,    # (B, 3) logits
-            "features": features,  # (B, C, S, S) útil para la futura cabeza de segmentación
+            "features": features,  # (B, C, S, S)
         }
+
+        if self.segmentation_head is not None:
+            salida["mascaras"] = self.segmentation_head(features)  # (B, num_clases_seg, 256, 256)
+
+        return salida
 
     def inferir_boxes(
         self,
