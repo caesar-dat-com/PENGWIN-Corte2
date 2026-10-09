@@ -116,7 +116,7 @@ class PelvisDetector(nn.Module):
         }
 
         if self.segmentation_head is not None:
-            salida["mascaras"] = self.segmentation_head(features)  # (B, num_clases_seg, 256, 256)
+            salida["mascaras"], salida["bordes"] = self.segmentation_head(features, devolver_bordes=True)
 
         return salida
 
@@ -143,9 +143,9 @@ class PelvisDetector(nn.Module):
                         score_threshold=conf_threshold,
                     )
                 else:
-                    cajas_f = torch.empty((0, 4))
-                    scores_f = torch.empty(0)
-                    clases_f = torch.empty(0, dtype=torch.long)
+                    cajas_f = cajas.new_empty((0, 4))
+                    scores_f = scores.new_empty(0)
+                    clases_f = clases.new_empty(0)
 
                 probs_corte = torch.sigmoid(out["clases"][i])
 

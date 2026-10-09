@@ -25,12 +25,13 @@ SIGLAS_CLASES = ["SA", "LI", "RI"]
 def extraer_bboxes_region(
     etiqueta_2d: np.ndarray,
     normalizado: bool = True,
-    min_pixeles: int = 15,
+    min_pixeles: int = 0,
 ) -> list[dict]:
     """Extrae bounding boxes por región anatómica (1..3) presentes en el corte 2D.
 
-    Filtra componentes o artefactos espurios con menos de `min_pixeles` para
-    evitar que ruido de segmentación o artefactos metálicos generen cajas falsas.
+    El umbral opera sobre el área TOTAL de una región en un corte, no sobre
+    componentes conexas. Por defecto no descarta anotaciones válidas. Un área
+    pequeña no demuestra ruido; el umbral se audita con conteos reales.
 
     Retorna una lista de diccionarios con:
     - 'clase_idx': 0 (Sacro), 1 (Coxal Izq), 2 (Coxal Der)
@@ -46,7 +47,7 @@ def extraer_bboxes_region(
         # Máscara binaria de la región macro
         mask_region = (etiqueta_2d >= lo) & (etiqueta_2d <= hi)
         conteo_pixeles = int(np.sum(mask_region))
-        if conteo_pixeles < min_pixeles:
+        if conteo_pixeles == 0 or conteo_pixeles < min_pixeles:
             continue
 
         ys, xs = np.nonzero(mask_region)
@@ -80,7 +81,7 @@ class PelvisSliceDataset(Dataset):
         target_size: tuple[int, int] = (256, 256),
         solo_con_hueso: bool = True,
         canales: int = 3,
-        min_pixeles: int = 15,
+        min_pixeles: int = 0,
         transform: Callable | None = None,
     ):
         """
@@ -89,7 +90,7 @@ class PelvisSliceDataset(Dataset):
             target_size: (H, W) de salida recomendada (por defecto 256x256)
             solo_con_hueso: Si True, filtra cortes sin ninguna región anotada
             canales: 1 o 3 (3 repite el canal en escala de grises para backbones preentrenados)
-            min_pixeles: Umbral mínimo de vóxeles por región en 2D (ignora ruido espurio < 15 px)
+            min_pixeles: Área mínima opcional por región/corte; no elimina componentes ni demuestra ruido
             transform: Transformaciones opcionales de aumento de datos
         """
         self.target_size = target_size
@@ -157,8 +158,10 @@ class PelvisSliceDataset(Dataset):
                     reg_mask[mask_z == v] = region_de_etiqueta(int(v))
             mask_resized = cv2.resize(reg_mask, (tw, th), interpolation=cv2.INTER_NEAREST)
             mask_tensor = torch.from_numpy(mask_resized).long()
+            instance_tensor = torch.from_numpy(cv2.resize(mask_z, (tw, th), interpolation=cv2.INTER_NEAREST).astype(np.int64))
         else:
             mask_tensor = torch.zeros(self.target_size, dtype=torch.long)
+            instance_tensor = torch.zeros(self.target_size, dtype=torch.long)
 
         if len(boxes_list) > 0:
             boxes_tensor = torch.tensor(boxes_list, dtype=torch.float32)
@@ -170,6 +173,7 @@ class PelvisSliceDataset(Dataset):
             "boxes": boxes_tensor,                      # Tensor (N, 5) [clase_idx, xmin, ymin, xmax, ymax]
             "clases": clases_vector,                    # Tensor (3,) [SA, LI, RI] multilabel
             "mascara": mask_tensor,                     # Tensor (H, W) long [0, 1, 2, 3]
+            "instancias": instance_tensor,  # IDs originales 0..30, no clases globales
             "caso_id": caso.id,
             "z": z,
             "shape_original": (h_orig, w_orig),
@@ -202,6 +206,7 @@ def collate_deteccion(batch: list[dict]) -> dict:
         "boxes": boxes_totales,
         "clases": clases,
         "mascaras": mascaras,
+        "instancias": torch.stack([b["instancias"] for b in batch]),
         "caso_ids": caso_ids,
         "zs": zs,
     }

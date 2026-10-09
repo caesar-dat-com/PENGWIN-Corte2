@@ -1,4 +1,4 @@
-"""Módulo de Segmentación de Instancias y Regiones Pélvicas (Semana 10 - Fase 1).
+"""Módulo de segmentación semántica con salida auxiliar de bordes de fragmento (Semana 10 - Fase 1).
 
 Implementa la 3ª cabeza de la arquitectura compartida sobre el backbone FundidoraPC + CBAM:
 1. Reconstrucción ligera en no más de 10 canales latentes (por defecto 8 canales)
@@ -86,8 +86,9 @@ class PelvisSegmentationHead(nn.Module):
 
         # Proyección final al número de clases anatómicas
         self.proyeccion_final = nn.Conv2d(latent_channels, num_clases, kernel_size=1)
+        self.bordes_fragmento = nn.Conv2d(latent_channels, 1, kernel_size=1)
 
-    def forward(self, features: torch.Tensor) -> torch.Tensor:
+    def forward(self, features: torch.Tensor, devolver_bordes: bool = False):
         # features: (B, 256, 16, 16)
         x = self.stem(features)     # (B, 8, 16, 16)
         x = self.up1(x)             # (B, 8, 32, 32)
@@ -95,7 +96,7 @@ class PelvisSegmentationHead(nn.Module):
         x = self.up3(x)             # (B, 8, 128, 128)
         x = self.up4(x)             # (B, 8, 256, 256)
         logits = self.proyeccion_final(x)  # (B, num_clases, 256, 256)
-        return logits
+        return (logits, self.bordes_fragmento(x)[:, 0]) if devolver_bordes else logits
 
 
 class DiceLoss(nn.Module):

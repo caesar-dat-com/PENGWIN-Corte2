@@ -1,6 +1,8 @@
 """Demostración y Validación Ejecutable de Semana 10 (Fases 1, 2 y 3).
 
-Cumple rigurosamente las restricciones académicas del docente (Prof. Carlos A. Ferro):
+Demostración histórica parcial, no validación del avance completo.
+Mide distancias 2D entre regiones distintas, no fragmento-principal 3D.
+Conserva la arquitectura del equipo (Prof. Carlos A. Ferro):
 1. FASE 1: Cabeza de Segmentación densa de regiones y fragmentos pélvicos
    - Reconstrucción en exactamente 8 canales latentes (restricción: NO más de 10 canales).
    - Bloques de doble convolución (DoubleConv) en cada etapa de subida (16 -> 32 -> 64 -> 128 -> 256).
@@ -59,10 +61,9 @@ print("=" * 80)
 # ==============================================================================
 # PASO 1: CARGA DE CORTES CLÍNICOS REALES DEL CASO 001
 # ==============================================================================
-DIR_IMG = ROOT_DIR / "data" / "raw" / "images"
-DIR_LBL = ROOT_DIR / "data" / "raw" / "labels"
+DIR_IMG, DIR_LBL = io.rutas_dataset()
 
-print("\n[Paso 1] Cargando Caso 001 real desde data/raw...")
+print("\n[Paso 1] Cargando Caso 001 real desde rutas configuradas...")
 caso = io.cargar_caso("001", DIR_IMG, DIR_LBL)
 assert caso.etiqueta is not None, "El caso 001 debe contener las máscaras anotadas oficiales"
 
@@ -107,7 +108,7 @@ for b_idx, z in enumerate(Z_INDICES):
     mascaras_gt_batch[b_idx] = torch.from_numpy(lbl_256).long()
 
     # 3. Cajas delimitadoras de detección y presencia por corte
-    cajas = dataset.extraer_bboxes_region(lbl_slice, min_pixeles=15, normalizado=True)
+    cajas = dataset.extraer_bboxes_region(lbl_slice, min_pixeles=0, normalizado=True)
     clase_presente = [0.0, 0.0, 0.0]  # SA, LI, RI
     for c in cajas:
         c_idx = c["clase_idx"]
@@ -392,7 +393,7 @@ if pt_a_gt is not None and pt_b_gt is not None:
 if pt_a_pred is not None and pt_b_pred is not None:
     axes[2].plot([pt_a_pred[1], pt_b_pred[1]], [pt_a_pred[0], pt_b_pred[0]], color="#FF0055", linewidth=2.0, linestyle="--", marker="x", markersize=6, label=f"Pred Mín: {dist_pred_mm:.2f} mm")
 
-axes[2].set_title(f"Medición de Separación Métrica Sub-milimétrica\nGT: {dist_gt_mm:.2f} mm | Pred: {dist_pred_mm:.2f} mm (Δ={error_absoluto_mm:.2f} mm)",
+axes[2].set_title(f"Distancia 2D entre centros de píxeles (mm)\nGT: {dist_gt_mm:.2f} mm | Pred: {dist_pred_mm:.2f} mm (Δ={error_absoluto_mm:.2f} mm)",
                   color="white", fontsize=11, fontweight="bold")
 axes[2].axis("off")
 axes[2].legend(facecolor="#1C2541", edgecolor="#3A506B", labelcolor="white", loc="upper right")
