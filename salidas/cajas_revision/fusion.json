@@ -1,0 +1,215 @@
+{
+  "scope": "Val, RPN con respaldo grid; nunca GT en inferencia; una bbox macro por región, no número impuesto de fragmentos",
+  "candidates": [
+    {
+      "padding": 0.0,
+      "new_conf": 0.1,
+      "old_conf": 0.25,
+      "score": 0.6346175667838608,
+      "eligible": true,
+      "metrics": {
+        "detection": {
+          "mAP50": 0.8085227323793083,
+          "mAP50_95": 0.40511336446319357,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.6125982057705277,
+              "ap50_95": 0.23606243615541178
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.917503102817565,
+              "ap50_95": 0.5087959665597567
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8954668885498325,
+              "ap50_95": 0.47048169067441237
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6699291688069422,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5653740598747198,
+          0.7379721036453804,
+          0.7506423564718699
+        ],
+        "macro_dice": 0.6846628399973232,
+        "gt_mask_coverage": 0.919720805829748,
+        "missed_regions": 1,
+        "duplicate_regions": 0,
+        "fallback_boxes": 30
+      }
+    },
+    {
+      "padding": 0.005,
+      "new_conf": 0.1,
+      "old_conf": 0.25,
+      "score": 0.6262517245476784,
+      "eligible": true,
+      "metrics": {
+        "detection": {
+          "mAP50": 0.7735034600896961,
+          "mAP50_95": 0.3937287477504587,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.5521287838546839,
+              "ap50_95": 0.22164954992085706
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.8955631322135499,
+              "ap50_95": 0.48989367524513067
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8728184642008546,
+              "ap50_95": 0.46964301808538833
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6594257588728105,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5593957906188544,
+          0.7381932860717264,
+          0.7524358345044615
+        ],
+        "macro_dice": 0.6833416370650142,
+        "gt_mask_coverage": 0.9440459426001003,
+        "missed_regions": 1,
+        "duplicate_regions": 0,
+        "fallback_boxes": 30
+      }
+    },
+    {
+      "padding": 0.01,
+      "new_conf": 0.1,
+      "old_conf": 0.25,
+      "score": 0.5989654293393977,
+      "eligible": true,
+      "metrics": {
+        "detection": {
+          "mAP50": 0.7328807906851579,
+          "mAP50_95": 0.3524226141962488,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.4720102646869462,
+              "ap50_95": 0.18943253544341548
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.8823568345181385,
+              "ap50_95": 0.4318364857942516
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.844275272850389,
+              "ap50_95": 0.43599882135107937
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6352911550895469,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5519573661672478,
+          0.7353967317411046,
+          0.7527349395992733
+        ],
+        "macro_dice": 0.6800296791692085,
+        "gt_mask_coverage": 0.9581356982799353,
+        "missed_regions": 1,
+        "duplicate_regions": 0,
+        "fallback_boxes": 30
+      }
+    },
+    {
+      "padding": 0.015,
+      "new_conf": 0.1,
+      "old_conf": 0.25,
+      "score": 0.5709996331519573,
+      "eligible": true,
+      "metrics": {
+        "detection": {
+          "mAP50": 0.7123051802364527,
+          "mAP50_95": 0.30231248934358773,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.4720102646869462,
+              "ap50_95": 0.16502140790039704
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.846119338368009,
+              "ap50_95": 0.3616861900049287
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8187859376544029,
+              "ap50_95": 0.3802298701254373
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6038264275235675,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5420009065323032,
+          0.7313298860892322,
+          0.7503301121395866
+        ],
+        "macro_dice": 0.674553634920374,
+        "gt_mask_coverage": 0.967068373684201,
+        "missed_regions": 1,
+        "duplicate_regions": 0,
+        "fallback_boxes": 30
+      }
+    }
+  ],
+  "selected": {
+    "padding": 0.0,
+    "new_conf": 0.1,
+    "old_conf": 0.25,
+    "score": 0.6346175667838608,
+    "eligible": true,
+    "metrics": {
+      "detection": {
+        "mAP50": 0.8085227323793083,
+        "mAP50_95": 0.40511336446319357,
+        "per_class": {
+          "0": {
+            "gt": 52,
+            "ap50": 0.6125982057705277,
+            "ap50_95": 0.23606243615541178
+          },
+          "1": {
+            "gt": 77,
+            "ap50": 0.917503102817565,
+            "ap50_95": 0.5087959665597567
+          },
+          "2": {
+            "gt": 77,
+            "ap50": 0.8954668885498325,
+            "ap50_95": 0.47048169067441237
+          }
+        },
+        "mean_gt_iou_at_conf025": 0.6699291688069422,
+        "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+      },
+      "semantic_dice": [
+        0.5653740598747198,
+        0.7379721036453804,
+        0.7506423564718699
+      ],
+      "macro_dice": 0.6846628399973232,
+      "gt_mask_coverage": 0.919720805829748,
+      "missed_regions": 1,
+      "duplicate_regions": 0,
+      "fallback_boxes": 30
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "status": "completed",
+  "architecture": "RPN propio class-aware sobre grid16, anclas derivadas solo de train, NMS propio",
+  "anchor_sizes": [
+    [
+      0.07568359375,
+      0.03724344074726105
+    ],
+    [
+      0.197265625,
+      0.08203125
+    ],
+    [
+      0.263671875,
+      0.16834944486618042
+    ],
+    [
+      0.115234375,
+      0.171875
+    ],
+    [
+      0.16274088621139526,
+      0.24365484714508057
+    ],
+    [
+      0.2158203125,
+      0.3373676538467407
+    ],
+    [
+      0.125,
+      0.181640625
+    ],
+    [
+      0.1677018702030182,
+      0.248046875
+    ],
+    [
+      0.212890625,
+      0.3397296071052551
+    ]
+  ],
+  "seed": 42,
+  "epochs": 12,
+  "batch": 8,
+  "lr": 0.0003,
+  "backbone_frozen_sha256": "2a5e9f1daeec2328da2b78f263aa8edc1d10aa62593bfe5f18f56f494fc7297d",
+  "loss": "BCE objetidad positivos y negativos difíciles/aleatorios + SmoothL1 deltas beta1/9 + 2GIoU + CE clase",
+  "positive_iou": 0.5,
+  "negative_iou": 0.3,
+  "forced_positive_per_gt": true,
+  "score": "objetidad * probabilidad de clase por propuesta * presencia anatómica de cabeza propia",
+  "train": 560,
+  "val": 120,
+  "test_used": false,
+  "selection": "Mejor score=.5mAP50:95+.25mAP50+.25coberturaGT; registrar elegibilidad frente al grid anterior antes de reemplazar"
+}

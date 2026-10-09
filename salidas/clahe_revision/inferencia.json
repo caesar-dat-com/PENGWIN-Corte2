@@ -1,0 +1,88 @@
+{
+  "scope": "120 validation slices, same trained weights, recalculated RPN and grid; inference-only preprocessing comparison; no retraining or test",
+  "clip_limit": 2.0,
+  "tile_grid": [
+    8,
+    8
+  ],
+  "window_level": 400,
+  "window_width": 1800,
+  "variants": [
+    {
+      "clahe": false,
+      "metrics": {
+        "dice": [
+          0.5653713208337697,
+          0.7379349716546514,
+          0.7506217840234051
+        ],
+        "macro_dice": 0.6846426921706087,
+        "false_positive_pixels": 77793,
+        "foreground_recall": 0.857739052303036,
+        "foreground_precision": 0.6509881334260527,
+        "detection": {
+          "mAP50": 0.8085227323793083,
+          "mAP50_95": 0.40511336446319357,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.6125982057705277,
+              "ap50_95": 0.23606243615541178
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.917503102817565,
+              "ap50_95": 0.5087959665597567
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8954668885498325,
+              "ap50_95": 0.47048169067441237
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6699291688069422,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por \u00e1rea"
+        }
+      },
+      "seconds": 5.605356500003836
+    },
+    {
+      "clahe": true,
+      "metrics": {
+        "dice": [
+          0.25967457892439455,
+          0.3481504189658696,
+          0.360672823600938
+        ],
+        "macro_dice": 0.322832607163734,
+        "false_positive_pixels": 445727,
+        "foreground_recall": 0.7965572685141398,
+        "foreground_precision": 0.23213931942413077,
+        "detection": {
+          "mAP50": 0.30032504850170777,
+          "mAP50_95": 0.08928745877293336,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.1785613069678797,
+              "ap50_95": 0.06313043306908458
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.3125509842068221,
+              "ap50_95": 0.1024908450371137
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.40986285433042147,
+              "ap50_95": 0.10224109821260177
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.42047341731635784,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por \u00e1rea"
+        }
+      },
+      "seconds": 5.678779699999723
+    }
+  ]
+}

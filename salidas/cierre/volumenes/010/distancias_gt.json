@@ -1,0 +1,18 @@
+[
+  {
+    "instance": 12,
+    "region": 2,
+    "principal": 11,
+    "distance_surface_voxel_centers_mm": 0.7989501953125,
+    "contact_26": true,
+    "volume_mm3": 19596.535892651344
+  },
+  {
+    "instance": 13,
+    "region": 2,
+    "principal": 11,
+    "distance_surface_voxel_centers_mm": 0.7989501953125,
+    "contact_26": true,
+    "volume_mm3": 69877.72350629747
+  }
+]

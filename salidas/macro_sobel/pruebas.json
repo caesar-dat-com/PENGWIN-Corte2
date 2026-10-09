@@ -1,0 +1,15 @@
+{
+  "command": "python -B -m unittest discover -s tests -v",
+  "tests_passed": 20,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 1.149,
+  "coverage": [
+    "RAI-LPS roundtrip y punto fisico",
+    "Sobel constante y escalon",
+    "gradientes perdida macro/contorno con y sin foreground",
+    "refinamiento identidad, isla confiable y borde de intensidad",
+    "QC no modifica mascara",
+    "14 pruebas previas de deteccion, geometria, instancias y skips"
+  ]
+}

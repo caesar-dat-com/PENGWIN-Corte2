@@ -1,0 +1,69 @@
+{
+  "case": "002",
+  "split": "val",
+  "checkpoint_sha256": "ae2e052a8310305e6fb498c0a98960f5fd1f4ebdc354668d4126f5cd3ad268b9",
+  "epoch": 4,
+  "slices_contiguous": 337,
+  "size_xyz": [
+    256,
+    256,
+    337
+  ],
+  "spacing_xyz": [
+    1.3296966552734375,
+    0.88861083984375,
+    0.800000011920929
+  ],
+  "origin": [
+    -189.66439056396484,
+    -165.40306091308594,
+    -725.4089965820312
+  ],
+  "direction": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "device": "cpu",
+  "postprocessing": {
+    "conf": 0.25,
+    "nms": 0.4,
+    "boundary": 0.5,
+    "interior": 0.5,
+    "min_seed_mm3": 50.0,
+    "refinement_strength": 0.25,
+    "refinement_dimension": "2D, vecindad8, bilateral3x3; instancias3D vecindad26"
+  },
+  "latency_mean_ms": 39.78928902094219,
+  "latency_median_ms": 37.54720000142697,
+  "latency_scope": "forward+decode+NMS+refinamiento bilateral+semantic gating+transfer to CPU, 3 warmups; excluye lectura, resize y watershed 3D",
+  "distance_definition": "EDT entre centros de voxeles de superficie, mm; aproximaci\u00c3\u00b3n discreta, no distancia exacta entre caras",
+  "instance_method": "watershed 3D con interiores y bordes aprendidos dentro de regi\u00c3\u00b3n y cajas propias; semillas26, interior>0.5 y borde<0.5; m\u00c3\u00adnimo20mm3; filtrado de semillas seg\u00c3\u00ban min_seed_mm3",
+  "geometry_note": "Resoluci\u00c3\u00b3n XY reducida a 256; spacing/origen ajustados al campo f\u00c3\u00adsico. No se apilan cortes salteados.",
+  "semantic": {
+    "dice": [
+      0.5823078581289645,
+      0.6319138521781693,
+      0.6801932442073265
+    ],
+    "macro_dice": 0.6314716515048201
+  },
+  "distance_matching_min_iou": 0.5,
+  "fragment_metrics": {
+    "gt_fragments": 6,
+    "pred_instances": 96,
+    "dice_gt_macro_with_misses": 0.32304092691332437,
+    "iou_gt_macro_with_misses": 0.23850519434160158,
+    "dice_symmetric_macro_with_unmatched": 0.019778015933468836,
+    "missed_gt": 2,
+    "extra_pred": 92,
+    "distance_comparable_pairs": 0,
+    "distance_MAE_mm": null
+  }
+}

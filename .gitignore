@@ -5,3 +5,13 @@ data/
 *.zip
 *.pth
 .ipynb_checkpoints/
+
+config_datos.local.json
+pesos_externos/
+salidas/revision_oct08/datos/
+/tools/cloudflared.exe
+/config_datos.local.json
+/dashboard-rpn/
+/dashboard-fragmentos/git add .gitignore
+/dashboard/assets/demo_respaldo.webm
+/salidas/cierre/demo_respaldo.webm

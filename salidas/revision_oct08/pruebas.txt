@@ -1,0 +1,15 @@
+test_ap_penalizes_missed_and_false_detections (test_revision.Tests.test_ap_penalizes_missed_and_false_detections) ... ok
+test_auc_ties_and_unavailable_class (test_revision.Tests.test_auc_ties_and_unavailable_class) ... ok
+test_balanced_loss_and_three_heads_backward (test_revision.Tests.test_balanced_loss_and_three_heads_backward) ... ok
+test_edt_spacing_and_contact (test_revision.Tests.test_edt_spacing_and_contact) ... ok
+test_filter_is_region_area_not_components (test_revision.Tests.test_filter_is_region_area_not_components) ... ok
+test_gt_principal_does_not_change_with_volume (test_revision.Tests.test_gt_principal_does_not_change_with_volume) ... ok
+test_interfaces_invariant_to_ids (test_revision.Tests.test_interfaces_invariant_to_ids) ... ok
+test_physical_grid_center_preserved (test_revision.Tests.test_physical_grid_center_preserved) ... ok
+test_small_gt_is_preserved (test_revision.Tests.test_small_gt_is_preserved) ... ok
+test_watershed_and_matching (test_revision.Tests.test_watershed_and_matching) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.654s
+
+OK

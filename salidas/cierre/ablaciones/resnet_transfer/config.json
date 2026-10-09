@@ -1,0 +1,15 @@
+{
+  "name": "resnet_transfer",
+  "epochs": 3,
+  "seed": 42,
+  "train_slices": 560,
+  "val_slices": 120,
+  "train_patients": 70,
+  "val_patients": 15,
+  "lr": 0.0003,
+  "batch": 8,
+  "heads_initial_sha256": "a55e9adb3cffa0466d9af779ff0a5f65cdf4ab8c4a31a2f09500690c9bd41dcc",
+  "pretrained_backbone_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+  "test_used": false,
+  "status": "completed"
+}

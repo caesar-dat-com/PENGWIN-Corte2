@@ -1,0 +1,116 @@
+{
+  "name": "resnet_transfer",
+  "config": {
+    "name": "resnet_transfer",
+    "epochs": 3,
+    "seed": 42,
+    "train_slices": 560,
+    "val_slices": 120,
+    "train_patients": 70,
+    "val_patients": 15,
+    "lr": 0.0003,
+    "batch": 8,
+    "heads_initial_sha256": "a55e9adb3cffa0466d9af779ff0a5f65cdf4ab8c4a31a2f09500690c9bd41dcc",
+    "pretrained_backbone_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+    "test_used": false,
+    "status": "completed"
+  },
+  "metrics": {
+    "detection": {
+      "mAP50": 0.28187856841373565,
+      "mAP50_95": 0.06196968452134606,
+      "per_class": {
+        "0": {
+          "gt": 52,
+          "ap50": 0.1742228959953834,
+          "ap50_95": 0.041753644996809676
+        },
+        "1": {
+          "gt": 77,
+          "ap50": 0.2853384370958246,
+          "ap50_95": 0.06819081986803044
+        },
+        "2": {
+          "gt": 77,
+          "ap50": 0.38607437214999896,
+          "ap50_95": 0.07596458869919806
+        }
+      },
+      "mean_gt_iou_at_conf025": 0.4666752093153323,
+      "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+    },
+    "classification": {
+      "per_class": [
+        {
+          "class": 0,
+          "f1": 0.9423076923076923,
+          "auc": 0.9932126696832579,
+          "tp": 49,
+          "fp": 3,
+          "fn": 3,
+          "tn": 65
+        },
+        {
+          "class": 1,
+          "f1": 0.9681528662420382,
+          "auc": 0.9891271519178496,
+          "tp": 76,
+          "fp": 4,
+          "fn": 1,
+          "tn": 39
+        },
+        {
+          "class": 2,
+          "f1": 0.961038961038961,
+          "auc": 0.9921473874962247,
+          "tp": 74,
+          "fp": 3,
+          "fn": 3,
+          "tn": 40
+        }
+      ],
+      "macro_f1": 0.9571665065295639,
+      "macro_auc": 0.9914957363657774
+    },
+    "semantic": {
+      "dice": [
+        0.23263860947935946,
+        0.3279657218040298,
+        0.4541264178925007
+      ],
+      "iou": [
+        0.13163046942585258,
+        0.19614772620444487,
+        0.2937668533499274
+      ],
+      "macro_dice": 0.33824358305862995,
+      "confusion": [
+        [
+          7349149,
+          42944,
+          215736,
+          87323
+        ],
+        [
+          23114,
+          11564,
+          6219,
+          2661
+        ],
+        [
+          4875,
+          112,
+          56335,
+          1641
+        ],
+        [
+          13800,
+          1238,
+          2289,
+          45320
+        ]
+      ]
+    },
+    "scope": "Validación por paciente; Dice semántico no es Dice por fragmento"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "detector": "RPN grid con respaldo; revision val",
+  "proposal_sha256": "ebb45d34eee32098dea70a7f49e6eff9f345c204ecb0c2ca53d98cca50bcb0fa",
+  "fusion_policy": {
+    "new_conf": 0.1,
+    "old_conf": 0.25,
+    "padding": 0.0
+  },
+  "case": "012",
+  "split": "val",
+  "sha256": "2a5e9f1daeec2328da2b78f263aa8edc1d10aa62593bfe5f18f56f494fc7297d",
+  "slices": 265,
+  "device": "cpu",
+  "latency_mean_ms": 30.44838792406119,
+  "latency_p50_ms": 28.24030000192579,
+  "latency_p95_ms": 40.622999996412545,
+  "latency_scope": "forward, NMS, restriccion de mascara por bbox y copia CPU; 3 warmups; excluye IO, resize e instancias3D",
+  "spacing_xyz": [
+    1.7578125,
+    1.7578125,
+    1.0
+  ],
+  "origin": [
+    -203.96653747558594,
+    -224.12109375,
+    102.945068359375
+  ],
+  "direction": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ]
+}

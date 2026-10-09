@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "checkpoint_sha256": "2a5e9f1daeec2328da2b78f263aa8edc1d10aa62593bfe5f18f56f494fc7297d",
+  "patient_split": [
+    70,
+    15,
+    15
+  ],
+  "dashboard_contiguous_slices": {
+    "002": 337,
+    "012": 265,
+    "028": 304,
+    "004": 224,
+    "006": 283,
+    "010": 350
+  },
+  "video_frames": 396,
+  "scope": "Integridad de artefactos, geometría, hash de modelo, separación de pacientes y referencias locales. No demuestra calidad clínica ni metas métricas."
+}

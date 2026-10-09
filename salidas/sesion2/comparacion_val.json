@@ -1,0 +1,226 @@
+{
+  "scope": "120 cortes de 15 pacientes val; ninguna evaluación test nueva. Instancias 2D no equivalen a fragmentos 3D.",
+  "checkpoints": {
+    "previo": {
+      "sha256": "243740caa16820186366a9f0259024ccb98e5169bed1bcd6187b9d052699d27c",
+      "epoch": 5
+    },
+    "sesion2": {
+      "sha256": "ec2778e3e880d9ae1e3b29d5ccd12a23f0e42526db42d1d6a597ed471b55f4e3",
+      "epoch": 6
+    }
+  },
+  "metrics": {
+    "previo": {
+      "detection": {
+        "mAP50": 0.44815335143178964,
+        "mAP50_95": 0.13603749898431042,
+        "per_class": {
+          "0": {
+            "gt": 52,
+            "ap50": 0.17298508422270797,
+            "ap50_95": 0.03333357455139633
+          },
+          "1": {
+            "gt": 77,
+            "ap50": 0.527152823012514,
+            "ap50_95": 0.18037698748707517
+          },
+          "2": {
+            "gt": 77,
+            "ap50": 0.6443221470601468,
+            "ap50_95": 0.1944019349144598
+          }
+        },
+        "mean_gt_iou_at_conf025": 0.5192403994680935,
+        "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+      },
+      "classification": {
+        "per_class": [
+          {
+            "class": 0,
+            "f1": 0.48,
+            "auc": 0.9066742081447964,
+            "tp": 18,
+            "fp": 5,
+            "fn": 34,
+            "tn": 63
+          },
+          {
+            "class": 1,
+            "f1": 0.9261744966442953,
+            "auc": 0.974025974025974,
+            "tp": 69,
+            "fp": 3,
+            "fn": 8,
+            "tn": 40
+          },
+          {
+            "class": 2,
+            "f1": 0.9103448275862069,
+            "auc": 0.9634551495016611,
+            "tp": 66,
+            "fp": 2,
+            "fn": 11,
+            "tn": 41
+          }
+        ],
+        "macro_f1": 0.7721731080768341,
+        "macro_auc": 0.9480517772241438
+      },
+      "semantic": {
+        "dice": [
+          0.38819684262456833,
+          0.0,
+          0.4259124664243956
+        ],
+        "iou": [
+          0.2408463098289781,
+          0.0,
+          0.27057737091463907
+        ],
+        "macro_dice": 0.271369769682988,
+        "confusion": [
+          [
+            7652008,
+            31181,
+            0,
+            11963
+          ],
+          [
+            24577,
+            18885,
+            0,
+            96
+          ],
+          [
+            62068,
+            883,
+            0,
+            12
+          ],
+          [
+            39641,
+            2789,
+            0,
+            20217
+          ]
+        ]
+      },
+      "scope": "Validación por paciente; Dice semántico no es Dice por fragmento",
+      "instances_2d": {
+        "gt": 272,
+        "missed": 163,
+        "extra": 158,
+        "dice_gt_macro": 0.14800049833006645,
+        "dice_symmetric": 0.09361891987390251
+      }
+    },
+    "sesion2": {
+      "detection": {
+        "mAP50": 0.5262503764372846,
+        "mAP50_95": 0.1427581993953556,
+        "per_class": {
+          "0": {
+            "gt": 52,
+            "ap50": 0.319077067624881,
+            "ap50_95": 0.053128211608980944
+          },
+          "1": {
+            "gt": 77,
+            "ap50": 0.5551046027590292,
+            "ap50_95": 0.1685538519092617
+          },
+          "2": {
+            "gt": 77,
+            "ap50": 0.7045694589279435,
+            "ap50_95": 0.2065925346678243
+          }
+        },
+        "mean_gt_iou_at_conf025": 0.5341372657122635,
+        "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+      },
+      "classification": {
+        "per_class": [
+          {
+            "class": 0,
+            "f1": 0.8429752066115702,
+            "auc": 0.9490950226244343,
+            "tp": 51,
+            "fp": 18,
+            "fn": 1,
+            "tn": 50
+          },
+          {
+            "class": 1,
+            "f1": 0.927710843373494,
+            "auc": 0.9915433403805497,
+            "tp": 77,
+            "fp": 12,
+            "fn": 0,
+            "tn": 31
+          },
+          {
+            "class": 2,
+            "f1": 0.9325153374233128,
+            "auc": 0.9897311990335246,
+            "tp": 76,
+            "fp": 10,
+            "fn": 1,
+            "tn": 33
+          }
+        ],
+        "macro_f1": 0.9010671291361256,
+        "macro_auc": 0.9767898540128362
+      },
+      "semantic": {
+        "dice": [
+          0.23953978393926217,
+          0.616610893436696,
+          0.6079407286198041
+        ],
+        "iou": [
+          0.13606657040808573,
+          0.4457248437993825,
+          0.4367204336184941
+        ],
+        "macro_dice": 0.48803046866525407,
+        "confusion": [
+          [
+            7600936,
+            48312,
+            18004,
+            27900
+          ],
+          [
+            27292,
+            14324,
+            854,
+            1088
+          ],
+          [
+            19004,
+            7048,
+            36668,
+            243
+          ],
+          [
+            15723,
+            6354,
+            445,
+            40125
+          ]
+        ]
+      },
+      "scope": "Validación por paciente; Dice semántico no es Dice por fragmento",
+      "instances_2d": {
+        "gt": 272,
+        "missed": 22,
+        "extra": 5573,
+        "dice_gt_macro": 0.39249010741438434,
+        "dice_symmetric": 0.01826472356145638
+      }
+    }
+  },
+  "comparison": "Ambos desde cero, 6 épocas, mismo split/muestreo. Cambio conjunto: skips, supervisión profunda e interiores; no aísla el efecto individual de cada componente."
+}

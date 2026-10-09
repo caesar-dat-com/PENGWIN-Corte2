@@ -1,0 +1,102 @@
+{
+  "status": "passed",
+  "scope": "3 validation volumes; no independent test",
+  "cases": [
+    {
+      "case": "002",
+      "slices": 337,
+      "duplicate_boxes": 0,
+      "geometry": "LPS aligned",
+      "mask_within_boxes": true,
+      "summary": {
+        "gt": 6,
+        "pred": 11,
+        "missed": 3,
+        "extra": 8,
+        "matches_iou05": 2,
+        "dice_gt": 0.36530744172882584,
+        "iou_gt": 0.28959490014985095,
+        "dice_symmetric": 0.1565603321694968,
+        "distance_valid_pairs": 0,
+        "distance_MAE_mm": null,
+        "missing_gt_principal_regions": [],
+        "semantic_dice": [
+          0.6319296043074984,
+          0.7705432852969614,
+          0.7887556073449555
+        ],
+        "case": "002",
+        "policy": {
+          "method": "interfaces",
+          "threshold": 0.7,
+          "seed_mm3": 50.0,
+          "min_volume_mm3": 500.0
+        }
+      }
+    },
+    {
+      "case": "012",
+      "slices": 265,
+      "duplicate_boxes": 0,
+      "geometry": "LPS aligned",
+      "mask_within_boxes": true,
+      "summary": {
+        "gt": 5,
+        "pred": 19,
+        "missed": 1,
+        "extra": 15,
+        "matches_iou05": 0,
+        "dice_gt": 0.31735494906726147,
+        "iou_gt": 0.2039068495422854,
+        "dice_symmetric": 0.07933873726681537,
+        "distance_valid_pairs": 0,
+        "distance_MAE_mm": null,
+        "missing_gt_principal_regions": [],
+        "semantic_dice": [
+          0.3830744509908945,
+          0.5956491523639044,
+          0.6569349591476892
+        ],
+        "case": "012",
+        "policy": {
+          "method": "interfaces",
+          "threshold": 0.7,
+          "seed_mm3": 50.0,
+          "min_volume_mm3": 500.0
+        }
+      }
+    },
+    {
+      "case": "028",
+      "slices": 304,
+      "duplicate_boxes": 0,
+      "geometry": "LPS aligned",
+      "mask_within_boxes": true,
+      "summary": {
+        "gt": 7,
+        "pred": 12,
+        "missed": 4,
+        "extra": 9,
+        "matches_iou05": 2,
+        "dice_gt": 0.2877603820748728,
+        "iou_gt": 0.21961784093125356,
+        "dice_symmetric": 0.12589516715775687,
+        "distance_valid_pairs": 0,
+        "distance_MAE_mm": null,
+        "missing_gt_principal_regions": [],
+        "semantic_dice": [
+          0.5659653222573795,
+          0.7582669988842724,
+          0.7727476606074717
+        ],
+        "case": "028",
+        "policy": {
+          "method": "interfaces",
+          "threshold": 0.7,
+          "seed_mm3": 50.0,
+          "min_volume_mm3": 500.0
+        }
+      }
+    }
+  ]
+}

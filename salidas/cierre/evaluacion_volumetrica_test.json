@@ -1,0 +1,80 @@
+{
+  "scope": "3 pacientes test predefinidos; no ajustar tras ver estos resultados",
+  "cases": [
+    {
+      "gt": 6,
+      "pred": 16,
+      "missed": 2,
+      "extra": 12,
+      "matches_iou05": 2,
+      "dice_gt": 0.3518156006330109,
+      "iou_gt": 0.27179270153160356,
+      "dice_symmetric": 0.11727186687767031,
+      "distance_valid_pairs": 0,
+      "distance_MAE_mm": null,
+      "missing_gt_principal_regions": [],
+      "semantic_dice": [
+        0.6114238540206244,
+        0.6951063303568462,
+        0.7733642629794545
+      ],
+      "case": "004",
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      }
+    },
+    {
+      "gt": 7,
+      "pred": 13,
+      "missed": 2,
+      "extra": 8,
+      "matches_iou05": 2,
+      "dice_gt": 0.43815495447634584,
+      "iou_gt": 0.3266339358184568,
+      "dice_symmetric": 0.20447231208896138,
+      "distance_valid_pairs": 0,
+      "distance_MAE_mm": null,
+      "missing_gt_principal_regions": [],
+      "semantic_dice": [
+        0.5394076200119526,
+        0.7541990153380042,
+        0.7647430121812786
+      ],
+      "case": "006",
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      }
+    },
+    {
+      "gt": 5,
+      "pred": 14,
+      "missed": 2,
+      "extra": 11,
+      "matches_iou05": 0,
+      "dice_gt": 0.3172789265751029,
+      "iou_gt": 0.21840564047096653,
+      "dice_symmetric": 0.09914966455471967,
+      "distance_valid_pairs": 0,
+      "distance_MAE_mm": null,
+      "missing_gt_principal_regions": [],
+      "semantic_dice": [
+        0.5123024278963663,
+        0.5841335124860719,
+        0.614970417324849
+      ],
+      "case": "010",
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      }
+    }
+  ]
+}

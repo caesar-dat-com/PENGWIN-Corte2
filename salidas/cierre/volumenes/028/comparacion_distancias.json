@@ -1,0 +1,154 @@
+[
+  {
+    "instance": 1,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 72.36833480558785,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 2,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 5.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 4,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 40.83789101715232,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 6,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 35.33437115871067,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 7,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 11.614169130523605,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 8,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 3.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 9,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 11.248627879427138,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 10,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 36.65204794567603,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 11,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 29.280838183985537,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 12,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 26.46327007064809,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 13,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 33.63366044322541,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 14,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 32.43926032851851,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 15,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 55.39567292568369,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 16,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 55.063661406727206,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 17,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 43.71656922163917,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 18,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 41.19360204215749,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 20,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 1.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 21,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 17.44446289479124,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 22,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 24.534749462264816,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  }
+]

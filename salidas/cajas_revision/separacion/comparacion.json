@@ -1,0 +1,399 @@
+{
+  "scope": "Three validation volumes, fixed predictions and minimum volume; no GT used by reconstruction; no test tuning",
+  "baseline": {
+    "dice_gt": 0.322802882255242,
+    "iou_gt": 0.23721334944958528,
+    "dice_symmetric": 0.11559176745788946,
+    "missed": 8,
+    "extra": 35,
+    "matches_iou05": 4
+  },
+  "baseline_cases": [
+    {
+      "gt": 6,
+      "pred": 11,
+      "missed": 3,
+      "extra": 8,
+      "matches_iou05": 2,
+      "dice_gt": 0.36530744172882584,
+      "iou_gt": 0.28959490014985095,
+      "dice_symmetric": 0.1565603321694968,
+      "distance_valid_pairs": 0,
+      "distance_MAE_mm": null,
+      "missing_gt_principal_regions": [],
+      "semantic_dice": [
+        0.6319296043074984,
+        0.7705432852969614,
+        0.7887556073449555
+      ],
+      "case": "002",
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      }
+    },
+    {
+      "gt": 5,
+      "pred": 21,
+      "missed": 1,
+      "extra": 17,
+      "matches_iou05": 0,
+      "dice_gt": 0.3150316915843835,
+      "iou_gt": 0.20213561742166516,
+      "dice_symmetric": 0.07159811172372353,
+      "distance_valid_pairs": 0,
+      "distance_MAE_mm": null,
+      "missing_gt_principal_regions": [],
+      "semantic_dice": [
+        0.3830744509908945,
+        0.5956491523639044,
+        0.6569349591476892
+      ],
+      "case": "012",
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      }
+    },
+    {
+      "gt": 7,
+      "pred": 13,
+      "missed": 4,
+      "extra": 10,
+      "matches_iou05": 2,
+      "dice_gt": 0.2880695134525167,
+      "iou_gt": 0.2199095307772397,
+      "dice_symmetric": 0.11861685848044805,
+      "distance_valid_pairs": 0,
+      "distance_MAE_mm": null,
+      "missing_gt_principal_regions": [],
+      "semantic_dice": [
+        0.5659653222573795,
+        0.7582669988842724,
+        0.7727476606074717
+      ],
+      "case": "028",
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.3,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      },
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 13,
+          "missed": 2,
+          "extra": 9,
+          "matches_iou05": 2,
+          "dice_gt": 0.37094660197609414,
+          "iou_gt": 0.2926736943795038,
+          "dice_symmetric": 0.14837864079043767,
+          "case": "002"
+        },
+        {
+          "gt": 5,
+          "pred": 36,
+          "missed": 0,
+          "extra": 31,
+          "matches_iou05": 0,
+          "dice_gt": 0.3067691247750475,
+          "iou_gt": 0.19600703941597844,
+          "dice_symmetric": 0.04260682288542326,
+          "case": "012"
+        },
+        {
+          "gt": 7,
+          "pred": 18,
+          "missed": 3,
+          "extra": 14,
+          "matches_iou05": 2,
+          "dice_gt": 0.2887832480319511,
+          "iou_gt": 0.22056751784873363,
+          "dice_symmetric": 0.09626108267731703,
+          "case": "028"
+        }
+      ],
+      "aggregate": {
+        "dice_gt": 0.32216632492769753,
+        "iou_gt": 0.2364160838814053,
+        "dice_symmetric": 0.09574884878439265,
+        "missed": 5,
+        "extra": 54,
+        "matches_iou05": 4
+      },
+      "eligible": false
+    },
+    {
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.7,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      },
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 11,
+          "missed": 3,
+          "extra": 8,
+          "matches_iou05": 2,
+          "dice_gt": 0.36530744172882584,
+          "iou_gt": 0.28959490014985095,
+          "dice_symmetric": 0.1565603321694968,
+          "case": "002"
+        },
+        {
+          "gt": 5,
+          "pred": 19,
+          "missed": 1,
+          "extra": 15,
+          "matches_iou05": 0,
+          "dice_gt": 0.31735494906726147,
+          "iou_gt": 0.2039068495422854,
+          "dice_symmetric": 0.07933873726681537,
+          "case": "012"
+        },
+        {
+          "gt": 7,
+          "pred": 12,
+          "missed": 4,
+          "extra": 9,
+          "matches_iou05": 2,
+          "dice_gt": 0.2877603820748728,
+          "iou_gt": 0.21961784093125356,
+          "dice_symmetric": 0.12589516715775687,
+          "case": "028"
+        }
+      ],
+      "aggregate": {
+        "dice_gt": 0.3234742576236534,
+        "iou_gt": 0.23770653020779664,
+        "dice_symmetric": 0.12059807886468969,
+        "missed": 8,
+        "extra": 32,
+        "matches_iou05": 4
+      },
+      "eligible": true
+    },
+    {
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 200.0,
+        "min_volume_mm3": 500.0
+      },
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 11,
+          "missed": 3,
+          "extra": 8,
+          "matches_iou05": 2,
+          "dice_gt": 0.36530744172882584,
+          "iou_gt": 0.28959490014985095,
+          "dice_symmetric": 0.1565603321694968,
+          "case": "002"
+        },
+        {
+          "gt": 5,
+          "pred": 22,
+          "missed": 1,
+          "extra": 18,
+          "matches_iou05": 0,
+          "dice_gt": 0.3150316915843835,
+          "iou_gt": 0.20213561742166516,
+          "dice_symmetric": 0.0684851503444312,
+          "case": "012"
+        },
+        {
+          "gt": 7,
+          "pred": 13,
+          "missed": 4,
+          "extra": 10,
+          "matches_iou05": 2,
+          "dice_gt": 0.2880695134525167,
+          "iou_gt": 0.2199095307772397,
+          "dice_symmetric": 0.11861685848044805,
+          "case": "028"
+        }
+      ],
+      "aggregate": {
+        "dice_gt": 0.322802882255242,
+        "iou_gt": 0.23721334944958528,
+        "dice_symmetric": 0.11455411366479201,
+        "missed": 8,
+        "extra": 36,
+        "matches_iou05": 4
+      },
+      "eligible": false
+    },
+    {
+      "policy": {
+        "method": "interiores",
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      },
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 16,
+          "missed": 2,
+          "extra": 12,
+          "matches_iou05": 2,
+          "dice_gt": 0.3725774814997627,
+          "iou_gt": 0.293671095442034,
+          "dice_symmetric": 0.12419249383325424,
+          "case": "002"
+        },
+        {
+          "gt": 5,
+          "pred": 40,
+          "missed": 1,
+          "extra": 36,
+          "matches_iou05": 0,
+          "dice_gt": 0.3122768566825405,
+          "iou_gt": 0.19977258950703408,
+          "dice_symmetric": 0.0380825434978708,
+          "case": "012"
+        },
+        {
+          "gt": 7,
+          "pred": 19,
+          "missed": 1,
+          "extra": 13,
+          "matches_iou05": 2,
+          "dice_gt": 0.2907245434386317,
+          "iou_gt": 0.22171540371470583,
+          "dice_symmetric": 0.10175359020352108,
+          "case": "028"
+        }
+      ],
+      "aggregate": {
+        "dice_gt": 0.32519296054031166,
+        "iou_gt": 0.23838636288792467,
+        "dice_symmetric": 0.0880095425115487,
+        "missed": 4,
+        "extra": 61,
+        "matches_iou05": 4
+      },
+      "eligible": false
+    },
+    {
+      "policy": {
+        "method": "componentes",
+        "min_volume_mm3": 500.0
+      },
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 11,
+          "missed": 3,
+          "extra": 8,
+          "matches_iou05": 2,
+          "dice_gt": 0.36530744172882584,
+          "iou_gt": 0.28959490014985095,
+          "dice_symmetric": 0.1565603321694968,
+          "case": "002"
+        },
+        {
+          "gt": 5,
+          "pred": 19,
+          "missed": 1,
+          "extra": 15,
+          "matches_iou05": 0,
+          "dice_gt": 0.31735494906726147,
+          "iou_gt": 0.2039068495422854,
+          "dice_symmetric": 0.07933873726681537,
+          "case": "012"
+        },
+        {
+          "gt": 7,
+          "pred": 12,
+          "missed": 4,
+          "extra": 9,
+          "matches_iou05": 2,
+          "dice_gt": 0.2877603820748728,
+          "iou_gt": 0.21961784093125356,
+          "dice_symmetric": 0.12589516715775687,
+          "case": "028"
+        }
+      ],
+      "aggregate": {
+        "dice_gt": 0.3234742576236534,
+        "iou_gt": 0.23770653020779664,
+        "dice_symmetric": 0.12059807886468969,
+        "missed": 8,
+        "extra": 32,
+        "matches_iou05": 4
+      },
+      "eligible": true
+    }
+  ],
+  "selected": {
+    "policy": {
+      "method": "interfaces",
+      "threshold": 0.7,
+      "seed_mm3": 50.0,
+      "min_volume_mm3": 500.0
+    },
+    "cases": [
+      {
+        "gt": 6,
+        "pred": 11,
+        "missed": 3,
+        "extra": 8,
+        "matches_iou05": 2,
+        "dice_gt": 0.36530744172882584,
+        "iou_gt": 0.28959490014985095,
+        "dice_symmetric": 0.1565603321694968,
+        "case": "002"
+      },
+      {
+        "gt": 5,
+        "pred": 19,
+        "missed": 1,
+        "extra": 15,
+        "matches_iou05": 0,
+        "dice_gt": 0.31735494906726147,
+        "iou_gt": 0.2039068495422854,
+        "dice_symmetric": 0.07933873726681537,
+        "case": "012"
+      },
+      {
+        "gt": 7,
+        "pred": 12,
+        "missed": 4,
+        "extra": 9,
+        "matches_iou05": 2,
+        "dice_gt": 0.2877603820748728,
+        "iou_gt": 0.21961784093125356,
+        "dice_symmetric": 0.12589516715775687,
+        "case": "028"
+      }
+    ],
+    "aggregate": {
+      "dice_gt": 0.3234742576236534,
+      "iou_gt": 0.23770653020779664,
+      "dice_symmetric": 0.12059807886468969,
+      "missed": 8,
+      "extra": 32,
+      "matches_iou05": 4
+    },
+    "eligible": true
+  }
+}

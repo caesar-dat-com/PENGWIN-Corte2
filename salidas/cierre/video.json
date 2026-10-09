@@ -1,0 +1,8 @@
+{
+  "file": "salidas\\cierre\\demo_respaldo.webm",
+  "frames": 396,
+  "fps": 12,
+  "seconds": 33.0,
+  "codec": "VP8",
+  "scope": "Recorrido renderizado de resultados reales, sin audio; no grabacion de una inferencia en vivo"
+}

@@ -1,0 +1,330 @@
+{
+  "scope": "Tres primeros pacientes val, mismos casos en siete variantes; no número de fragmentos forzado; no GT modificado; filtrar predicciones por volumen puede eliminar fragmentos verdaderos pequeños",
+  "candidates": [
+    {
+      "policy": {
+        "method": "interiores",
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 20.0
+      },
+      "score": 0.018701049623398174,
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 92,
+          "missed": 1,
+          "extra": 87,
+          "matches_iou05": 2,
+          "dice_gt": 0.40210663436487937,
+          "iou_gt": 0.30747372086461855,
+          "dice_symmetric": 0.02594236350741157
+        },
+        {
+          "gt": 5,
+          "pred": 158,
+          "missed": 1,
+          "extra": 154,
+          "matches_iou05": 0,
+          "dice_gt": 0.2786790684540117,
+          "iou_gt": 0.17924765112847316,
+          "dice_symmetric": 0.008763492718679614
+        },
+        {
+          "gt": 7,
+          "pred": 94,
+          "missed": 1,
+          "extra": 88,
+          "matches_iou05": 2,
+          "dice_gt": 0.29039182874140235,
+          "iou_gt": 0.21226723219283428,
+          "dice_symmetric": 0.021397292644103335
+        }
+      ]
+    },
+    {
+      "policy": {
+        "method": "componentes",
+        "min_volume_mm3": 20.0
+      },
+      "score": 0.02204763720041771,
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 71,
+          "missed": 3,
+          "extra": 68,
+          "matches_iou05": 2,
+          "dice_gt": 0.3605593114930712,
+          "iou_gt": 0.2838183446375841,
+          "dice_symmetric": 0.029234538769708475
+        },
+        {
+          "gt": 5,
+          "pred": 125,
+          "missed": 1,
+          "extra": 121,
+          "matches_iou05": 0,
+          "dice_gt": 0.2827881503225765,
+          "iou_gt": 0.1829988421080667,
+          "dice_symmetric": 0.011221751996927638
+        },
+        {
+          "gt": 7,
+          "pred": 73,
+          "missed": 3,
+          "extra": 69,
+          "matches_iou05": 2,
+          "dice_gt": 0.278883311918699,
+          "iou_gt": 0.2079046202075395,
+          "dice_symmetric": 0.02568662083461701
+        }
+      ]
+    },
+    {
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.3,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 20.0
+      },
+      "score": 0.01900148348410885,
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 80,
+          "missed": 2,
+          "extra": 76,
+          "matches_iou05": 2,
+          "dice_gt": 0.36409778216335376,
+          "iou_gt": 0.28586298300302443,
+          "dice_symmetric": 0.026641301133903932
+        },
+        {
+          "gt": 5,
+          "pred": 150,
+          "missed": 1,
+          "extra": 146,
+          "matches_iou05": 0,
+          "dice_gt": 0.2772284692810359,
+          "iou_gt": 0.17962903998420443,
+          "dice_symmetric": 0.009179750638444898
+        },
+        {
+          "gt": 7,
+          "pred": 91,
+          "missed": 2,
+          "extra": 86,
+          "matches_iou05": 2,
+          "dice_gt": 0.28143658246256115,
+          "iou_gt": 0.20727870600364298,
+          "dice_symmetric": 0.021183398679977723
+        }
+      ]
+    },
+    {
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 20.0
+      },
+      "score": 0.02189708911061132,
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 71,
+          "missed": 3,
+          "extra": 68,
+          "matches_iou05": 2,
+          "dice_gt": 0.3605593114930712,
+          "iou_gt": 0.2838183446375841,
+          "dice_symmetric": 0.029234538769708475
+        },
+        {
+          "gt": 5,
+          "pred": 127,
+          "missed": 1,
+          "extra": 123,
+          "matches_iou05": 0,
+          "dice_gt": 0.2827881503225765,
+          "iou_gt": 0.1829988421080667,
+          "dice_symmetric": 0.011046412121975643
+        },
+        {
+          "gt": 7,
+          "pred": 75,
+          "missed": 2,
+          "extra": 70,
+          "matches_iou05": 2,
+          "dice_gt": 0.27951348084164834,
+          "iou_gt": 0.20864688604678375,
+          "dice_symmetric": 0.025410316440149846
+        }
+      ]
+    },
+    {
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.7,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 20.0
+      },
+      "score": 0.02204763720041771,
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 71,
+          "missed": 3,
+          "extra": 68,
+          "matches_iou05": 2,
+          "dice_gt": 0.3605593114930712,
+          "iou_gt": 0.2838183446375841,
+          "dice_symmetric": 0.029234538769708475
+        },
+        {
+          "gt": 5,
+          "pred": 125,
+          "missed": 1,
+          "extra": 121,
+          "matches_iou05": 0,
+          "dice_gt": 0.2827881503225765,
+          "iou_gt": 0.1829988421080667,
+          "dice_symmetric": 0.011221751996927638
+        },
+        {
+          "gt": 7,
+          "pred": 73,
+          "missed": 3,
+          "extra": 69,
+          "matches_iou05": 2,
+          "dice_gt": 0.278883311918699,
+          "iou_gt": 0.2079046202075395,
+          "dice_symmetric": 0.02568662083461701
+        }
+      ]
+    },
+    {
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 100.0
+      },
+      "score": 0.03762569324825556,
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 42,
+          "missed": 3,
+          "extra": 39,
+          "matches_iou05": 2,
+          "dice_gt": 0.3605593114930712,
+          "iou_gt": 0.2838183446375841,
+          "dice_symmetric": 0.048074574865742827
+        },
+        {
+          "gt": 5,
+          "pred": 60,
+          "missed": 1,
+          "extra": 56,
+          "matches_iou05": 0,
+          "dice_gt": 0.2827881503225765,
+          "iou_gt": 0.1829988421080667,
+          "dice_symmetric": 0.023179356583817742
+        },
+        {
+          "gt": 7,
+          "pred": 44,
+          "missed": 3,
+          "extra": 40,
+          "matches_iou05": 2,
+          "dice_gt": 0.2794697099820981,
+          "iou_gt": 0.20862499726369063,
+          "dice_symmetric": 0.041623148295206094
+        }
+      ]
+    },
+    {
+      "policy": {
+        "method": "interfaces",
+        "threshold": 0.5,
+        "seed_mm3": 50.0,
+        "min_volume_mm3": 500.0
+      },
+      "score": 0.07365857818155654,
+      "cases": [
+        {
+          "gt": 6,
+          "pred": 20,
+          "missed": 3,
+          "extra": 17,
+          "matches_iou05": 2,
+          "dice_gt": 0.3605593114930712,
+          "iou_gt": 0.2838183446375841,
+          "dice_symmetric": 0.09405895082427944
+        },
+        {
+          "gt": 5,
+          "pred": 26,
+          "missed": 1,
+          "extra": 22,
+          "matches_iou05": 0,
+          "dice_gt": 0.2827881503225765,
+          "iou_gt": 0.1829988421080667,
+          "dice_symmetric": 0.05236817598566231
+        },
+        {
+          "gt": 7,
+          "pred": 22,
+          "missed": 4,
+          "extra": 19,
+          "matches_iou05": 2,
+          "dice_gt": 0.2768948287289892,
+          "iou_gt": 0.20732584859974693,
+          "dice_symmetric": 0.07454860773472785
+        }
+      ]
+    }
+  ],
+  "selected": {
+    "policy": {
+      "method": "interfaces",
+      "threshold": 0.5,
+      "seed_mm3": 50.0,
+      "min_volume_mm3": 500.0
+    },
+    "score": 0.07365857818155654,
+    "cases": [
+      {
+        "gt": 6,
+        "pred": 20,
+        "missed": 3,
+        "extra": 17,
+        "matches_iou05": 2,
+        "dice_gt": 0.3605593114930712,
+        "iou_gt": 0.2838183446375841,
+        "dice_symmetric": 0.09405895082427944
+      },
+      {
+        "gt": 5,
+        "pred": 26,
+        "missed": 1,
+        "extra": 22,
+        "matches_iou05": 0,
+        "dice_gt": 0.2827881503225765,
+        "iou_gt": 0.1829988421080667,
+        "dice_symmetric": 0.05236817598566231
+      },
+      {
+        "gt": 7,
+        "pred": 22,
+        "missed": 4,
+        "extra": 19,
+        "matches_iou05": 2,
+        "dice_gt": 0.2768948287289892,
+        "iou_gt": 0.20732584859974693,
+        "dice_symmetric": 0.07454860773472785
+      }
+    ]
+  }
+}

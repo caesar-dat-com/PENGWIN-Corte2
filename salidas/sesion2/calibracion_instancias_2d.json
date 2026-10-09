@@ -1,0 +1,86 @@
+{
+  "scope": "Ajuste sobre val, no resultado independiente de prueba. Umbrales en p\u00edxeles 2D, no mm3. No modifican GT.",
+  "selection": "m\u00e1ximo Dice sim\u00e9trico, penaliza extras y omisiones",
+  "candidates": [
+    {
+      "min_seed_pixels": 4,
+      "min_instance_pixels": 0,
+      "dice_gt_macro": 0.4034013393901586,
+      "dice_symmetric": 0.02279766555456537,
+      "missed": 23,
+      "extra": 4541
+    },
+    {
+      "min_seed_pixels": 4,
+      "min_instance_pixels": 4,
+      "dice_gt_macro": 0.40296095727437936,
+      "dice_symmetric": 0.04244979875237459,
+      "missed": 24,
+      "extra": 2310
+    },
+    {
+      "min_seed_pixels": 4,
+      "min_instance_pixels": 16,
+      "dice_gt_macro": 0.3960924511603686,
+      "dice_symmetric": 0.08016156749674128,
+      "missed": 41,
+      "extra": 1072
+    },
+    {
+      "min_seed_pixels": 16,
+      "min_instance_pixels": 0,
+      "dice_gt_macro": 0.4121136776009893,
+      "dice_symmetric": 0.024200112328900927,
+      "missed": 23,
+      "extra": 4360
+    },
+    {
+      "min_seed_pixels": 16,
+      "min_instance_pixels": 4,
+      "dice_gt_macro": 0.4116732954852101,
+      "dice_symmetric": 0.046636874790494436,
+      "missed": 24,
+      "extra": 2129
+    },
+    {
+      "min_seed_pixels": 16,
+      "min_instance_pixels": 16,
+      "dice_gt_macro": 0.40458943126142827,
+      "dice_symmetric": 0.09286778506591434,
+      "missed": 42,
+      "extra": 913
+    },
+    {
+      "min_seed_pixels": 64,
+      "min_instance_pixels": 0,
+      "dice_gt_macro": 0.4138198539686602,
+      "dice_symmetric": 0.02452800180420039,
+      "missed": 24,
+      "extra": 4317
+    },
+    {
+      "min_seed_pixels": 64,
+      "min_instance_pixels": 4,
+      "dice_gt_macro": 0.41337947185288104,
+      "dice_symmetric": 0.04768414603222377,
+      "missed": 25,
+      "extra": 2086
+    },
+    {
+      "min_seed_pixels": 64,
+      "min_instance_pixels": 16,
+      "dice_gt_macro": 0.40629560762909916,
+      "dice_symmetric": 0.09677093281533711,
+      "missed": 43,
+      "extra": 870
+    }
+  ],
+  "selected": {
+    "min_seed_pixels": 64,
+    "min_instance_pixels": 16,
+    "dice_gt_macro": 0.40629560762909916,
+    "dice_symmetric": 0.09677093281533711,
+    "missed": 43,
+    "extra": 870
+  }
+}

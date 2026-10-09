@@ -1,0 +1,11 @@
+{
+  "path": "C:\\Descargas3\\Segmentacion_Sesion2_UNetPP_MaskRCNN_YOLO_SAM_Completo .ipynb",
+  "sha256": "53c119af9c764e54f88b673260aa1fdab302e0f6689a6acc9b43a54bf75d8e75",
+  "sections": [
+    "4.1 U-Net++ sobre FundidoraPC",
+    "5 Instancias PennFudan",
+    "6.2 U-Net vs U-Net++",
+    "9 Detectar y refinar"
+  ],
+  "use": "Lectura y adaptación conceptual; no se ejecutaron instalaciones ni ejercicios del notebook original."
+}

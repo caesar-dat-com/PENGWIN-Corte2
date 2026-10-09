@@ -1,0 +1,258 @@
+{
+  "policy": {
+    "threshold_hu": -500,
+    "opening_mm": 2,
+    "margin_mm": 3
+  },
+  "cases": [
+    {
+      "case": "002",
+      "predicted_voxels_removed": 0,
+      "gt_voxels_removed": 0,
+      "gt_total_voxels": 787857,
+      "instances": [
+        {
+          "id": 1,
+          "voxels": 1971,
+          "outside": 0
+        },
+        {
+          "id": 2,
+          "voxels": 8865,
+          "outside": 0
+        },
+        {
+          "id": 3,
+          "voxels": 215607,
+          "outside": 0
+        },
+        {
+          "id": 4,
+          "voxels": 858,
+          "outside": 0
+        },
+        {
+          "id": 5,
+          "voxels": 2123,
+          "outside": 0
+        },
+        {
+          "id": 6,
+          "voxels": 382183,
+          "outside": 0
+        },
+        {
+          "id": 7,
+          "voxels": 1188,
+          "outside": 0
+        },
+        {
+          "id": 8,
+          "voxels": 632,
+          "outside": 0
+        },
+        {
+          "id": 9,
+          "voxels": 363252,
+          "outside": 0
+        },
+        {
+          "id": 10,
+          "voxels": 1082,
+          "outside": 0
+        },
+        {
+          "id": 11,
+          "voxels": 1088,
+          "outside": 0
+        }
+      ]
+    },
+    {
+      "case": "012",
+      "predicted_voxels_removed": 0,
+      "gt_voxels_removed": 0,
+      "gt_total_voxels": 245727,
+      "instances": [
+        {
+          "id": 1,
+          "voxels": 52788,
+          "outside": 0
+        },
+        {
+          "id": 2,
+          "voxels": 429,
+          "outside": 0
+        },
+        {
+          "id": 3,
+          "voxels": 8063,
+          "outside": 0
+        },
+        {
+          "id": 4,
+          "voxels": 292,
+          "outside": 0
+        },
+        {
+          "id": 5,
+          "voxels": 219,
+          "outside": 0
+        },
+        {
+          "id": 6,
+          "voxels": 875,
+          "outside": 0
+        },
+        {
+          "id": 7,
+          "voxels": 252,
+          "outside": 0
+        },
+        {
+          "id": 8,
+          "voxels": 1036,
+          "outside": 0
+        },
+        {
+          "id": 9,
+          "voxels": 142522,
+          "outside": 0
+        },
+        {
+          "id": 10,
+          "voxels": 635,
+          "outside": 0
+        },
+        {
+          "id": 11,
+          "voxels": 1868,
+          "outside": 0
+        },
+        {
+          "id": 12,
+          "voxels": 170,
+          "outside": 0
+        },
+        {
+          "id": 13,
+          "voxels": 336,
+          "outside": 0
+        },
+        {
+          "id": 14,
+          "voxels": 32131,
+          "outside": 0
+        },
+        {
+          "id": 15,
+          "voxels": 2150,
+          "outside": 0
+        },
+        {
+          "id": 16,
+          "voxels": 66894,
+          "outside": 0
+        },
+        {
+          "id": 17,
+          "voxels": 467,
+          "outside": 0
+        },
+        {
+          "id": 18,
+          "voxels": 198,
+          "outside": 0
+        },
+        {
+          "id": 19,
+          "voxels": 7338,
+          "outside": 0
+        },
+        {
+          "id": 20,
+          "voxels": 295,
+          "outside": 0
+        },
+        {
+          "id": 21,
+          "voxels": 1717,
+          "outside": 0
+        }
+      ]
+    },
+    {
+      "case": "028",
+      "predicted_voxels_removed": 0,
+      "gt_voxels_removed": 0,
+      "gt_total_voxels": 737171,
+      "instances": [
+        {
+          "id": 1,
+          "voxels": 939,
+          "outside": 0
+        },
+        {
+          "id": 2,
+          "voxels": 158869,
+          "outside": 0
+        },
+        {
+          "id": 3,
+          "voxels": 1332,
+          "outside": 0
+        },
+        {
+          "id": 4,
+          "voxels": 2551,
+          "outside": 0
+        },
+        {
+          "id": 5,
+          "voxels": 340593,
+          "outside": 0
+        },
+        {
+          "id": 6,
+          "voxels": 1955,
+          "outside": 0
+        },
+        {
+          "id": 7,
+          "voxels": 1676,
+          "outside": 0
+        },
+        {
+          "id": 8,
+          "voxels": 654,
+          "outside": 0
+        },
+        {
+          "id": 9,
+          "voxels": 747,
+          "outside": 0
+        },
+        {
+          "id": 10,
+          "voxels": 1120,
+          "outside": 0
+        },
+        {
+          "id": 11,
+          "voxels": 631,
+          "outside": 0
+        },
+        {
+          "id": 12,
+          "voxels": 309593,
+          "outside": 0
+        },
+        {
+          "id": 13,
+          "voxels": 486,
+          "outside": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "instance": 1,
+    "region": 1,
+    "principal": 2,
+    "distance_surface_voxel_centers_mm": 5.0,
+    "contact_26": false,
+    "volume_mm3": 1063.7559234851506
+  },
+  {
+    "instance": 3,
+    "region": 1,
+    "principal": 2,
+    "distance_surface_voxel_centers_mm": 0.7832794189453125,
+    "contact_26": true,
+    "volume_mm3": 1508.9700639853254
+  },
+  {
+    "instance": 4,
+    "region": 2,
+    "principal": 5,
+    "distance_surface_voxel_centers_mm": 40.83789101715232,
+    "contact_26": false,
+    "volume_mm3": 2889.9269018217456
+  },
+  {
+    "instance": 6,
+    "region": 2,
+    "principal": 5,
+    "distance_surface_voxel_centers_mm": 18.47782352966285,
+    "contact_26": false,
+    "volume_mm3": 2214.7420984169003
+  },
+  {
+    "instance": 7,
+    "region": 2,
+    "principal": 5,
+    "distance_surface_voxel_centers_mm": 19.86123709733285,
+    "contact_26": false,
+    "volume_mm3": 1898.674044474028
+  },
+  {
+    "instance": 8,
+    "region": 2,
+    "principal": 5,
+    "distance_surface_voxel_centers_mm": 29.28068581846056,
+    "contact_26": false,
+    "volume_mm3": 740.890707091894
+  },
+  {
+    "instance": 9,
+    "region": 2,
+    "principal": 5,
+    "distance_surface_voxel_centers_mm": 28.252836910273608,
+    "contact_26": false,
+    "volume_mm3": 846.2467250728514
+  },
+  {
+    "instance": 10,
+    "region": 2,
+    "principal": 5,
+    "distance_surface_voxel_centers_mm": 51.70242413685314,
+    "contact_26": false,
+    "volume_mm3": 1268.8036574050784
+  },
+  {
+    "instance": 11,
+    "region": 2,
+    "principal": 5,
+    "distance_surface_voxel_centers_mm": 51.17874270946699,
+    "contact_26": false,
+    "volume_mm3": 714.834917698754
+  },
+  {
+    "instance": 13,
+    "region": 3,
+    "principal": 12,
+    "distance_surface_voxel_centers_mm": 16.04510281858964,
+    "contact_26": false,
+    "volume_mm3": 550.5701584811322
+  }
+]

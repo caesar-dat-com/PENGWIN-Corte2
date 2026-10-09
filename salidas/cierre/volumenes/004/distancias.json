@@ -1,0 +1,106 @@
+[
+  {
+    "instance": 1,
+    "region": 1,
+    "principal": 3,
+    "distance_surface_voxel_centers_mm": 108.50579022304133,
+    "contact_26": false,
+    "volume_mm3": 929.7857932448387
+  },
+  {
+    "instance": 2,
+    "region": 1,
+    "principal": 3,
+    "distance_surface_voxel_centers_mm": 90.85957110081222,
+    "contact_26": false,
+    "volume_mm3": 1012.8594380021095
+  },
+  {
+    "instance": 4,
+    "region": 1,
+    "principal": 3,
+    "distance_surface_voxel_centers_mm": 2.0,
+    "contact_26": false,
+    "volume_mm3": 535.718504011631
+  },
+  {
+    "instance": 5,
+    "region": 1,
+    "principal": 3,
+    "distance_surface_voxel_centers_mm": 2.608320422846456,
+    "contact_26": false,
+    "volume_mm3": 1027.770092189312
+  },
+  {
+    "instance": 6,
+    "region": 1,
+    "principal": 3,
+    "distance_surface_voxel_centers_mm": 4.0,
+    "contact_26": false,
+    "volume_mm3": 613.4669151306152
+  },
+  {
+    "instance": 8,
+    "region": 2,
+    "principal": 7,
+    "distance_surface_voxel_centers_mm": 43.33653041900937,
+    "contact_26": false,
+    "volume_mm3": 1279.121119916439
+  },
+  {
+    "instance": 9,
+    "region": 2,
+    "principal": 7,
+    "distance_surface_voxel_centers_mm": 28.792377852453797,
+    "contact_26": false,
+    "volume_mm3": 1029.9001856446266
+  },
+  {
+    "instance": 10,
+    "region": 2,
+    "principal": 7,
+    "distance_surface_voxel_centers_mm": 6.5044219353863655,
+    "contact_26": false,
+    "volume_mm3": 1098.063176214695
+  },
+  {
+    "instance": 11,
+    "region": 2,
+    "principal": 7,
+    "distance_surface_voxel_centers_mm": 2.0,
+    "contact_26": false,
+    "volume_mm3": 1984.1820536255836
+  },
+  {
+    "instance": 12,
+    "region": 2,
+    "principal": 7,
+    "distance_surface_voxel_centers_mm": 36.0,
+    "contact_26": false,
+    "volume_mm3": 611.3368216753006
+  },
+  {
+    "instance": 13,
+    "region": 2,
+    "principal": 7,
+    "distance_surface_voxel_centers_mm": 3.0,
+    "contact_26": false,
+    "volume_mm3": 14895.743533015251
+  },
+  {
+    "instance": 14,
+    "region": 2,
+    "principal": 7,
+    "distance_surface_voxel_centers_mm": 19.0,
+    "contact_26": false,
+    "volume_mm3": 514.4175694584846
+  },
+  {
+    "instance": 15,
+    "region": 2,
+    "principal": 7,
+    "distance_surface_voxel_centers_mm": 22.179405769582427,
+    "contact_26": false,
+    "volume_mm3": 1995.8975676298141
+  }
+]

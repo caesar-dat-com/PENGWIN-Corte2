@@ -1,0 +1,375 @@
+{
+  "scope": "9 variantes prespecificadas, solo val; una caja macro por región anatómica, no un límite de fragmentos; padding fracción de imagen",
+  "candidates": [
+    {
+      "metrics": {
+        "detection": {
+          "mAP50": 0.812984572378349,
+          "mAP50_95": 0.4064107431191122,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.6223544469831599,
+              "ap50_95": 0.2384777368728101
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.9188730081275218,
+              "ap50_95": 0.5094673188426608
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8977262620243651,
+              "ap50_95": 0.4712871736418657
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6667840430507052,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5910908991288149,
+          0.748397533110909,
+          0.7544608303137822
+        ],
+        "macro_dice": 0.6979830875178353,
+        "gt_mask_coverage": 0.8933227036463802,
+        "duplicate_regions": 0,
+        "missed_regions": 7,
+        "one_per_region": true,
+        "conf": 0.1,
+        "padding": 0.0
+      },
+      "eligible": false,
+      "score": 0.6297821905657384
+    },
+    {
+      "metrics": {
+        "detection": {
+          "mAP50": 0.7352839688346581,
+          "mAP50_95": 0.35320387101403344,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.4767061188877509,
+              "ap50_95": 0.19091914564289697
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.8833426506402627,
+              "ap50_95": 0.4323043124717355
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8458031369759602,
+              "ap50_95": 0.4363881549274682
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6327732612766287,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5791614449354704,
+          0.7457337995064816,
+          0.756253643542318
+        ],
+        "macro_dice": 0.6937162959947566,
+        "gt_mask_coverage": 0.9316233756511078,
+        "duplicate_regions": 0,
+        "missed_regions": 7,
+        "one_per_region": true,
+        "conf": 0.1,
+        "padding": 0.01
+      },
+      "eligible": false,
+      "score": 0.5933287716284582
+    },
+    {
+      "metrics": {
+        "detection": {
+          "mAP50": 0.6670748247005548,
+          "mAP50_95": 0.2494052576217642,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.40283550711539984,
+              "ap50_95": 0.13801978746913973
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.7786702161514808,
+              "ap50_95": 0.2867148585616608
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8197187508347836,
+              "ap50_95": 0.3234811268344918
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.5692085542957591,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.558500975576936,
+          0.7379272718045017,
+          0.750328224726696
+        ],
+        "macro_dice": 0.6822521573693779,
+        "gt_mask_coverage": 0.9463582391082382,
+        "duplicate_regions": 0,
+        "missed_regions": 7,
+        "one_per_region": true,
+        "conf": 0.1,
+        "padding": 0.02
+      },
+      "eligible": false,
+      "score": 0.5280608947630804
+    },
+    {
+      "metrics": {
+        "detection": {
+          "mAP50": 0.812984572378349,
+          "mAP50_95": 0.4064107431191122,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.6223544469831599,
+              "ap50_95": 0.2384777368728101
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.9188730081275218,
+              "ap50_95": 0.5094673188426608
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8977262620243651,
+              "ap50_95": 0.4712871736418657
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6667840430507052,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.6005477743882073,
+          0.748397533110909,
+          0.7523016401546098
+        ],
+        "macro_dice": 0.7004156492179087,
+        "gt_mask_coverage": 0.8844313487395056,
+        "duplicate_regions": 0,
+        "missed_regions": 9,
+        "one_per_region": true,
+        "conf": 0.15,
+        "padding": 0.0
+      },
+      "eligible": false,
+      "score": 0.6275593518390197
+    },
+    {
+      "metrics": {
+        "detection": {
+          "mAP50": 0.7352839688346581,
+          "mAP50_95": 0.35320387101403344,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.4767061188877509,
+              "ap50_95": 0.19091914564289697
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.8833426506402627,
+              "ap50_95": 0.4323043124717355
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8458031369759602,
+              "ap50_95": 0.4363881549274682
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6327732612766287,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5888125174629785,
+          0.7457143787232657,
+          0.7540707094854836
+        ],
+        "macro_dice": 0.6961992018905759,
+        "gt_mask_coverage": 0.9219146377870301,
+        "duplicate_regions": 0,
+        "missed_regions": 9,
+        "one_per_region": true,
+        "conf": 0.15,
+        "padding": 0.01
+      },
+      "eligible": false,
+      "score": 0.5909015871624388
+    },
+    {
+      "metrics": {
+        "detection": {
+          "mAP50": 0.6670748247005548,
+          "mAP50_95": 0.2494052576217642,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.40283550711539984,
+              "ap50_95": 0.13801978746913973
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.7786702161514808,
+              "ap50_95": 0.2867148585616608
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8197187508347836,
+              "ap50_95": 0.3234811268344918
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.5692085542957591,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5684578159240321,
+          0.7378804602951065,
+          0.7481645070716152
+        ],
+        "macro_dice": 0.6848342610969178,
+        "gt_mask_coverage": 0.9366495012441606,
+        "duplicate_regions": 0,
+        "missed_regions": 9,
+        "one_per_region": true,
+        "conf": 0.15,
+        "padding": 0.02
+      },
+      "eligible": false,
+      "score": 0.525633710297061
+    },
+    {
+      "metrics": {
+        "detection": {
+          "mAP50": 0.812984572378349,
+          "mAP50_95": 0.4064107431191122,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.6223544469831599,
+              "ap50_95": 0.2384777368728101
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.9188730081275218,
+              "ap50_95": 0.5094673188426608
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8977262620243651,
+              "ap50_95": 0.4712871736418657
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6667840430507052,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.6003363291125143,
+          0.7478854890207435,
+          0.7523016401546098
+        ],
+        "macro_dice": 0.7001744860959559,
+        "gt_mask_coverage": 0.8676701624406464,
+        "duplicate_regions": 0,
+        "missed_regions": 13,
+        "one_per_region": true,
+        "conf": 0.25,
+        "padding": 0.0
+      },
+      "eligible": false,
+      "score": 0.623369055264305
+    },
+    {
+      "metrics": {
+        "detection": {
+          "mAP50": 0.7352839688346581,
+          "mAP50_95": 0.35320387101403344,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.4767061188877509,
+              "ap50_95": 0.19091914564289697
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.8833426506402627,
+              "ap50_95": 0.4323043124717355
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8458031369759602,
+              "ap50_95": 0.4363881549274682
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.6327732612766287,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5884128954342648,
+          0.7452159115359287,
+          0.7540707094854836
+        ],
+        "macro_dice": 0.695899838818559,
+        "gt_mask_coverage": 0.9031745158633453,
+        "duplicate_regions": 0,
+        "missed_regions": 13,
+        "one_per_region": true,
+        "conf": 0.25,
+        "padding": 0.01
+      },
+      "eligible": false,
+      "score": 0.5862165566815176
+    },
+    {
+      "metrics": {
+        "detection": {
+          "mAP50": 0.6670748247005548,
+          "mAP50_95": 0.2494052576217642,
+          "per_class": {
+            "0": {
+              "gt": 52,
+              "ap50": 0.40283550711539984,
+              "ap50_95": 0.13801978746913973
+            },
+            "1": {
+              "gt": 77,
+              "ap50": 0.7786702161514808,
+              "ap50_95": 0.2867148585616608
+            },
+            "2": {
+              "gt": 77,
+              "ap50": 0.8197187508347836,
+              "ap50_95": 0.3234811268344918
+            }
+          },
+          "mean_gt_iou_at_conf025": 0.5692085542957591,
+          "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+        },
+        "semantic_dice": [
+          0.5679957056546021,
+          0.7373837475224881,
+          0.7481645070716152
+        ],
+        "macro_dice": 0.6845146534162353,
+        "gt_mask_coverage": 0.9172320255160052,
+        "duplicate_regions": 0,
+        "missed_regions": 13,
+        "one_per_region": true,
+        "conf": 0.25,
+        "padding": 0.02
+      },
+      "eligible": false,
+      "score": 0.5207793413650221
+    }
+  ],
+  "selected": null
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "instance": 1,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 2.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 4,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 4.177603599638029,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 5,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 33.544429813424166,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 6,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 23.878572352761537,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 7,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 40.75864480477476,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 8,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 3.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 9,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 36.53992638128493,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 10,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 48.944334742224626,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 11,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 5.833761036610876,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 13,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 6.833815396758123,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  }
+]

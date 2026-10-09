@@ -1,0 +1,130 @@
+[
+  {
+    "instance": 2,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 2.6626875117362627,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 3,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 6.067053903370749,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 4,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 12.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 5,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 15.204598303484131,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 6,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 15.018756583565972,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 8,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 3.4770540382853197,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 9,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 9.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 10,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 42.14688148772842,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 11,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 105.80650086360478,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 12,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 70.44035640905827,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 13,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 3.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 14,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 65.16280879758503,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 16,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 2.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 17,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 6.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 18,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 15.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 19,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 50.296875,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  }
+]
