@@ -1,0 +1,25 @@
+{
+  "gt": 7,
+  "pred": 12,
+  "missed": 4,
+  "extra": 9,
+  "matches_iou05": 2,
+  "dice_gt": 0.2877603820748728,
+  "iou_gt": 0.21961784093125356,
+  "dice_symmetric": 0.12589516715775687,
+  "distance_valid_pairs": 0,
+  "distance_MAE_mm": null,
+  "missing_gt_principal_regions": [],
+  "semantic_dice": [
+    0.5659653222573795,
+    0.7582669988842724,
+    0.7727476606074717
+  ],
+  "case": "028",
+  "policy": {
+    "method": "interfaces",
+    "threshold": 0.7,
+    "seed_mm3": 50.0,
+    "min_volume_mm3": 500.0
+  }
+}

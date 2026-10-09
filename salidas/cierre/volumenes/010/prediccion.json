@@ -1,0 +1,32 @@
+{
+  "case": "010",
+  "split": "test",
+  "sha256": "2a5e9f1daeec2328da2b78f263aa8edc1d10aa62593bfe5f18f56f494fc7297d",
+  "slices": 350,
+  "device": "cpu",
+  "latency_mean_ms": 26.84960857145987,
+  "latency_p50_ms": 24.62605000619078,
+  "latency_p95_ms": 38.556800000515075,
+  "latency_scope": "forward, NMS, restriccion de mascara por bbox y copia CPU; 3 warmups; excluye IO, resize e instancias3D",
+  "spacing_xyz": [
+    1.8919999599456787,
+    1.8919999599456787,
+    0.7989501953125
+  ],
+  "origin": [
+    -279.80001026391983,
+    -241.71450001001358,
+    -1409.0989990234375
+  ],
+  "direction": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ]
+}

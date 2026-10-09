@@ -1,0 +1,46 @@
+{
+  "checkpoint": "salidas\\cierre\\ajuste\\contorno\\best.pth",
+  "checkpoint_sha256": "2a5e9f1daeec2328da2b78f263aa8edc1d10aa62593bfe5f18f56f494fc7297d",
+  "instance_policy": {
+    "method": "interfaces",
+    "threshold": 0.5,
+    "seed_mm3": 50.0,
+    "min_volume_mm3": 500.0
+  },
+  "refinement_strength": 0.0,
+  "conf": 0.25,
+  "nms": 0.4,
+  "distance_min_iou": 0.5,
+  "test_volume_cases": [
+    "004",
+    "006",
+    "010"
+  ],
+  "test_slice_cases": [
+    "004",
+    "006",
+    "010",
+    "011",
+    "017",
+    "024",
+    "030",
+    "046",
+    "066",
+    "075",
+    "078",
+    "079",
+    "089",
+    "091",
+    "095"
+  ],
+  "slice_fractions": [
+    0.1,
+    0.5,
+    0.9
+  ],
+  "sam_fractions": [
+    0.5
+  ],
+  "test_history": "El conjunto test tuvo exposición exploratoria en avances anteriores. Este protocolo no se ajusta con los resultados nuevos; no es un test virgen.",
+  "dataset_split_sha256": "109860dd5a57289258e4993a53aaf81307e16758dbfbc88c4a07489abd92b745"
+}

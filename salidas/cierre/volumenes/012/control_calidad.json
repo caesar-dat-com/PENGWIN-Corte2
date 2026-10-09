@@ -1,0 +1,29 @@
+{
+  "kind": "control de calidad, no diagnostico",
+  "connectivity": 26,
+  "regions": [
+    {
+      "region": 1,
+      "components": 288,
+      "voxels": 48530,
+      "largest_fraction": 0.8258190809808366
+    },
+    {
+      "region": 2,
+      "components": 45,
+      "voxels": 185787,
+      "largest_fraction": 0.9744599998923499
+    },
+    {
+      "region": 3,
+      "components": 66,
+      "voxels": 115749,
+      "largest_fraction": 0.6924206688610701
+    }
+  ],
+  "alerts": [
+    "region_1: mas de 10 componentes; revisar ruido, desconexiones y fracturas",
+    "region_2: mas de 10 componentes; revisar ruido, desconexiones y fracturas",
+    "region_3: mas de 10 componentes; revisar ruido, desconexiones y fracturas"
+  ]
+}

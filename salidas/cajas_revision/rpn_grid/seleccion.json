@@ -1,0 +1,38 @@
+{
+  "eligible": null,
+  "baseline": {
+    "scope": "120 cortes val, no test; cache backbone congelado train/val para investigar cajas",
+    "architecture": "Grid propio + NMS propio; no hay módulo RPN en PelvisSesion2",
+    "checkpoint_sha256": "2a5e9f1daeec2328da2b78f263aa8edc1d10aa62593bfe5f18f56f494fc7297d",
+    "coordinate_roundtrip_max_normalized_error": 5.960464477539063e-08,
+    "regions_evaluated": 206,
+    "regions_with_duplicate_boxes": 99,
+    "regions_without_box": 1,
+    "regions_mask_coverage_below_95pct": 91,
+    "mean_gt_mask_coverage": 0.9067883932915004,
+    "detection": {
+      "mAP50": 0.638178058187376,
+      "mAP50_95": 0.1826584366288429,
+      "per_class": {
+        "0": {
+          "gt": 52,
+          "ap50": 0.3790549493904876,
+          "ap50_95": 0.06339771214949197
+        },
+        "1": {
+          "gt": 77,
+          "ap50": 0.7249449800873928,
+          "ap50_95": 0.22177126801922017
+        },
+        "2": {
+          "gt": 77,
+          "ap50": 0.8105342450842478,
+          "ap50_95": 0.2628063297178166
+        }
+      },
+      "mean_gt_iou_at_conf025": 0.5875883654645921,
+      "definition": "AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área"
+    }
+  },
+  "note": "Ensayo de validación; no sustituye ni reevalúa automáticamente el protocolo test anterior."
+}

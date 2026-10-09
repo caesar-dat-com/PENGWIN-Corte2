@@ -1,0 +1,57 @@
+{
+  "case": "002",
+  "split": "val",
+  "checkpoint_sha256": "243740caa16820186366a9f0259024ccb98e5169bed1bcd6187b9d052699d27c",
+  "epoch": 5,
+  "slices_contiguous": 337,
+  "size_xyz": [
+    256,
+    256,
+    337
+  ],
+  "spacing_xyz": [
+    1.3296966552734375,
+    0.88861083984375,
+    0.800000011920929
+  ],
+  "origin": [
+    -189.66439056396484,
+    -165.40306091308594,
+    -725.4089965820312
+  ],
+  "direction": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "device": "cpu",
+  "postprocessing": {
+    "conf": 0.25,
+    "nms": 0.4,
+    "boundary": 0.5
+  },
+  "latency_mean_ms": 63.77266468815312,
+  "latency_median_ms": 58.06029999803286,
+  "latency_scope": "forward+decode+NMS+semantic gating+transfer to CPU, 3 warmups; excluye lectura, resize y watershed 3D",
+  "distance_definition": "EDT entre centros de voxeles de superficie, mm; aproximación discreta, no distancia exacta entre caras",
+  "instance_method": "watershed 3D de bordes aprendidos dentro de región predicha y bbox propia; semillas por conectividad 26; mínimo 20 mm3",
+  "geometry_note": "Resolución XY reducida a 256; spacing/origen ajustados al campo físico. No se apilan cortes salteados.",
+  "distance_matching_min_iou": 0.5,
+  "fragment_metrics": {
+    "gt_fragments": 6,
+    "pred_instances": 81,
+    "dice_gt_macro_with_misses": 0.14396139524811255,
+    "iou_gt_macro_with_misses": 0.08597840049564875,
+    "dice_symmetric_macro_with_unmatched": 0.01028295680343661,
+    "missed_gt": 3,
+    "extra_pred": 78,
+    "distance_comparable_pairs": 0,
+    "distance_MAE_mm": null
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "case_slice": "095_128",
+    "dice_semantic": 0.5787572887880982,
+    "false_positive_pixels": 377,
+    "false_negative_pixels": 326,
+    "wrong_region_pixels": 0,
+    "hypothesis": "Predomina tejido sobrante; revisar especificidad y límites de las cajas."
+  },
+  {
+    "case_slice": "079_134",
+    "dice_semantic": 0.6827110677968479,
+    "false_positive_pixels": 643,
+    "false_negative_pixels": 271,
+    "wrong_region_pixels": 515,
+    "hypothesis": "Predomina tejido sobrante; revisar especificidad y límites de las cajas. Hay confusión entre regiones anatómicas."
+  },
+  {
+    "case_slice": "078_194",
+    "dice_semantic": 0.7162935068932349,
+    "false_positive_pixels": 1631,
+    "false_negative_pixels": 335,
+    "wrong_region_pixels": 0,
+    "hypothesis": "Predomina tejido sobrante; revisar especificidad y límites de las cajas."
+  },
+  {
+    "case_slice": "091_136",
+    "dice_semantic": 0.7470264284548223,
+    "false_positive_pixels": 576,
+    "false_negative_pixels": 44,
+    "wrong_region_pixels": 0,
+    "hypothesis": "Predomina tejido sobrante; revisar especificidad y límites de las cajas."
+  },
+  {
+    "case_slice": "011_156",
+    "dice_semantic": 0.7538372512299585,
+    "false_positive_pixels": 483,
+    "false_negative_pixels": 25,
+    "wrong_region_pixels": 0,
+    "hypothesis": "Predomina tejido sobrante; revisar especificidad y límites de las cajas."
+  }
+]

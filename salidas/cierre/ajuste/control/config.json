@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "architecture": "sesion2_skips8_interiores_ds_v1",
+  "initial_sha256": "ae2e052a8310305e6fb498c0a98960f5fd1f4ebdc354668d4126f5cd3ad268b9",
+  "decoder_only": true,
+  "seed": 42,
+  "epochs": 4,
+  "lr": 0.0002,
+  "batch": 8,
+  "ce_background": 0.2,
+  "macro_weight": 0.5,
+  "contour_weight": 0.2,
+  "selection": "0.7 Dice semantico + 0.3 F1 contorno tolerancia2px",
+  "test_used": false
+}

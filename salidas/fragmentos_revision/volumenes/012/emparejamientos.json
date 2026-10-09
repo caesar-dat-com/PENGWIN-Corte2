@@ -1,0 +1,142 @@
+[
+  {
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.23925718616990263,
+    "dice": 0.38612999600084685
+  },
+  {
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 7,
+    "gt": 11,
+    "iou": 0.2911751434280926,
+    "dice": 0.4510234648027958
+  },
+  {
+    "region": 2,
+    "pred": 9,
+    "gt": 12,
+    "iou": 0.11290547125156619,
+    "dice": 0.20290217663247437
+  },
+  {
+    "region": 2,
+    "pred": null,
+    "gt": 13,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 8,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 10,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 15,
+    "gt": 21,
+    "iou": 0.3761964468618656,
+    "dice": 0.5467191079001905
+  },
+  {
+    "region": 3,
+    "pred": 11,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 12,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 13,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 14,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 16,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 17,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 18,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 19,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  }
+]

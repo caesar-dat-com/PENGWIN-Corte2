@@ -1,0 +1,163 @@
+[
+  {
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.46085696987347013,
+    "dice": 0.630940577178321
+  },
+  {
+    "region": 1,
+    "pred": null,
+    "gt": 2,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 7,
+    "gt": 11,
+    "iou": 0.6173726019150212,
+    "dice": 0.7634265613057031
+  },
+  {
+    "region": 2,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 8,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 9,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 10,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 11,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 12,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 13,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 14,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 15,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 2,
+    "pred": 16,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 17,
+    "gt": 21,
+    "iou": 0.6246804960370131,
+    "dice": 0.7689887304744032
+  },
+  {
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 18,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 19,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "region": 3,
+    "pred": 20,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  }
+]

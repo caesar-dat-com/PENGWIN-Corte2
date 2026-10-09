@@ -1,0 +1,106 @@
+[
+  {
+    "instance": 1,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 108.50579022304133,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 2,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 90.85957110081222,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 4,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 2.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 5,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 2.608320422846456,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 6,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 4.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 8,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 43.33653041900937,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 9,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 28.792377852453797,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 10,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 6.5044219353863655,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 11,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 2.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 12,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 36.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 13,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 3.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 14,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 19.0,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  },
+  {
+    "instance": 15,
+    "gt_instance": null,
+    "valid_pair": false,
+    "pred_mm": 22.179405769582427,
+    "gt_mm": null,
+    "absolute_error_mm": null
+  }
+]

@@ -1,0 +1,30 @@
+test_giou_identity_and_disjoint_gradients (test_cierre.CierreTests.test_giou_identity_and_disjoint_gradients) ... ok
+test_interfaces_separate_touching_fragments (test_cierre.CierreTests.test_interfaces_separate_touching_fragments) ... ok
+test_oracle_distance_comparison_is_zero (test_cierre.CierreTests.test_oracle_distance_comparison_is_zero) ... ok
+test_resnet_own_heads_shape (test_cierre.CierreTests.test_resnet_own_heads_shape) ... ok
+test_volume_filter_uses_physical_spacing (test_cierre.CierreTests.test_volume_filter_uses_physical_spacing) ... ok
+test_loss_empty_and_foreground_gradients (test_macro_sobel.MacroTests.test_loss_empty_and_foreground_gradients) ... ok
+test_lps_landmark_and_roundtrip (test_macro_sobel.MacroTests.test_lps_landmark_and_roundtrip) ... ok
+test_qc_does_not_delete_fragments (test_macro_sobel.MacroTests.test_qc_does_not_delete_fragments) ... ok
+test_refinement_identity_and_confident_island (test_macro_sobel.MacroTests.test_refinement_identity_and_confident_island) ... ok
+test_refinement_respects_intensity_edge (test_macro_sobel.MacroTests.test_refinement_respects_intensity_edge) ... ok
+test_sobel_constant_and_step (test_macro_sobel.MacroTests.test_sobel_constant_and_step) ... ok
+test_ap_penalizes_missed_and_false_detections (test_revision.Tests.test_ap_penalizes_missed_and_false_detections) ... ok
+test_auc_ties_and_unavailable_class (test_revision.Tests.test_auc_ties_and_unavailable_class) ... ok
+test_balanced_loss_and_three_heads_backward (test_revision.Tests.test_balanced_loss_and_three_heads_backward) ... ok
+test_edt_spacing_and_contact (test_revision.Tests.test_edt_spacing_and_contact) ... ok
+test_filter_is_region_area_not_components (test_revision.Tests.test_filter_is_region_area_not_components) ... ok
+test_gt_principal_does_not_change_with_volume (test_revision.Tests.test_gt_principal_does_not_change_with_volume) ... ok
+test_interfaces_invariant_to_ids (test_revision.Tests.test_interfaces_invariant_to_ids) ... ok
+test_physical_grid_center_preserved (test_revision.Tests.test_physical_grid_center_preserved) ... ok
+test_small_gt_is_preserved (test_revision.Tests.test_small_gt_is_preserved) ... ok
+test_watershed_and_matching (test_revision.Tests.test_watershed_and_matching) ... ok
+test_local_ids_and_individual_masks (test_sesion2.Sesion2Tests.test_local_ids_and_individual_masks) ... ok
+test_seed_filter_keeps_isolated_component_without_seed (test_sesion2.Sesion2Tests.test_seed_filter_keeps_isolated_component_without_seed) ... ok
+test_skips_receive_gradients_and_keep_eight_channels (test_sesion2.Sesion2Tests.test_skips_receive_gradients_and_keep_eight_channels) ... ok
+test_touching_fragments_separated_by_interiors (test_sesion2.Sesion2Tests.test_touching_fragments_separated_by_interiors) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 2.815s
+
+OK

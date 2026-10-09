@@ -1,0 +1,3872 @@
+[
+  {
+    "case": "002",
+    "z": 48,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.2784313725490196,
+    "dice": 0.43558282208588955
+  },
+  {
+    "case": "002",
+    "z": 48,
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 48,
+    "region": 3,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 96,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 96,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.12752293577981652,
+    "dice": 0.22620016273393004
+  },
+  {
+    "case": "002",
+    "z": 96,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 96,
+    "region": 3,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 144,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 144,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 144,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 144,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.4422554347826087,
+    "dice": 0.6132830899670277
+  },
+  {
+    "case": "002",
+    "z": 192,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.08415841584158416,
+    "dice": 0.1552511415525114
+  },
+  {
+    "case": "002",
+    "z": 192,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 192,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 192,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 192,
+    "region": 3,
+    "pred": 4,
+    "gt": 21,
+    "iou": 0.4054621848739496,
+    "dice": 0.5769805680119582
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 1,
+    "pred": 3,
+    "gt": 1,
+    "iou": 0.41143364928909953,
+    "dice": 0.5830010493179434
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 1,
+    "pred": 4,
+    "gt": 2,
+    "iou": 0.2810126582278481,
+    "dice": 0.43873517786561267
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 1,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 1,
+    "pred": 7,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 1,
+    "pred": 8,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 1,
+    "pred": 9,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 3,
+    "pred": 11,
+    "gt": 21,
+    "iou": 0.26744186046511625,
+    "dice": 0.42201834862385323
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 3,
+    "pred": 10,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "region": 3,
+    "pred": 12,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 288,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "002",
+    "z": 288,
+    "region": 3,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 38,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 75,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 75,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 75,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.14380825565912117,
+    "dice": 0.25145518044237486
+  },
+  {
+    "case": "012",
+    "z": 113,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 113,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 113,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.40683760683760684,
+    "dice": 0.5783718104495748
+  },
+  {
+    "case": "012",
+    "z": 151,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.10968494749124855,
+    "dice": 0.19768664563617244
+  },
+  {
+    "case": "012",
+    "z": 151,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 151,
+    "region": 2,
+    "pred": null,
+    "gt": 13,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 151,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.1984732824427481,
+    "dice": 0.33121019108280253
+  },
+  {
+    "case": "012",
+    "z": 151,
+    "region": 3,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 151,
+    "region": 3,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 189,
+    "region": 1,
+    "pred": 3,
+    "gt": 1,
+    "iou": 0.21739130434782608,
+    "dice": 0.35714285714285715
+  },
+  {
+    "case": "012",
+    "z": 189,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 189,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 189,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 189,
+    "region": 2,
+    "pred": null,
+    "gt": 13,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 189,
+    "region": 3,
+    "pred": 4,
+    "gt": 21,
+    "iou": 0.003703703703703704,
+    "dice": 0.007380073800738007
+  },
+  {
+    "case": "012",
+    "z": 226,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 226,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 226,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 226,
+    "region": 2,
+    "pred": null,
+    "gt": 13,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "012",
+    "z": 226,
+    "region": 3,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 87,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 87,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 87,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 87,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 130,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 130,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 130,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 130,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 173,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.3809702895825498,
+    "dice": 0.5517429193899782
+  },
+  {
+    "case": "028",
+    "z": 173,
+    "region": 1,
+    "pred": 2,
+    "gt": 2,
+    "iou": 0.05454545454545454,
+    "dice": 0.10344827586206896
+  },
+  {
+    "case": "028",
+    "z": 173,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 173,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 173,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 173,
+    "region": 3,
+    "pred": 5,
+    "gt": 21,
+    "iou": 0.5625,
+    "dice": 0.72
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "region": 1,
+    "pred": 2,
+    "gt": 2,
+    "iou": 0.004219409282700422,
+    "dice": 0.008403361344537815
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "region": 1,
+    "pred": 3,
+    "gt": 1,
+    "iou": 0.06619144602851323,
+    "dice": 0.12416427889207259
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "region": 3,
+    "pred": 5,
+    "gt": 21,
+    "iou": 0.03982777179763186,
+    "dice": 0.07660455486542443
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "region": 3,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "region": 3,
+    "pred": 7,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "028",
+    "z": 260,
+    "region": 3,
+    "pred": 1,
+    "gt": 23,
+    "iou": 0.25077399380804954,
+    "dice": 0.400990099009901
+  },
+  {
+    "case": "028",
+    "z": 303,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 0,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 104,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 104,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 104,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.41,
+    "dice": 0.5815602836879432
+  },
+  {
+    "case": "033",
+    "z": 104,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 156,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.007207207207207207,
+    "dice": 0.014311270125223614
+  },
+  {
+    "case": "033",
+    "z": 156,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 156,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 156,
+    "region": 3,
+    "pred": 4,
+    "gt": 21,
+    "iou": 0.3142485361093038,
+    "dice": 0.4782178217821782
+  },
+  {
+    "case": "033",
+    "z": 156,
+    "region": 3,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 208,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.07985803016858918,
+    "dice": 0.14790468364831552
+  },
+  {
+    "case": "033",
+    "z": 208,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 208,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 208,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 208,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 208,
+    "region": 3,
+    "pred": 6,
+    "gt": 21,
+    "iou": 0.3728893058161351,
+    "dice": 0.5432183122651179
+  },
+  {
+    "case": "033",
+    "z": 208,
+    "region": 3,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 260,
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.05663716814159292,
+    "dice": 0.10720268006700168
+  },
+  {
+    "case": "033",
+    "z": 260,
+    "region": 1,
+    "pred": 3,
+    "gt": 2,
+    "iou": 0.36194779116465864,
+    "dice": 0.5315149281238482
+  },
+  {
+    "case": "033",
+    "z": 260,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 260,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 260,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 260,
+    "region": 3,
+    "pred": 5,
+    "gt": 21,
+    "iou": 0.07472959685349066,
+    "dice": 0.13906678865507777
+  },
+  {
+    "case": "033",
+    "z": 260,
+    "region": 3,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 1,
+    "pred": 3,
+    "gt": 1,
+    "iou": 0.11817168338907469,
+    "dice": 0.21136590229312063
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 1,
+    "pred": 4,
+    "gt": 2,
+    "iou": 0.21497120921305182,
+    "dice": 0.353870458135861
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 1,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 1,
+    "pred": 7,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 1,
+    "pred": 8,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 3,
+    "pred": 10,
+    "gt": 21,
+    "iou": 0.2232223222322232,
+    "dice": 0.36497424576894777
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 3,
+    "pred": 9,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "region": 3,
+    "pred": 11,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "033",
+    "z": 364,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 100,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 100,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.3037383177570093,
+    "dice": 0.4659498207885305
+  },
+  {
+    "case": "042",
+    "z": 100,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 150,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 150,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 150,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.3486111111111111,
+    "dice": 0.5169927909371782
+  },
+  {
+    "case": "042",
+    "z": 150,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 199,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 199,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 199,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.5704387990762124,
+    "dice": 0.7264705882352941
+  },
+  {
+    "case": "042",
+    "z": 199,
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "region": 1,
+    "pred": 4,
+    "gt": 1,
+    "iou": 0.0831353919239905,
+    "dice": 0.15350877192982457
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "region": 3,
+    "pred": 6,
+    "gt": 21,
+    "iou": 0.22953736654804271,
+    "dice": 0.37337192474674386
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "region": 3,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "region": 3,
+    "pred": 7,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 299,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 299,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "042",
+    "z": 299,
+    "region": 3,
+    "pred": 2,
+    "gt": 23,
+    "iou": 0.2391304347826087,
+    "dice": 0.38596491228070173
+  },
+  {
+    "case": "042",
+    "z": 299,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 39,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 78,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 78,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.112,
+    "dice": 0.2014388489208633
+  },
+  {
+    "case": "043",
+    "z": 78,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 78,
+    "region": 3,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 78,
+    "region": 3,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 117,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 117,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 117,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 117,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.1395617070357555,
+    "dice": 0.24493927125506074
+  },
+  {
+    "case": "043",
+    "z": 156,
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.21280276816608998,
+    "dice": 0.3509272467902996
+  },
+  {
+    "case": "043",
+    "z": 156,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 156,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 156,
+    "region": 3,
+    "pred": 3,
+    "gt": 21,
+    "iou": 0.45454545454545453,
+    "dice": 0.625
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.3882289416846652,
+    "dice": 0.5593154414624659
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 3,
+    "pred": 8,
+    "gt": 21,
+    "iou": 0.016981132075471698,
+    "dice": 0.03339517625231911
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 3,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "region": 3,
+    "pred": 7,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 234,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 234,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 234,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 234,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 234,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 234,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "043",
+    "z": 234,
+    "region": 3,
+    "pred": 4,
+    "gt": 21,
+    "iou": 0.3558282208588957,
+    "dice": 0.5248868778280543
+  },
+  {
+    "case": "043",
+    "z": 273,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 59,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 59,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 59,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 59,
+    "region": 3,
+    "pred": 3,
+    "gt": 21,
+    "iou": 0.07462686567164178,
+    "dice": 0.1388888888888889
+  },
+  {
+    "case": "048",
+    "z": 59,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 118,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 118,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 118,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.3389679715302491,
+    "dice": 0.506312292358804
+  },
+  {
+    "case": "048",
+    "z": 177,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 177,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 177,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 177,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.372829417773238,
+    "dice": 0.5431547619047619
+  },
+  {
+    "case": "048",
+    "z": 236,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.5357766143106457,
+    "dice": 0.6977272727272728
+  },
+  {
+    "case": "048",
+    "z": 236,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 236,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 236,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 236,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 236,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 236,
+    "region": 3,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 236,
+    "region": 3,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 295,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 413,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "048",
+    "z": 413,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 50,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 50,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 50,
+    "region": 2,
+    "pred": null,
+    "gt": 16,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 50,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 100,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 100,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 100,
+    "region": 2,
+    "pred": null,
+    "gt": 14,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 100,
+    "region": 2,
+    "pred": null,
+    "gt": 15,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 100,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.2077562326869806,
+    "dice": 0.3440366972477064
+  },
+  {
+    "case": "049",
+    "z": 150,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 150,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 150,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.7282608695652174,
+    "dice": 0.8427672955974843
+  },
+  {
+    "case": "049",
+    "z": 199,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.4450730787364451,
+    "dice": 0.6159869494290375
+  },
+  {
+    "case": "049",
+    "z": 199,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 199,
+    "region": 2,
+    "pred": null,
+    "gt": 13,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 199,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.16981132075471697,
+    "dice": 0.2903225806451613
+  },
+  {
+    "case": "049",
+    "z": 199,
+    "region": 3,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.006858710562414266,
+    "dice": 0.013623978201634877
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 2,
+    "pred": null,
+    "gt": 13,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 3,
+    "pred": 6,
+    "gt": 21,
+    "iou": 0.08646616541353383,
+    "dice": 0.15916955017301038
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 3,
+    "pred": 7,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 3,
+    "pred": 8,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "region": 3,
+    "pred": 9,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 299,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 299,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 299,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 299,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "049",
+    "z": 349,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 41,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 41,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.016701461377870562,
+    "dice": 0.03285420944558522
+  },
+  {
+    "case": "056",
+    "z": 41,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 81,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 81,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 81,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.14697193500738553,
+    "dice": 0.25627817128139085
+  },
+  {
+    "case": "056",
+    "z": 81,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 81,
+    "region": 3,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 122,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 122,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 122,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.21990049751243781,
+    "dice": 0.3605220228384992
+  },
+  {
+    "case": "056",
+    "z": 122,
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 162,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.4011124845488257,
+    "dice": 0.572562858403176
+  },
+  {
+    "case": "056",
+    "z": 162,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 162,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 162,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 162,
+    "region": 3,
+    "pred": 4,
+    "gt": 21,
+    "iou": 0.3115693012600229,
+    "dice": 0.47510917030567684
+  },
+  {
+    "case": "056",
+    "z": 162,
+    "region": 3,
+    "pred": 5,
+    "gt": 23,
+    "iou": 0.10789049919484701,
+    "dice": 0.19476744186046513
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "region": 3,
+    "pred": 6,
+    "gt": 24,
+    "iou": 0.015,
+    "dice": 0.029556650246305417
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "region": 3,
+    "pred": 7,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 47,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 47,
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 95,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 95,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 95,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 95,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.24740484429065743,
+    "dice": 0.39667128987517336
+  },
+  {
+    "case": "060",
+    "z": 95,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 142,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.4377104377104377,
+    "dice": 0.6088992974238876
+  },
+  {
+    "case": "060",
+    "z": 142,
+    "region": 1,
+    "pred": null,
+    "gt": 2,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 142,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 142,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 142,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 190,
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.29115853658536583,
+    "dice": 0.4510035419126328
+  },
+  {
+    "case": "060",
+    "z": 190,
+    "region": 1,
+    "pred": 4,
+    "gt": 2,
+    "iou": 0.2672955974842767,
+    "dice": 0.4218362282878412
+  },
+  {
+    "case": "060",
+    "z": 190,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 190,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 190,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 190,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 190,
+    "region": 3,
+    "pred": 6,
+    "gt": 21,
+    "iou": 0.30066545674531153,
+    "dice": 0.46232558139534885
+  },
+  {
+    "case": "060",
+    "z": 237,
+    "region": 1,
+    "pred": 1,
+    "gt": 2,
+    "iou": 0.240024554941682,
+    "dice": 0.38712871287128714
+  },
+  {
+    "case": "060",
+    "z": 237,
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.12391738840772819,
+    "dice": 0.22050978067575577
+  },
+  {
+    "case": "060",
+    "z": 237,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 237,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 237,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 237,
+    "region": 3,
+    "pred": 5,
+    "gt": 21,
+    "iou": 0.08389435525634387,
+    "dice": 0.15480172001911133
+  },
+  {
+    "case": "060",
+    "z": 237,
+    "region": 3,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 285,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 285,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 285,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 285,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 285,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 285,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "060",
+    "z": 285,
+    "region": 3,
+    "pred": 6,
+    "gt": 21,
+    "iou": 0.01834862385321101,
+    "dice": 0.036036036036036036
+  },
+  {
+    "case": "060",
+    "z": 332,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 50,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 100,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 100,
+    "region": 3,
+    "pred": 1,
+    "gt": 22,
+    "iou": 0.060897435897435896,
+    "dice": 0.1148036253776435
+  },
+  {
+    "case": "064",
+    "z": 100,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 150,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.07100591715976332,
+    "dice": 0.13259668508287292
+  },
+  {
+    "case": "064",
+    "z": 150,
+    "region": 1,
+    "pred": 4,
+    "gt": 2,
+    "iou": 0.43478260869565216,
+    "dice": 0.6060606060606061
+  },
+  {
+    "case": "064",
+    "z": 150,
+    "region": 1,
+    "pred": null,
+    "gt": 3,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 150,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 150,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 150,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 150,
+    "region": 3,
+    "pred": 5,
+    "gt": 21,
+    "iou": 0.4624145785876993,
+    "dice": 0.632398753894081
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.1056533827618165,
+    "dice": 0.19111483654652137
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 1,
+    "pred": 3,
+    "gt": 3,
+    "iou": 0.1746987951807229,
+    "dice": 0.29743589743589743
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 3,
+    "pred": 6,
+    "gt": 21,
+    "iou": 0.2295229522952295,
+    "dice": 0.3733528550512445
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 3,
+    "pred": 7,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "region": 3,
+    "pred": 8,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 249,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 249,
+    "region": 1,
+    "pred": null,
+    "gt": 3,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 249,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 249,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 249,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "064",
+    "z": 249,
+    "region": 3,
+    "pred": 3,
+    "gt": 21,
+    "iou": 0.06060606060606061,
+    "dice": 0.11428571428571428
+  },
+  {
+    "case": "064",
+    "z": 249,
+    "region": 3,
+    "pred": 4,
+    "gt": 23,
+    "iou": 0.16298811544991512,
+    "dice": 0.28029197080291973
+  },
+  {
+    "case": "065",
+    "z": 50,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 100,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 100,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 100,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 100,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.43118148599269185,
+    "dice": 0.6025531914893617
+  },
+  {
+    "case": "065",
+    "z": 150,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 150,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 150,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 150,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 150,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 150,
+    "region": 3,
+    "pred": 3,
+    "gt": 21,
+    "iou": 0.32578125,
+    "dice": 0.49145550972304064
+  },
+  {
+    "case": "065",
+    "z": 199,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 199,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 199,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 199,
+    "region": 3,
+    "pred": 3,
+    "gt": 21,
+    "iou": 0.31709646609360076,
+    "dice": 0.4815083393763597
+  },
+  {
+    "case": "065",
+    "z": 199,
+    "region": 3,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.2910293509714758,
+    "dice": 0.4508485430675632
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "region": 1,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "region": 3,
+    "pred": 7,
+    "gt": 21,
+    "iou": 0.3424283765347885,
+    "dice": 0.5101626016260162
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "region": 3,
+    "pred": 8,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "065",
+    "z": 299,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 50,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 50,
+    "region": 3,
+    "pred": null,
+    "gt": 23,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 100,
+    "region": 1,
+    "pred": null,
+    "gt": 2,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 100,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 100,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.7631578947368421,
+    "dice": 0.8656716417910447
+  },
+  {
+    "case": "068",
+    "z": 100,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 150,
+    "region": 1,
+    "pred": 1,
+    "gt": 2,
+    "iou": 0.010638297872340425,
+    "dice": 0.021052631578947368
+  },
+  {
+    "case": "068",
+    "z": 150,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 150,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 150,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 150,
+    "region": 3,
+    "pred": 3,
+    "gt": 21,
+    "iou": 0.0950354609929078,
+    "dice": 0.17357512953367876
+  },
+  {
+    "case": "068",
+    "z": 199,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.520618556701031,
+    "dice": 0.6847457627118644
+  },
+  {
+    "case": "068",
+    "z": 199,
+    "region": 1,
+    "pred": 2,
+    "gt": 3,
+    "iou": 0.0821917808219178,
+    "dice": 0.1518987341772152
+  },
+  {
+    "case": "068",
+    "z": 199,
+    "region": 1,
+    "pred": null,
+    "gt": 2,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 199,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 199,
+    "region": 3,
+    "pred": 3,
+    "gt": 21,
+    "iou": 0.4497389033942559,
+    "dice": 0.6204412426834759
+  },
+  {
+    "case": "068",
+    "z": 249,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.2276679841897233,
+    "dice": 0.3708950418544752
+  },
+  {
+    "case": "068",
+    "z": 249,
+    "region": 1,
+    "pred": 2,
+    "gt": 3,
+    "iou": 0.13097345132743363,
+    "dice": 0.23161189358372458
+  },
+  {
+    "case": "068",
+    "z": 249,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 249,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 249,
+    "region": 3,
+    "pred": 5,
+    "gt": 21,
+    "iou": 0.2873134328358209,
+    "dice": 0.4463768115942029
+  },
+  {
+    "case": "068",
+    "z": 249,
+    "region": 3,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 299,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 299,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "068",
+    "z": 299,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.19101123595505617,
+    "dice": 0.32075471698113206
+  },
+  {
+    "case": "068",
+    "z": 299,
+    "region": 3,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 51,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.11251980982567353,
+    "dice": 0.2022792022792023
+  },
+  {
+    "case": "085",
+    "z": 101,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 101,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 101,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 101,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 101,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 101,
+    "region": 2,
+    "pred": null,
+    "gt": 14,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 101,
+    "region": 3,
+    "pred": 5,
+    "gt": 21,
+    "iou": 0.37606232294617564,
+    "dice": 0.5465774575398867
+  },
+  {
+    "case": "085",
+    "z": 101,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 152,
+    "region": 1,
+    "pred": 1,
+    "gt": 2,
+    "iou": 0.08994708994708994,
+    "dice": 0.1650485436893204
+  },
+  {
+    "case": "085",
+    "z": 152,
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.05128205128205128,
+    "dice": 0.0975609756097561
+  },
+  {
+    "case": "085",
+    "z": 152,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 152,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 152,
+    "region": 2,
+    "pred": null,
+    "gt": 14,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 152,
+    "region": 3,
+    "pred": 4,
+    "gt": 21,
+    "iou": 0.727007299270073,
+    "dice": 0.841927303465765
+  },
+  {
+    "case": "085",
+    "z": 203,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.38650306748466257,
+    "dice": 0.5575221238938053
+  },
+  {
+    "case": "085",
+    "z": 203,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 203,
+    "region": 2,
+    "pred": null,
+    "gt": 13,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 203,
+    "region": 3,
+    "pred": 3,
+    "gt": 21,
+    "iou": 0.3301637612255679,
+    "dice": 0.4964257347100874
+  },
+  {
+    "case": "085",
+    "z": 203,
+    "region": 3,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 254,
+    "region": 1,
+    "pred": 1,
+    "gt": 1,
+    "iou": 0.29594561786841467,
+    "dice": 0.4567253653053578
+  },
+  {
+    "case": "085",
+    "z": 254,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 254,
+    "region": 2,
+    "pred": null,
+    "gt": 13,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 254,
+    "region": 3,
+    "pred": 2,
+    "gt": 21,
+    "iou": 0.3515456506110712,
+    "dice": 0.5202127659574468
+  },
+  {
+    "case": "085",
+    "z": 304,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 304,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 304,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "085",
+    "z": 355,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 42,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 42,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 42,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 42,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 83,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 83,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 83,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 83,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 83,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 83,
+    "region": 3,
+    "pred": 3,
+    "gt": 21,
+    "iou": 0.3704866562009419,
+    "dice": 0.5406643757159221
+  },
+  {
+    "case": "092",
+    "z": 83,
+    "region": 3,
+    "pred": null,
+    "gt": 22,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 83,
+    "region": 3,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 125,
+    "region": 1,
+    "pred": null,
+    "gt": 1,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 125,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 125,
+    "region": 2,
+    "pred": null,
+    "gt": 12,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 125,
+    "region": 3,
+    "pred": 1,
+    "gt": 21,
+    "iou": 0.7442922374429224,
+    "dice": 0.8534031413612565
+  },
+  {
+    "case": "092",
+    "z": 167,
+    "region": 1,
+    "pred": 3,
+    "gt": 1,
+    "iou": 0.2549420586230402,
+    "dice": 0.40630092341118956
+  },
+  {
+    "case": "092",
+    "z": 167,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 167,
+    "region": 1,
+    "pred": 2,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 167,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 167,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 167,
+    "region": 3,
+    "pred": 5,
+    "gt": 21,
+    "iou": 0.19140625,
+    "dice": 0.32131147540983607
+  },
+  {
+    "case": "092",
+    "z": 167,
+    "region": 3,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 209,
+    "region": 1,
+    "pred": 2,
+    "gt": 1,
+    "iou": 0.039721946375372394,
+    "dice": 0.07640878701050621
+  },
+  {
+    "case": "092",
+    "z": 209,
+    "region": 1,
+    "pred": 1,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 209,
+    "region": 1,
+    "pred": 3,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 209,
+    "region": 1,
+    "pred": 4,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 209,
+    "region": 1,
+    "pred": 5,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 209,
+    "region": 1,
+    "pred": 6,
+    "gt": null,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 209,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 209,
+    "region": 3,
+    "pred": null,
+    "gt": 21,
+    "iou": 0.0,
+    "dice": 0.0
+  },
+  {
+    "case": "092",
+    "z": 250,
+    "region": 2,
+    "pred": null,
+    "gt": 11,
+    "iou": 0.0,
+    "dice": 0.0
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "case": "002",
+  "split": "val",
+  "checkpoint_sha256": "ec2778e3e880d9ae1e3b29d5ccd12a23f0e42526db42d1d6a597ed471b55f4e3",
+  "epoch": 6,
+  "slices_contiguous": 337,
+  "size_xyz": [
+    256,
+    256,
+    337
+  ],
+  "spacing_xyz": [
+    1.3296966552734375,
+    0.88861083984375,
+    0.800000011920929
+  ],
+  "origin": [
+    -189.66439056396484,
+    -165.40306091308594,
+    -725.4089965820312
+  ],
+  "direction": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "device": "cpu",
+  "postprocessing": {
+    "conf": 0.25,
+    "nms": 0.4,
+    "boundary": 0.5,
+    "interior": 0.5,
+    "min_seed_mm3": 50.0
+  },
+  "latency_mean_ms": 28.900925815649515,
+  "latency_median_ms": 26.206700000329874,
+  "latency_scope": "forward+decode+NMS+semantic gating+transfer to CPU, 3 warmups; excluye lectura, resize y watershed 3D",
+  "distance_definition": "EDT entre centros de voxeles de superficie, mm; aproximación discreta, no distancia exacta entre caras",
+  "instance_method": "watershed 3D con interiores y bordes aprendidos dentro de región y cajas propias; semillas26, interior>0.5 y borde<0.5; mínimo20mm3; filtrado de semillas según min_seed_mm3",
+  "geometry_note": "Resolución XY reducida a 256; spacing/origen ajustados al campo físico. No se apilan cortes salteados.",
+  "distance_matching_min_iou": 0.5,
+  "fragment_metrics": {
+    "gt_fragments": 6,
+    "pred_instances": 358,
+    "dice_gt_macro_with_misses": 0.3474727968063595,
+    "iou_gt_macro_with_misses": 0.2444172851177897,
+    "dice_symmetric_macro_with_unmatched": 0.005823566426922226,
+    "missed_gt": 0,
+    "extra_pred": 352,
+    "distance_comparable_pairs": 0,
+    "distance_MAE_mm": null
+  }
+}

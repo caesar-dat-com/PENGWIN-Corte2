@@ -1,0 +1,23 @@
+{
+  "fecha": "2026-10-08",
+  "estado": "guardado; experimentos detenidos",
+  "modelo_segmentacion": "salidas/cierre/ajuste/contorno/best.pth",
+  "rpn": "salidas/cajas_revision/rpn_grid/best_diagnostic.pth",
+  "fusion": "salidas/cajas_revision/fusion.json",
+  "volumenes_activos": "salidas/fragmentos_revision/volumenes",
+  "dashboard": "dashboard",
+  "casos_validacion": [
+    "002",
+    "012",
+    "028"
+  ],
+  "cortes": 906,
+  "extras": 32,
+  "omitidos": 8,
+  "pruebas_aprobadas": 38,
+  "clahe": "evaluado y no desplegado",
+  "negativos_dificiles": "evaluados; ninguna variante cumplió todas las salvaguardas",
+  "git_modificado": false,
+  "carpeta_original_onedrive_actualizada": true,
+  "respaldo_previo": "C:\\Users\\Asus\\OneDrive\\Documentos\\Analitica de Datos\\PENGWIN-Corte2\\respaldos\\antes_cierre_20261008_213007.zip"
+}

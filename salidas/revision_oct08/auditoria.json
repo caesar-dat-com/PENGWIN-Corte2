@@ -1,0 +1,55 @@
+{
+  "casos": 100,
+  "rows": [
+    {
+      "umbral_area_px": 0,
+      "regiones_corte_anotadas": 62738,
+      "cajas_omitidas": 0,
+      "cajas_conservadas": 62738,
+      "porcentaje_omitido": 0.0
+    },
+    {
+      "umbral_area_px": 5,
+      "regiones_corte_anotadas": 62738,
+      "cajas_omitidas": 76,
+      "cajas_conservadas": 62662,
+      "porcentaje_omitido": 0.12113870381586916
+    },
+    {
+      "umbral_area_px": 10,
+      "regiones_corte_anotadas": 62738,
+      "cajas_omitidas": 168,
+      "cajas_conservadas": 62570,
+      "porcentaje_omitido": 0.26778029264560554
+    },
+    {
+      "umbral_area_px": 15,
+      "regiones_corte_anotadas": 62738,
+      "cajas_omitidas": 255,
+      "cajas_conservadas": 62483,
+      "porcentaje_omitido": 0.4064522299085084
+    },
+    {
+      "umbral_area_px": 20,
+      "regiones_corte_anotadas": 62738,
+      "cajas_omitidas": 336,
+      "cajas_conservadas": 62402,
+      "porcentaje_omitido": 0.5355605852912111
+    },
+    {
+      "umbral_area_px": 30,
+      "regiones_corte_anotadas": 62738,
+      "cajas_omitidas": 511,
+      "cajas_conservadas": 62227,
+      "porcentaje_omitido": 0.8144983901303835
+    },
+    {
+      "umbral_area_px": 50,
+      "regiones_corte_anotadas": 62738,
+      "cajas_omitidas": 829,
+      "cajas_conservadas": 61909,
+      "porcentaje_omitido": 1.3213682297809939
+    }
+  ],
+  "nota": "Conteo de regiones anotadas por corte, NO componentes conexas ni ruido confirmado. Umbral operativo por defecto=0, sin descartar GT. No se modificaron las máscaras."
+}

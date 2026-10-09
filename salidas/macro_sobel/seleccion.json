@@ -1,0 +1,17 @@
+{
+  "model": "macro_sobel",
+  "checkpoint": "salidas/macro_sobel/entrenamiento/best.pth",
+  "strength": 0.25,
+  "score": 0.5853375329094819,
+  "macro_dice": 0.6045372387406732,
+  "dice": [
+    0.5277384154159075,
+    0.6298881313145868,
+    0.6559851694915254
+  ],
+  "eligible": true,
+  "checkpoint_sha256": "ae2e052a8310305e6fb498c0a98960f5fd1f4ebdc354668d4126f5cd3ad268b9",
+  "scope": "Seleccion y ajuste sobre val; no es evaluacion independiente test",
+  "seed_min_mm3_3d": 50.0,
+  "instance_min_mm3_3d": 20.0
+}

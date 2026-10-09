@@ -1,0 +1,3362 @@
+[
+  {
+    "case": "002",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 2,
+        "voxels": 10,
+        "largest_fraction": 0.9
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9125848329499379
+  },
+  {
+    "case": "002",
+    "z": 48,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 8,
+        "voxels": 246,
+        "largest_fraction": 0.42276422764227645
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 13,
+        "voxels": 764,
+        "largest_fraction": 0.6269633507853403
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8932039715874762
+  },
+  {
+    "case": "002",
+    "z": 96,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 50,
+        "voxels": 1656,
+        "largest_fraction": 0.2288647342995169
+      },
+      {
+        "region": 2,
+        "components": 10,
+        "voxels": 2104,
+        "largest_fraction": 0.5689163498098859
+      },
+      {
+        "region": 3,
+        "components": 17,
+        "voxels": 739,
+        "largest_fraction": 0.8755074424898511
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9046948475779146
+  },
+  {
+    "case": "002",
+    "z": 144,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 3,
+        "voxels": 182,
+        "largest_fraction": 0.8351648351648352
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 1792,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 7,
+        "voxels": 1518,
+        "largest_fraction": 0.9914361001317523
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9033007080003624
+  },
+  {
+    "case": "002",
+    "z": 192,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 14,
+        "voxels": 1183,
+        "largest_fraction": 0.4902789518174134
+      },
+      {
+        "region": 2,
+        "components": 14,
+        "voxels": 1971,
+        "largest_fraction": 0.9533231861998985
+      },
+      {
+        "region": 3,
+        "components": 13,
+        "voxels": 2609,
+        "largest_fraction": 0.9547719432732847
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8235493962525504
+  },
+  {
+    "case": "002",
+    "z": 240,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 49,
+        "voxels": 2133,
+        "largest_fraction": 0.3202062822315987
+      },
+      {
+        "region": 2,
+        "components": 14,
+        "voxels": 1559,
+        "largest_fraction": 0.5054522129570237
+      },
+      {
+        "region": 3,
+        "components": 20,
+        "voxels": 1481,
+        "largest_fraction": 0.9534098582039163
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.928322960842155
+  },
+  {
+    "case": "002",
+    "z": 288,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 19,
+        "voxels": 375,
+        "largest_fraction": 0.2613333333333333
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 697,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 12,
+        "voxels": 453,
+        "largest_fraction": 0.9271523178807947
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9450929576406386
+  },
+  {
+    "case": "002",
+    "z": 336,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 4,
+        "voxels": 430,
+        "largest_fraction": 0.4720930232558139
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9589212036641978
+  },
+  {
+    "case": "012",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": null
+  },
+  {
+    "case": "012",
+    "z": 38,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 5,
+        "voxels": 46,
+        "largest_fraction": 0.391304347826087
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 10,
+        "voxels": 366,
+        "largest_fraction": 0.5109289617486339
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9688693254356917
+  },
+  {
+    "case": "012",
+    "z": 75,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 26,
+        "voxels": 599,
+        "largest_fraction": 0.6193656093489148
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 243,
+        "largest_fraction": 0.7283950617283951
+      },
+      {
+        "region": 3,
+        "components": 35,
+        "voxels": 338,
+        "largest_fraction": 0.2455621301775148
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9645071934343923
+  },
+  {
+    "case": "012",
+    "z": 113,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 7,
+        "voxels": 82,
+        "largest_fraction": 0.47560975609756095
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 167,
+        "largest_fraction": 0.5149700598802395
+      },
+      {
+        "region": 3,
+        "components": 20,
+        "voxels": 251,
+        "largest_fraction": 0.32669322709163345
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9741483072718315
+  },
+  {
+    "case": "012",
+    "z": 151,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 16,
+        "voxels": 571,
+        "largest_fraction": 0.3345008756567426
+      },
+      {
+        "region": 2,
+        "components": 7,
+        "voxels": 597,
+        "largest_fraction": 0.7286432160804021
+      },
+      {
+        "region": 3,
+        "components": 25,
+        "voxels": 365,
+        "largest_fraction": 0.6684931506849315
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9664794973393321
+  },
+  {
+    "case": "012",
+    "z": 189,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 38,
+        "voxels": 891,
+        "largest_fraction": 0.26262626262626265
+      },
+      {
+        "region": 2,
+        "components": 15,
+        "voxels": 787,
+        "largest_fraction": 0.5667090216010165
+      },
+      {
+        "region": 3,
+        "components": 12,
+        "voxels": 171,
+        "largest_fraction": 0.4269005847953216
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9655952283836692
+  },
+  {
+    "case": "012",
+    "z": 226,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 25,
+        "voxels": 359,
+        "largest_fraction": 0.2757660167130919
+      },
+      {
+        "region": 2,
+        "components": 4,
+        "voxels": 459,
+        "largest_fraction": 0.6013071895424836
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9483142887975399
+  },
+  {
+    "case": "012",
+    "z": 264,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 20,
+        "voxels": 198,
+        "largest_fraction": 0.26262626262626265
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 11,
+        "voxels": 184,
+        "largest_fraction": 0.5652173913043478
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9462196067150836
+  },
+  {
+    "case": "028",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 3,
+        "voxels": 12,
+        "largest_fraction": 0.5
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9896726595418373
+  },
+  {
+    "case": "028",
+    "z": 43,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": null
+  },
+  {
+    "case": "028",
+    "z": 87,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 47,
+        "voxels": 1476,
+        "largest_fraction": 0.268970189701897
+      },
+      {
+        "region": 2,
+        "components": 14,
+        "voxels": 1133,
+        "largest_fraction": 0.7502206531332745
+      },
+      {
+        "region": 3,
+        "components": 24,
+        "voxels": 1369,
+        "largest_fraction": 0.7552958363769174
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9207826652373373
+  },
+  {
+    "case": "028",
+    "z": 130,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 18,
+        "voxels": 335,
+        "largest_fraction": 0.27761194029850744
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 1869,
+        "largest_fraction": 0.9828785446762975
+      },
+      {
+        "region": 3,
+        "components": 9,
+        "voxels": 1544,
+        "largest_fraction": 0.9604922279792746
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8948963778577683
+  },
+  {
+    "case": "028",
+    "z": 173,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 30,
+        "voxels": 1065,
+        "largest_fraction": 0.3051643192488263
+      },
+      {
+        "region": 2,
+        "components": 12,
+        "voxels": 1381,
+        "largest_fraction": 0.47429398986241855
+      },
+      {
+        "region": 3,
+        "components": 21,
+        "voxels": 2575,
+        "largest_fraction": 0.912621359223301
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8647693065547931
+  },
+  {
+    "case": "028",
+    "z": 216,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 40,
+        "voxels": 1865,
+        "largest_fraction": 0.3260053619302949
+      },
+      {
+        "region": 2,
+        "components": 8,
+        "voxels": 215,
+        "largest_fraction": 0.7302325581395349
+      },
+      {
+        "region": 3,
+        "components": 23,
+        "voxels": 718,
+        "largest_fraction": 0.5988857938718662
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9610211330653308
+  },
+  {
+    "case": "028",
+    "z": 260,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 24,
+        "voxels": 225,
+        "largest_fraction": 0.41333333333333333
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 380,
+        "largest_fraction": 0.7947368421052632
+      },
+      {
+        "region": 3,
+        "components": 6,
+        "voxels": 196,
+        "largest_fraction": 0.5816326530612245
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9428967354431717
+  },
+  {
+    "case": "028",
+    "z": 303,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 23,
+        "voxels": 416,
+        "largest_fraction": 0.25721153846153844
+      },
+      {
+        "region": 2,
+        "components": 9,
+        "voxels": 304,
+        "largest_fraction": 0.5
+      },
+      {
+        "region": 3,
+        "components": 19,
+        "voxels": 751,
+        "largest_fraction": 0.8455392809587217
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9512085518224447
+  },
+  {
+    "case": "033",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 1,
+        "voxels": 15,
+        "largest_fraction": 1.0
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9197772334003459
+  },
+  {
+    "case": "033",
+    "z": 52,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 3,
+        "voxels": 26,
+        "largest_fraction": 0.7692307692307693
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9041588803214989
+  },
+  {
+    "case": "033",
+    "z": 104,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 74,
+        "voxels": 1633,
+        "largest_fraction": 0.2290263319044703
+      },
+      {
+        "region": 2,
+        "components": 21,
+        "voxels": 1787,
+        "largest_fraction": 0.5249020705092333
+      },
+      {
+        "region": 3,
+        "components": 21,
+        "voxels": 1097,
+        "largest_fraction": 0.8495897903372835
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9358063331837354
+  },
+  {
+    "case": "033",
+    "z": 156,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 76,
+        "voxels": 2829,
+        "largest_fraction": 0.33686815129020853
+      },
+      {
+        "region": 2,
+        "components": 16,
+        "voxels": 858,
+        "largest_fraction": 0.42657342657342656
+      },
+      {
+        "region": 3,
+        "components": 48,
+        "voxels": 746,
+        "largest_fraction": 0.34718498659517427
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9692338750306025
+  },
+  {
+    "case": "033",
+    "z": 208,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 44,
+        "voxels": 1091,
+        "largest_fraction": 0.18698441796516957
+      },
+      {
+        "region": 2,
+        "components": 10,
+        "voxels": 1511,
+        "largest_fraction": 0.9814692256783587
+      },
+      {
+        "region": 3,
+        "components": 22,
+        "voxels": 1765,
+        "largest_fraction": 0.9314447592067989
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.919382713814152
+  },
+  {
+    "case": "033",
+    "z": 260,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 62,
+        "voxels": 3328,
+        "largest_fraction": 0.3395432692307692
+      },
+      {
+        "region": 2,
+        "components": 18,
+        "voxels": 857,
+        "largest_fraction": 0.3500583430571762
+      },
+      {
+        "region": 3,
+        "components": 41,
+        "voxels": 2717,
+        "largest_fraction": 0.9344865660655134
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.931887281393688
+  },
+  {
+    "case": "033",
+    "z": 312,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 75,
+        "voxels": 1772,
+        "largest_fraction": 0.1721218961625282
+      },
+      {
+        "region": 2,
+        "components": 54,
+        "voxels": 1151,
+        "largest_fraction": 0.23892267593397046
+      },
+      {
+        "region": 3,
+        "components": 65,
+        "voxels": 1253,
+        "largest_fraction": 0.24261771747805266
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9524245698426167
+  },
+  {
+    "case": "033",
+    "z": 364,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 39,
+        "voxels": 1104,
+        "largest_fraction": 0.7753623188405797
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 8,
+        "voxels": 24,
+        "largest_fraction": 0.2916666666666667
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9638517634105399
+  },
+  {
+    "case": "042",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 1,
+        "voxels": 1,
+        "largest_fraction": 1.0
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9982659016791856
+  },
+  {
+    "case": "042",
+    "z": 50,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 8,
+        "voxels": 170,
+        "largest_fraction": 0.6823529411764706
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9429998671295797
+  },
+  {
+    "case": "042",
+    "z": 100,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 14,
+        "voxels": 247,
+        "largest_fraction": 0.4817813765182186
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 209,
+        "largest_fraction": 0.9617224880382775
+      },
+      {
+        "region": 3,
+        "components": 8,
+        "voxels": 421,
+        "largest_fraction": 0.9524940617577197
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8840909319863055
+  },
+  {
+    "case": "042",
+    "z": 150,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 38,
+        "voxels": 773,
+        "largest_fraction": 0.2535575679172057
+      },
+      {
+        "region": 2,
+        "components": 7,
+        "voxels": 363,
+        "largest_fraction": 0.8099173553719008
+      },
+      {
+        "region": 3,
+        "components": 17,
+        "voxels": 539,
+        "largest_fraction": 0.8515769944341373
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9605175598860795
+  },
+  {
+    "case": "042",
+    "z": 199,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 28,
+        "voxels": 659,
+        "largest_fraction": 0.6646433990895296
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 668,
+        "largest_fraction": 0.9790419161676647
+      },
+      {
+        "region": 3,
+        "components": 17,
+        "voxels": 944,
+        "largest_fraction": 0.9057203389830508
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8447190539284802
+  },
+  {
+    "case": "042",
+    "z": 249,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 31,
+        "voxels": 1425,
+        "largest_fraction": 0.6021052631578947
+      },
+      {
+        "region": 2,
+        "components": 10,
+        "voxels": 641,
+        "largest_fraction": 0.8081123244929798
+      },
+      {
+        "region": 3,
+        "components": 30,
+        "voxels": 924,
+        "largest_fraction": 0.6666666666666666
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9298757958366244
+  },
+  {
+    "case": "042",
+    "z": 299,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 25,
+        "voxels": 598,
+        "largest_fraction": 0.29264214046822745
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 476,
+        "largest_fraction": 0.9390756302521008
+      },
+      {
+        "region": 3,
+        "components": 9,
+        "voxels": 176,
+        "largest_fraction": 0.42613636363636365
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9427091823019602
+  },
+  {
+    "case": "042",
+    "z": 349,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 12,
+        "voxels": 284,
+        "largest_fraction": 0.4647887323943662
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 13,
+        "voxels": 132,
+        "largest_fraction": 0.25
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.948251040545738
+  },
+  {
+    "case": "043",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 2,
+        "voxels": 11,
+        "largest_fraction": 0.7272727272727273
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9956097078105418
+  },
+  {
+    "case": "043",
+    "z": 39,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 4,
+        "voxels": 13,
+        "largest_fraction": 0.6923076923076923
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 3,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 3,
+        "voxels": 124,
+        "largest_fraction": 0.9838709677419355
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9802383890736869
+  },
+  {
+    "case": "043",
+    "z": 78,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 30,
+        "voxels": 233,
+        "largest_fraction": 0.22746781115879827
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 182,
+        "largest_fraction": 0.9945054945054945
+      },
+      {
+        "region": 3,
+        "components": 23,
+        "voxels": 353,
+        "largest_fraction": 0.7280453257790368
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9739392909464492
+  },
+  {
+    "case": "043",
+    "z": 117,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 14,
+        "voxels": 280,
+        "largest_fraction": 0.25357142857142856
+      },
+      {
+        "region": 2,
+        "components": 4,
+        "voxels": 219,
+        "largest_fraction": 0.7214611872146118
+      },
+      {
+        "region": 3,
+        "components": 14,
+        "voxels": 397,
+        "largest_fraction": 0.8816120906801007
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9779737428905956
+  },
+  {
+    "case": "043",
+    "z": 156,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 24,
+        "voxels": 523,
+        "largest_fraction": 0.5755258126195029
+      },
+      {
+        "region": 2,
+        "components": 4,
+        "voxels": 60,
+        "largest_fraction": 0.7
+      },
+      {
+        "region": 3,
+        "components": 8,
+        "voxels": 1235,
+        "largest_fraction": 0.9319838056680162
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9229493772662264
+  },
+  {
+    "case": "043",
+    "z": 195,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 27,
+        "voxels": 1098,
+        "largest_fraction": 0.3633879781420765
+      },
+      {
+        "region": 2,
+        "components": 4,
+        "voxels": 116,
+        "largest_fraction": 0.8362068965517241
+      },
+      {
+        "region": 3,
+        "components": 17,
+        "voxels": 352,
+        "largest_fraction": 0.6704545454545454
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9604377634555914
+  },
+  {
+    "case": "043",
+    "z": 234,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 34,
+        "voxels": 481,
+        "largest_fraction": 0.1995841995841996
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 254,
+        "largest_fraction": 0.7952755905511811
+      },
+      {
+        "region": 3,
+        "components": 19,
+        "voxels": 198,
+        "largest_fraction": 0.3181818181818182
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9713461966991294
+  },
+  {
+    "case": "043",
+    "z": 273,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 6,
+        "voxels": 292,
+        "largest_fraction": 0.9417808219178082
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9458127854780038
+  },
+  {
+    "case": "048",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 8,
+        "voxels": 192,
+        "largest_fraction": 0.8958333333333334
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9337242878452382
+  },
+  {
+    "case": "048",
+    "z": 59,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 28,
+        "voxels": 962,
+        "largest_fraction": 0.3264033264033264
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 161,
+        "largest_fraction": 0.9813664596273292
+      },
+      {
+        "region": 3,
+        "components": 9,
+        "voxels": 312,
+        "largest_fraction": 0.9166666666666666
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9613755914290993
+  },
+  {
+    "case": "048",
+    "z": 118,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 25,
+        "voxels": 685,
+        "largest_fraction": 0.6102189781021898
+      },
+      {
+        "region": 2,
+        "components": 9,
+        "voxels": 123,
+        "largest_fraction": 0.34146341463414637
+      },
+      {
+        "region": 3,
+        "components": 39,
+        "voxels": 441,
+        "largest_fraction": 0.30158730158730157
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9551790432006915
+  },
+  {
+    "case": "048",
+    "z": 177,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 7,
+        "voxels": 241,
+        "largest_fraction": 0.9336099585062241
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 366,
+        "largest_fraction": 0.819672131147541
+      },
+      {
+        "region": 3,
+        "components": 12,
+        "voxels": 806,
+        "largest_fraction": 0.892059553349876
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.952429368557545
+  },
+  {
+    "case": "048",
+    "z": 236,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 51,
+        "voxels": 1357,
+        "largest_fraction": 0.5887988209285188
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 351,
+        "largest_fraction": 0.5356125356125356
+      },
+      {
+        "region": 3,
+        "components": 19,
+        "voxels": 132,
+        "largest_fraction": 0.3333333333333333
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9564387714394864
+  },
+  {
+    "case": "048",
+    "z": 295,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 19,
+        "voxels": 609,
+        "largest_fraction": 0.8850574712643678
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 162,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 11,
+        "voxels": 217,
+        "largest_fraction": 0.41013824884792627
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9607328496613402
+  },
+  {
+    "case": "048",
+    "z": 354,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 7,
+        "voxels": 374,
+        "largest_fraction": 0.7887700534759359
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.942809959334015
+  },
+  {
+    "case": "048",
+    "z": 413,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 10,
+        "voxels": 436,
+        "largest_fraction": 0.8807339449541285
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 1,
+        "voxels": 1,
+        "largest_fraction": 1.0
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9657126768359359
+  },
+  {
+    "case": "049",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 3,
+        "voxels": 5,
+        "largest_fraction": 0.4
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.955424215030801
+  },
+  {
+    "case": "049",
+    "z": 50,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 24,
+        "voxels": 488,
+        "largest_fraction": 0.45491803278688525
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 429,
+        "largest_fraction": 0.951048951048951
+      },
+      {
+        "region": 3,
+        "components": 13,
+        "voxels": 236,
+        "largest_fraction": 0.8601694915254238
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9510924236554573
+  },
+  {
+    "case": "049",
+    "z": 100,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 26,
+        "voxels": 623,
+        "largest_fraction": 0.2969502407704655
+      },
+      {
+        "region": 2,
+        "components": 4,
+        "voxels": 440,
+        "largest_fraction": 0.9840909090909091
+      },
+      {
+        "region": 3,
+        "components": 23,
+        "voxels": 665,
+        "largest_fraction": 0.7954887218045112
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9118678894804007
+  },
+  {
+    "case": "049",
+    "z": 150,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 14,
+        "voxels": 389,
+        "largest_fraction": 0.8226221079691517
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 848,
+        "largest_fraction": 0.9952830188679245
+      },
+      {
+        "region": 3,
+        "components": 8,
+        "voxels": 960,
+        "largest_fraction": 0.9427083333333334
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9198762948592781
+  },
+  {
+    "case": "049",
+    "z": 199,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 36,
+        "voxels": 1518,
+        "largest_fraction": 0.21409749670619235
+      },
+      {
+        "region": 2,
+        "components": 10,
+        "voxels": 376,
+        "largest_fraction": 0.7686170212765957
+      },
+      {
+        "region": 3,
+        "components": 12,
+        "voxels": 1555,
+        "largest_fraction": 0.9556270096463022
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9101991766182504
+  },
+  {
+    "case": "049",
+    "z": 249,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 29,
+        "voxels": 771,
+        "largest_fraction": 0.23086900129701687
+      },
+      {
+        "region": 2,
+        "components": 6,
+        "voxels": 148,
+        "largest_fraction": 0.7972972972972973
+      },
+      {
+        "region": 3,
+        "components": 25,
+        "voxels": 509,
+        "largest_fraction": 0.650294695481336
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.956084613879507
+  },
+  {
+    "case": "049",
+    "z": 299,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 8,
+        "voxels": 148,
+        "largest_fraction": 0.39864864864864863
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 7,
+        "voxels": 28,
+        "largest_fraction": 0.6071428571428571
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9796668466961946
+  },
+  {
+    "case": "049",
+    "z": 349,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 7,
+        "voxels": 170,
+        "largest_fraction": 0.6941176470588235
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9653688396796894
+  },
+  {
+    "case": "056",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 1,
+        "voxels": 10,
+        "largest_fraction": 1.0
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.906784503071276
+  },
+  {
+    "case": "056",
+    "z": 41,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 39,
+        "voxels": 591,
+        "largest_fraction": 0.7461928934010152
+      },
+      {
+        "region": 2,
+        "components": 4,
+        "voxels": 46,
+        "largest_fraction": 0.8478260869565217
+      },
+      {
+        "region": 3,
+        "components": 13,
+        "voxels": 686,
+        "largest_fraction": 0.5408163265306123
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9652725721052636
+  },
+  {
+    "case": "056",
+    "z": 81,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 25,
+        "voxels": 390,
+        "largest_fraction": 0.4461538461538462
+      },
+      {
+        "region": 2,
+        "components": 15,
+        "voxels": 753,
+        "largest_fraction": 0.8911022576361222
+      },
+      {
+        "region": 3,
+        "components": 11,
+        "voxels": 777,
+        "largest_fraction": 0.9305019305019305
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.954207363205344
+  },
+  {
+    "case": "056",
+    "z": 122,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 18,
+        "voxels": 131,
+        "largest_fraction": 0.3053435114503817
+      },
+      {
+        "region": 2,
+        "components": 4,
+        "voxels": 615,
+        "largest_fraction": 0.5902439024390244
+      },
+      {
+        "region": 3,
+        "components": 6,
+        "voxels": 1184,
+        "largest_fraction": 0.9265202702702703
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9282141209859595
+  },
+  {
+    "case": "056",
+    "z": 162,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 37,
+        "voxels": 1157,
+        "largest_fraction": 0.30337078651685395
+      },
+      {
+        "region": 2,
+        "components": 9,
+        "voxels": 492,
+        "largest_fraction": 0.8191056910569106
+      },
+      {
+        "region": 3,
+        "components": 21,
+        "voxels": 1346,
+        "largest_fraction": 0.736255572065379
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9451287758554937
+  },
+  {
+    "case": "056",
+    "z": 203,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 26,
+        "voxels": 373,
+        "largest_fraction": 0.2225201072386059
+      },
+      {
+        "region": 2,
+        "components": 13,
+        "voxels": 582,
+        "largest_fraction": 0.5618556701030928
+      },
+      {
+        "region": 3,
+        "components": 12,
+        "voxels": 245,
+        "largest_fraction": 0.7224489795918367
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9793859158502717
+  },
+  {
+    "case": "056",
+    "z": 243,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 9,
+        "voxels": 346,
+        "largest_fraction": 0.6127167630057804
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 19,
+        "voxels": 59,
+        "largest_fraction": 0.1864406779661017
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9733683087861081
+  },
+  {
+    "case": "056",
+    "z": 284,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 13,
+        "voxels": 299,
+        "largest_fraction": 0.6153846153846154
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 10,
+        "voxels": 440,
+        "largest_fraction": 0.759090909090909
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.985214162508449
+  },
+  {
+    "case": "060",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": null
+  },
+  {
+    "case": "060",
+    "z": 47,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 13,
+        "voxels": 892,
+        "largest_fraction": 0.9147982062780269
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 634,
+        "largest_fraction": 0.998422712933754
+      },
+      {
+        "region": 3,
+        "components": 2,
+        "voxels": 81,
+        "largest_fraction": 0.9876543209876543
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9499156990855046
+  },
+  {
+    "case": "060",
+    "z": 95,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 67,
+        "voxels": 1529,
+        "largest_fraction": 0.3132766514061478
+      },
+      {
+        "region": 2,
+        "components": 15,
+        "voxels": 1415,
+        "largest_fraction": 0.7837455830388692
+      },
+      {
+        "region": 3,
+        "components": 25,
+        "voxels": 1026,
+        "largest_fraction": 0.7982456140350878
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9257173092440355
+  },
+  {
+    "case": "060",
+    "z": 142,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 43,
+        "voxels": 914,
+        "largest_fraction": 0.5590809628008753
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 1404,
+        "largest_fraction": 0.9522792022792023
+      },
+      {
+        "region": 3,
+        "components": 17,
+        "voxels": 649,
+        "largest_fraction": 0.34668721109399075
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9554942213977367
+  },
+  {
+    "case": "060",
+    "z": 190,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 25,
+        "voxels": 456,
+        "largest_fraction": 0.23464912280701755
+      },
+      {
+        "region": 2,
+        "components": 7,
+        "voxels": 2042,
+        "largest_fraction": 0.9627815866797258
+      },
+      {
+        "region": 3,
+        "components": 18,
+        "voxels": 2285,
+        "largest_fraction": 0.7527352297592997
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8763490122221061
+  },
+  {
+    "case": "060",
+    "z": 237,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 38,
+        "voxels": 1514,
+        "largest_fraction": 0.16710700132100395
+      },
+      {
+        "region": 2,
+        "components": 13,
+        "voxels": 1442,
+        "largest_fraction": 0.6463245492371706
+      },
+      {
+        "region": 3,
+        "components": 16,
+        "voxels": 2072,
+        "largest_fraction": 0.9377413127413128
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9207918711817175
+  },
+  {
+    "case": "060",
+    "z": 285,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 33,
+        "voxels": 1499,
+        "largest_fraction": 0.6304202801867912
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 1000,
+        "largest_fraction": 0.99
+      },
+      {
+        "region": 3,
+        "components": 10,
+        "voxels": 363,
+        "largest_fraction": 0.5482093663911846
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9451538773522992
+  },
+  {
+    "case": "060",
+    "z": 332,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 10,
+        "voxels": 677,
+        "largest_fraction": 0.3766617429837518
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9837522275985349
+  },
+  {
+    "case": "064",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 1,
+        "voxels": 1,
+        "largest_fraction": 1.0
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8992760415042448
+  },
+  {
+    "case": "064",
+    "z": 50,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 144,
+        "largest_fraction": 0.5208333333333334
+      },
+      {
+        "region": 3,
+        "components": 1,
+        "voxels": 2,
+        "largest_fraction": 1.0
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9825141756015318
+  },
+  {
+    "case": "064",
+    "z": 100,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 20,
+        "voxels": 901,
+        "largest_fraction": 0.46614872364039955
+      },
+      {
+        "region": 2,
+        "components": 7,
+        "voxels": 402,
+        "largest_fraction": 0.8333333333333334
+      },
+      {
+        "region": 3,
+        "components": 19,
+        "voxels": 475,
+        "largest_fraction": 0.6568421052631579
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9495247515277199
+  },
+  {
+    "case": "064",
+    "z": 150,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 8,
+        "voxels": 123,
+        "largest_fraction": 0.7804878048780488
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 586,
+        "largest_fraction": 0.931740614334471
+      },
+      {
+        "region": 3,
+        "components": 5,
+        "voxels": 945,
+        "largest_fraction": 0.9788359788359788
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9555585465617883
+  },
+  {
+    "case": "064",
+    "z": 199,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 29,
+        "voxels": 985,
+        "largest_fraction": 0.3015228426395939
+      },
+      {
+        "region": 2,
+        "components": 8,
+        "voxels": 719,
+        "largest_fraction": 0.6564673157162726
+      },
+      {
+        "region": 3,
+        "components": 19,
+        "voxels": 884,
+        "largest_fraction": 0.8393665158371041
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9694872564675711
+  },
+  {
+    "case": "064",
+    "z": 249,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 24,
+        "voxels": 1109,
+        "largest_fraction": 0.24256086564472498
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 532,
+        "largest_fraction": 0.5977443609022557
+      },
+      {
+        "region": 3,
+        "components": 19,
+        "voxels": 495,
+        "largest_fraction": 0.8141414141414142
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9622823143967187
+  },
+  {
+    "case": "064",
+    "z": 299,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 5,
+        "voxels": 778,
+        "largest_fraction": 0.6966580976863753
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9696510641471071
+  },
+  {
+    "case": "064",
+    "z": 349,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 9,
+        "voxels": 542,
+        "largest_fraction": 0.5092250922509225
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9784418213450896
+  },
+  {
+    "case": "065",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 1,
+        "voxels": 1,
+        "largest_fraction": 1.0
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9982131889966962
+  },
+  {
+    "case": "065",
+    "z": 50,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 13,
+        "voxels": 93,
+        "largest_fraction": 0.3548387096774194
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 40,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 15,
+        "voxels": 399,
+        "largest_fraction": 0.6491228070175439
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.945180663873595
+  },
+  {
+    "case": "065",
+    "z": 100,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 19,
+        "voxels": 330,
+        "largest_fraction": 0.503030303030303
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 469,
+        "largest_fraction": 0.9211087420042644
+      },
+      {
+        "region": 3,
+        "components": 24,
+        "voxels": 598,
+        "largest_fraction": 0.745819397993311
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9131173999418628
+  },
+  {
+    "case": "065",
+    "z": 150,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 32,
+        "voxels": 659,
+        "largest_fraction": 0.18209408194233687
+      },
+      {
+        "region": 2,
+        "components": 14,
+        "voxels": 246,
+        "largest_fraction": 0.6056910569105691
+      },
+      {
+        "region": 3,
+        "components": 45,
+        "voxels": 1482,
+        "largest_fraction": 0.6869095816464238
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9305717007413716
+  },
+  {
+    "case": "065",
+    "z": 199,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 5,
+        "voxels": 167,
+        "largest_fraction": 0.8143712574850299
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 818,
+        "largest_fraction": 0.988997555012225
+      },
+      {
+        "region": 3,
+        "components": 28,
+        "voxels": 797,
+        "largest_fraction": 0.6298619824341279
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.906554390332677
+  },
+  {
+    "case": "065",
+    "z": 249,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 41,
+        "voxels": 1275,
+        "largest_fraction": 0.18196078431372548
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 394,
+        "largest_fraction": 0.5203045685279187
+      },
+      {
+        "region": 3,
+        "components": 23,
+        "voxels": 433,
+        "largest_fraction": 0.44803695150115475
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9731914005588721
+  },
+  {
+    "case": "065",
+    "z": 299,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 23,
+        "voxels": 364,
+        "largest_fraction": 0.2032967032967033
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 313,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 39,
+        "voxels": 198,
+        "largest_fraction": 0.2474747474747475
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9505604275368886
+  },
+  {
+    "case": "065",
+    "z": 349,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": null
+  },
+  {
+    "case": "068",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": null
+  },
+  {
+    "case": "068",
+    "z": 50,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 21,
+        "voxels": 529,
+        "largest_fraction": 0.6427221172022685
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 456,
+        "largest_fraction": 0.9956140350877193
+      },
+      {
+        "region": 3,
+        "components": 5,
+        "voxels": 199,
+        "largest_fraction": 0.8341708542713567
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9162726071460262
+  },
+  {
+    "case": "068",
+    "z": 100,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 22,
+        "voxels": 1082,
+        "largest_fraction": 0.8743068391866913
+      },
+      {
+        "region": 2,
+        "components": 9,
+        "voxels": 517,
+        "largest_fraction": 0.8065764023210832
+      },
+      {
+        "region": 3,
+        "components": 14,
+        "voxels": 769,
+        "largest_fraction": 0.7347204161248374
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9188031152047191
+  },
+  {
+    "case": "068",
+    "z": 150,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 17,
+        "voxels": 388,
+        "largest_fraction": 0.5798969072164949
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 680,
+        "largest_fraction": 0.9058823529411765
+      },
+      {
+        "region": 3,
+        "components": 24,
+        "voxels": 593,
+        "largest_fraction": 0.8532883642495784
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9484376022229071
+  },
+  {
+    "case": "068",
+    "z": 199,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 29,
+        "voxels": 1470,
+        "largest_fraction": 0.527891156462585
+      },
+      {
+        "region": 2,
+        "components": 10,
+        "voxels": 605,
+        "largest_fraction": 0.6413223140495867
+      },
+      {
+        "region": 3,
+        "components": 7,
+        "voxels": 1283,
+        "largest_fraction": 0.9586905689789555
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8837507062973593
+  },
+  {
+    "case": "068",
+    "z": 249,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 38,
+        "voxels": 1317,
+        "largest_fraction": 0.30751708428246016
+      },
+      {
+        "region": 2,
+        "components": 8,
+        "voxels": 849,
+        "largest_fraction": 0.5771495877502945
+      },
+      {
+        "region": 3,
+        "components": 21,
+        "voxels": 1338,
+        "largest_fraction": 0.9312406576980568
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9300993178097822
+  },
+  {
+    "case": "068",
+    "z": 299,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 13,
+        "voxels": 677,
+        "largest_fraction": 0.6528803545051699
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 151,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 10,
+        "voxels": 386,
+        "largest_fraction": 0.7072538860103627
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9637294478243764
+  },
+  {
+    "case": "068",
+    "z": 349,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": null
+  },
+  {
+    "case": "085",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": null
+  },
+  {
+    "case": "085",
+    "z": 51,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 12,
+        "voxels": 221,
+        "largest_fraction": 0.3031674208144796
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 1,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 7,
+        "voxels": 574,
+        "largest_fraction": 0.9634146341463414
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8706636336819993
+  },
+  {
+    "case": "085",
+    "z": 101,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 35,
+        "voxels": 2992,
+        "largest_fraction": 0.43783422459893045
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 973,
+        "largest_fraction": 0.7903391572456321
+      },
+      {
+        "region": 3,
+        "components": 22,
+        "voxels": 1360,
+        "largest_fraction": 0.8139705882352941
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9093364930217119
+  },
+  {
+    "case": "085",
+    "z": 152,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 20,
+        "voxels": 1344,
+        "largest_fraction": 0.6852678571428571
+      },
+      {
+        "region": 2,
+        "components": 5,
+        "voxels": 1280,
+        "largest_fraction": 0.83203125
+      },
+      {
+        "region": 3,
+        "components": 5,
+        "voxels": 1660,
+        "largest_fraction": 0.9909638554216867
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8548954547101635
+  },
+  {
+    "case": "085",
+    "z": 203,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 18,
+        "voxels": 844,
+        "largest_fraction": 0.523696682464455
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 1766,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 7,
+        "voxels": 2754,
+        "largest_fraction": 0.9843863471314451
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8069214065574193
+  },
+  {
+    "case": "085",
+    "z": 254,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 49,
+        "voxels": 2132,
+        "largest_fraction": 0.4554409005628518
+      },
+      {
+        "region": 2,
+        "components": 12,
+        "voxels": 1522,
+        "largest_fraction": 0.5722733245729303
+      },
+      {
+        "region": 3,
+        "components": 7,
+        "voxels": 1096,
+        "largest_fraction": 0.6578467153284672
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9354240258401869
+  },
+  {
+    "case": "085",
+    "z": 304,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 26,
+        "voxels": 445,
+        "largest_fraction": 0.35280898876404493
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 734,
+        "largest_fraction": 0.9577656675749319
+      },
+      {
+        "region": 3,
+        "components": 12,
+        "voxels": 375,
+        "largest_fraction": 0.696
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.8997764589475752
+  },
+  {
+    "case": "085",
+    "z": 355,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 401,
+        "largest_fraction": 0.7082294264339152
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9700591446255064
+  },
+  {
+    "case": "092",
+    "z": 0,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": null
+  },
+  {
+    "case": "092",
+    "z": 42,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 10,
+        "voxels": 167,
+        "largest_fraction": 0.437125748502994
+      },
+      {
+        "region": 2,
+        "components": 2,
+        "voxels": 342,
+        "largest_fraction": 0.935672514619883
+      },
+      {
+        "region": 3,
+        "components": 9,
+        "voxels": 397,
+        "largest_fraction": 0.7027707808564232
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9487731975426641
+  },
+  {
+    "case": "092",
+    "z": 83,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 10,
+        "voxels": 474,
+        "largest_fraction": 0.7721518987341772
+      },
+      {
+        "region": 2,
+        "components": 3,
+        "voxels": 438,
+        "largest_fraction": 0.9885844748858448
+      },
+      {
+        "region": 3,
+        "components": 12,
+        "voxels": 568,
+        "largest_fraction": 0.9383802816901409
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9310525947715255
+  },
+  {
+    "case": "092",
+    "z": 125,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 17,
+        "voxels": 342,
+        "largest_fraction": 0.2309941520467836
+      },
+      {
+        "region": 2,
+        "components": 8,
+        "voxels": 254,
+        "largest_fraction": 0.5511811023622047
+      },
+      {
+        "region": 3,
+        "components": 14,
+        "voxels": 802,
+        "largest_fraction": 0.9501246882793017
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9739889430011027
+  },
+  {
+    "case": "092",
+    "z": 167,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 41,
+        "voxels": 1070,
+        "largest_fraction": 0.48878504672897194
+      },
+      {
+        "region": 2,
+        "components": 8,
+        "voxels": 585,
+        "largest_fraction": 0.5914529914529915
+      },
+      {
+        "region": 3,
+        "components": 17,
+        "voxels": 1027,
+        "largest_fraction": 0.5443037974683544
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9313049698044319
+  },
+  {
+    "case": "092",
+    "z": 209,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 22,
+        "voxels": 666,
+        "largest_fraction": 0.45045045045045046
+      },
+      {
+        "region": 2,
+        "components": 12,
+        "voxels": 391,
+        "largest_fraction": 0.38107416879795397
+      },
+      {
+        "region": 3,
+        "components": 10,
+        "voxels": 149,
+        "largest_fraction": 0.5167785234899329
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9794707429551202
+  },
+  {
+    "case": "092",
+    "z": 250,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 14,
+        "voxels": 190,
+        "largest_fraction": 0.3526315789473684
+      },
+      {
+        "region": 2,
+        "components": 1,
+        "voxels": 90,
+        "largest_fraction": 1.0
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9669247283691914
+  },
+  {
+    "case": "092",
+    "z": 292,
+    "kind": "control de calidad, no diagnostico",
+    "connectivity": 8,
+    "regions": [
+      {
+        "region": 1,
+        "components": 13,
+        "voxels": 257,
+        "largest_fraction": 0.42023346303501946
+      },
+      {
+        "region": 2,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      },
+      {
+        "region": 3,
+        "components": 0,
+        "voxels": 0,
+        "largest_fraction": null
+      }
+    ],
+    "alerts": [],
+    "mean_foreground_entropy": 0.9529975290531163
+  }
+]

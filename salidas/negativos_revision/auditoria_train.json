@@ -1,0 +1,357 @@
+{
+  "scope": "Only train; real CT; annotated background and HU > 200; additional online candidates selected by model foreground probability > .5",
+  "cases": [
+    {
+      "case": "001",
+      "background_bone_like_pixels": 7510,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "003",
+      "background_bone_like_pixels": 6946,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "005",
+      "background_bone_like_pixels": 3440,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "007",
+      "background_bone_like_pixels": 4667,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "008",
+      "background_bone_like_pixels": 4277,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "009",
+      "background_bone_like_pixels": 8997,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "013",
+      "background_bone_like_pixels": 5125,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "014",
+      "background_bone_like_pixels": 10181,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "015",
+      "background_bone_like_pixels": 5914,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "016",
+      "background_bone_like_pixels": 13719,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "018",
+      "background_bone_like_pixels": 6745,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "019",
+      "background_bone_like_pixels": 5253,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "020",
+      "background_bone_like_pixels": 6066,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "021",
+      "background_bone_like_pixels": 6397,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "022",
+      "background_bone_like_pixels": 6667,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "023",
+      "background_bone_like_pixels": 7257,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "025",
+      "background_bone_like_pixels": 6627,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "026",
+      "background_bone_like_pixels": 2747,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "027",
+      "background_bone_like_pixels": 4441,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "029",
+      "background_bone_like_pixels": 8665,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "031",
+      "background_bone_like_pixels": 6839,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "032",
+      "background_bone_like_pixels": 3429,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "034",
+      "background_bone_like_pixels": 4029,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "035",
+      "background_bone_like_pixels": 7544,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "036",
+      "background_bone_like_pixels": 7848,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "037",
+      "background_bone_like_pixels": 5323,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "038",
+      "background_bone_like_pixels": 4933,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "039",
+      "background_bone_like_pixels": 7343,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "040",
+      "background_bone_like_pixels": 6607,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "041",
+      "background_bone_like_pixels": 7587,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "044",
+      "background_bone_like_pixels": 18202,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "045",
+      "background_bone_like_pixels": 9098,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "047",
+      "background_bone_like_pixels": 7066,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "050",
+      "background_bone_like_pixels": 8456,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "051",
+      "background_bone_like_pixels": 4711,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "052",
+      "background_bone_like_pixels": 3697,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "053",
+      "background_bone_like_pixels": 6596,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "054",
+      "background_bone_like_pixels": 5044,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "055",
+      "background_bone_like_pixels": 5344,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "057",
+      "background_bone_like_pixels": 6549,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "058",
+      "background_bone_like_pixels": 6148,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "059",
+      "background_bone_like_pixels": 5287,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "061",
+      "background_bone_like_pixels": 6739,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "062",
+      "background_bone_like_pixels": 10637,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "063",
+      "background_bone_like_pixels": 8009,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "067",
+      "background_bone_like_pixels": 4794,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "069",
+      "background_bone_like_pixels": 3192,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "070",
+      "background_bone_like_pixels": 8837,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "071",
+      "background_bone_like_pixels": 9841,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "072",
+      "background_bone_like_pixels": 9072,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "073",
+      "background_bone_like_pixels": 3472,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "074",
+      "background_bone_like_pixels": 3270,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "076",
+      "background_bone_like_pixels": 6930,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "077",
+      "background_bone_like_pixels": 5579,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "080",
+      "background_bone_like_pixels": 5642,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "081",
+      "background_bone_like_pixels": 10855,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "082",
+      "background_bone_like_pixels": 6483,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "083",
+      "background_bone_like_pixels": 7861,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "084",
+      "background_bone_like_pixels": 3285,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "086",
+      "background_bone_like_pixels": 12708,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "087",
+      "background_bone_like_pixels": 10601,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "088",
+      "background_bone_like_pixels": 7051,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "090",
+      "background_bone_like_pixels": 4939,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "093",
+      "background_bone_like_pixels": 6252,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "094",
+      "background_bone_like_pixels": 2687,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "096",
+      "background_bone_like_pixels": 5466,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "097",
+      "background_bone_like_pixels": 5718,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "098",
+      "background_bone_like_pixels": 4595,
+      "slices_with_candidates": 8
+    },
+    {
+      "case": "099",
+      "background_bone_like_pixels": 9048,
+      "slices_with_candidates": 7
+    },
+    {
+      "case": "100",
+      "background_bone_like_pixels": 4648,
+      "slices_with_candidates": 8
+    }
+  ],
+  "total_pixels": 467532,
+  "total_slices": 559
+}

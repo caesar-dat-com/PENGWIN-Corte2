@@ -1,0 +1,42 @@
+{
+  "checkpoint_sha256": "243740caa16820186366a9f0259024ccb98e5169bed1bcd6187b9d052699d27c",
+  "sam_sha256": "ec2df62732614e57411cdcf32a23ffdf28910380d03139ee0f4fcbe91eb8c912",
+  "test_patients": [
+    "004",
+    "006",
+    "010",
+    "011",
+    "017",
+    "024",
+    "030",
+    "046",
+    "066",
+    "075",
+    "078",
+    "079",
+    "089",
+    "091",
+    "095"
+  ],
+  "z_fractions": [
+    0.1,
+    0.5,
+    0.9
+  ],
+  "sam_z_fractions": [
+    0.5
+  ],
+  "conf": 0.25,
+  "ap_floor": 0.05,
+  "nms": 0.4,
+  "instance_boundary": 0.5,
+  "note": "Test tuvo exposición exploratoria en avance 2; no se usó para elegir esta ejecución. Esta evaluación no mide todo el volumen.",
+  "instance_metrics": "Instancias 2D por corte, asignación 1:1 IoU dentro de región; no equivalen a fragmentos 3D",
+  "SAM_prompts": "Todas las cajas predichas tras NMS, conf>=.25, multimask_output=False, zero-shot",
+  "device": "cpu",
+  "postprocessing": {
+    "conf": 0.25,
+    "nms": 0.4,
+    "boundary": 0.5
+  }
+}

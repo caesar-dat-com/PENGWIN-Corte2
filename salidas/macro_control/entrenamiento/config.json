@@ -1,0 +1,30 @@
+{
+  "seed": 42,
+  "train_patients": 70,
+  "val_patients": 15,
+  "train_slices": 560,
+  "val_slices": 120,
+  "device": "cpu",
+  "seg_weight": 1.2,
+  "batch": 8,
+  "threads": 4,
+  "data_protocol": {
+    "cortes_por_paciente": 8,
+    "split_sha256": "109860dd5a57289258e4993a53aaf81307e16758dbfbc88c4a07489abd92b745",
+    "resolucion": 256,
+    "muestreo": "uniforme 0..100%, independiente de anotaciones, incluye negativos",
+    "images": "C:\\Users\\Asus\\.codex\\.chatgpt-projects\\g-p-6a7924f5f0c881918894fd3001414af6\\.avance2-datos\\images",
+    "labels": "C:\\Users\\Asus\\.codex\\.chatgpt-projects\\g-p-6a7924f5f0c881918894fd3001414af6\\.avance2-datos\\labels"
+  },
+  "architecture": "sesion2_skips8_interiores_ds_v1",
+  "mode": "control",
+  "initial_sha256": "ec2778e3e880d9ae1e3b29d5ccd12a23f0e42526db42d1d6a597ed471b55f4e3",
+  "initial_epoch": 6,
+  "lr": 0.0001,
+  "macro_weight": 0.0,
+  "contour_weight": 0.0,
+  "status": "completed",
+  "selection": "0.75 Dice macro + 0.25 peor region; mismo criterio para control y candidato",
+  "boundary_threshold": 0.5,
+  "epochs": 6
+}
