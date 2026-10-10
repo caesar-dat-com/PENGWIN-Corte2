@@ -76,7 +76,11 @@ class PelvisDetectionLoss(nn.Module):
 
         # Asignar cada caja Ground Truth a su celda correspondiente en el grid
         if boxes_gt.numel() > 0:
-            for caja in boxes_gt:
+            # Cajas grandes primero: si dos regiones caen en la misma celda de 16 px
+            # (cortes caudales con trozos mínimos) se conserva la mayor y se cuenta
+            # la colisión en self.colisiones, en vez de abortar el entrenamiento.
+            area = (boxes_gt[:, 4] - boxes_gt[:, 2]) * (boxes_gt[:, 5] - boxes_gt[:, 3])
+            for caja in boxes_gt[torch.argsort(area, descending=True)]:
                 b_idx = int(caja[0].item())
                 c_idx = int(caja[1].item())
                 xmin, ymin, xmax, ymax = caja[2:].tolist()
@@ -92,7 +96,8 @@ class PelvisDetectionLoss(nn.Module):
                 gj = min(int(cy * s_h), s_h - 1)
 
                 if mask_pos[b_idx, gj, gi]:
-                    raise ValueError("Dos regiones comparten una celda; no sobrescribir el objetivo silenciosamente")
+                    self.colisiones = getattr(self, 'colisiones', 0) + 1
+                    continue
                 target_obj[b_idx, gj, gi] = 1.0
                 mask_pos[b_idx, gj, gi] = True
 
