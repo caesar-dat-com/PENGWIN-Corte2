@@ -56,9 +56,10 @@ def figura_mip(ct: np.ndarray, spacing: tuple, id_caso: str, umbral_hu: float = 
                   args=[[str(a)], dict(mode="immediate", frame=dict(duration=0, redraw=True),
                                        transition=dict(duration=0))]) for a in angulos]
     fig.update_layout(
-        title=(f"Caso {id_caso} · MIP del hueso (HU ≥ {umbral_hu}) · vóxel {mm} mm"
-               "<br><sup>Solo uso académico. No es un dispositivo médico ni apoya decisiones quirúrgicas.</sup>"),
-        xaxis=dict(visible=False), yaxis=dict(visible=False, scaleanchor="x"),
+        title=dict(text=f"Caso {id_caso} · MIP del hueso<br><sup>HU ≥ {umbral_hu} · superior arriba · uso académico</sup>",font=dict(size=17)),
+        xaxis=dict(visible=False), yaxis=dict(visible=False, scaleanchor="x", autorange="reversed"),
+        annotations=[dict(text='S',x=0,y=1,xref='paper',yref='paper',showarrow=False,font=dict(color='white',size=18)),
+                     dict(text='I',x=0,y=0,xref='paper',yref='paper',showarrow=False,font=dict(color='white',size=18))],
         plot_bgcolor="black", height=720, margin=dict(t=90, l=10, r=10, b=10),
         sliders=[dict(active=0, steps=pasos, currentvalue=dict(prefix="Rotación: "), pad=dict(t=30))],
         updatemenus=[dict(type="buttons", showactive=False, x=0, y=0, xanchor="left", yanchor="top",
