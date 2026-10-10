@@ -11,12 +11,12 @@ from .segmenter import PelvisSegmentationHead
 
 
 class DecoderConSkips(PelvisSegmentationHead):
-    def __init__(self, supervision_profunda=True):
-        super().__init__(in_channels=256, num_clases=4, latent_channels=8)
+    def __init__(self, supervision_profunda=True, canales=8):
+        super().__init__(in_channels=256, num_clases=4, latent_channels=canales)
         self.supervision_profunda = supervision_profunda
-        self.skips = nn.ModuleList([nn.Conv2d(c, 8, 1) for c in (128, 64, 32, 3)])
-        self.auxiliares = nn.ModuleList([nn.Conv2d(8, 4, 1) for _ in range(3)])
-        self.interiores = nn.Conv2d(8, 1, 1)
+        self.skips = nn.ModuleList([nn.Conv2d(c, canales, 1) for c in (128, 64, 32, 3)])
+        self.auxiliares = nn.ModuleList([nn.Conv2d(canales, 4, 1) for _ in range(3)])
+        self.interiores = nn.Conv2d(canales, 1, 1)
 
     def forward(self, features, pyramid, image):
         x = self.stem(features)
@@ -37,9 +37,9 @@ class DecoderConSkips(PelvisSegmentationHead):
 
 
 class PelvisSesion2(PelvisDetector):
-    def __init__(self, supervision_profunda=True):
+    def __init__(self, supervision_profunda=True, canales=8):
         super().__init__(backbone_tipo='fundidora', pretrained=False)
-        self.segmentation_head = DecoderConSkips(supervision_profunda)
+        self.segmentation_head = DecoderConSkips(supervision_profunda, canales)
 
     def forward(self, x):
         h = x

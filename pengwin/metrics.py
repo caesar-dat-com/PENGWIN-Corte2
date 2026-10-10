@@ -1,4 +1,4 @@
-"""Módulo de Métricas y Análisis Clínico Cuantitativo (Semana 10 - Fases 2 y 3).
+"""Métricas de la demostración 2D (Semana 10 - Fases 2 y 3).
 
 Implementa:
 1. Métricas de segmentación multi-región: Dice Similarity Coefficient (DSC) e IoU (Jaccard).
@@ -90,7 +90,7 @@ def calcular_mapa_distancia_edt_mm(
     """Calcula la Transformada de Distancia Euclidiana Exacta (EDT) en milímetros.
 
     Utiliza el espaciado físico real (sy_mm, sx_mm) proveniente del header DICOM/MHA.
-    Cada píxel del mapa resultante contiene la distancia geodésica euclidiana más cercana
+    Cada píxel del mapa resultante contiene la distancia euclidiana más cercana entre centros de píxeles
     en MILÍMETROS hacia el borde de la estructura dada.
 
     Parámetros:
@@ -106,7 +106,7 @@ def calcular_mapa_distancia_edt_mm(
         return np.full_like(mascara_binaria, fill_value=np.nan, dtype=np.float32)
 
     # La distancia exterior se calcula desde el fondo (~mascara) hacia el borde del objeto
-    fondo = ~mascara_binaria
+    fondo = ~mascara_binaria.astype(bool)
     dist_map_mm = ndi.distance_transform_edt(fondo, sampling=spacing_yx)
     return dist_map_mm.astype(np.float32)
 
@@ -116,7 +116,7 @@ def medir_distancia_minima_entre_regiones_mm(
     mascara_b: np.ndarray,
     spacing_yx: tuple[float, float],
 ) -> tuple[float, tuple[int, int] | None, tuple[int, int] | None]:
-    """Mide con precisión sub-milimétrica la distancia mínima de separación entre dos regiones.
+    """Mide una aproximación discreta de la distancia mínima entre dos regiones 2D.
 
     Calcula la Transformada de Distancia Euclidiana (EDT) de la máscara A con sampling=(sy, sx)
     y evalúa el valor mínimo alcanzado sobre el soporte espacial de la máscara B.
@@ -127,7 +127,7 @@ def medir_distancia_minima_entre_regiones_mm(
     - spacing_yx: (sy_mm, sx_mm) en milímetros.
 
     Retorna:
-    - distancia_min_mm: Distancia mínima física en mm (0.0 si contactan).
+    - distancia_min_mm: Distancia mínima entre centros en mm (0.0 si se solapan; adyacencia no implica cero).
     - coord_a: Punto (y, x) en la frontera de A más cercano a B.
     - coord_b: Punto (y, x) en la frontera de B más cercano a A.
     """
@@ -137,7 +137,7 @@ def medir_distancia_minima_entre_regiones_mm(
     if not np.any(mask_a) or not np.any(mask_b):
         return float("inf"), None, None
 
-    # Si hay solapamiento o contacto directo
+    # Si hay solapamiento
     if np.any(mask_a & mask_b):
         return 0.0, None, None
 

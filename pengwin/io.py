@@ -1,7 +1,7 @@
 """Carga de volúmenes PENGWIN (Task 1, CT) y ventaneo en unidades Hounsfield.
 
-Los archivos del challenge vienen en MetaImage (.mha), convertidos desde NIfTI:
-el header conserva los campos NIfTI originales (pixdim, scl_slope, qform/sform).
+Los datos locales están en MetaImage (.mha). Se admiten también NIfTI.
+No se deduce su historial de conversión a partir de metadatos heredados.
 El espaciado físico (mm/vóxel) se toma SIEMPRE del header vía SimpleITK;
 nunca se asume isotrópico ni se reporta nada en píxeles como si fueran mm.
 """
@@ -54,7 +54,24 @@ class Caso:
 
 def _leer(ruta: Path) -> sitk.Image:
     img = sitk.ReadImage(str(ruta))
-    return sitk.DICOMOrient(img, ORIENTACION)
+    return normalizar_lps(img)
+
+
+def normalizar_lps(img: sitk.Image) -> sitk.Image:
+    """Reordena ejes sin cambiar puntos físicos, HU o etiquetas.
+
+    No elimina la oblicuidad ni realiza registro anatómico. Rechaza cizalla,
+    spacing no positivo y geometría no finita antes de calcular distancias.
+    """
+    if img.GetDimension()!=3:raise ValueError('Se requiere imagen 3D')
+    direction=np.asarray(img.GetDirection()).reshape(3,3)
+    if not np.isfinite(direction).all() or not np.isfinite(img.GetOrigin()).all():
+        raise ValueError('Geometría no finita')
+    if not np.isfinite(img.GetSpacing()).all() or min(img.GetSpacing())<=0:
+        raise ValueError('Spacing inválido')
+    if not np.allclose(direction.T@direction,np.eye(3),atol=1e-5,rtol=0):
+        raise ValueError('Dirección no ortogonal: requiere remuestreo explícito')
+    return sitk.DICOMOrient(img,ORIENTACION)
 
 
 def spacing_zyx(img: sitk.Image) -> tuple:
@@ -64,15 +81,15 @@ def spacing_zyx(img: sitk.Image) -> tuple:
 
 
 def cargar_caso(id_caso: str, dir_imagenes: Path, dir_etiquetas: Path | None = None) -> Caso:
-    ruta_ct = Path(dir_imagenes) / f"{id_caso}.mha"
+    ruta_ct = resolver_volumen(dir_imagenes, id_caso)
     img = sitk.ReadImage(str(ruta_ct))
     direccion = img.GetDirection()
-    img = sitk.DICOMOrient(img, ORIENTACION)
+    img = normalizar_lps(img)
     ct = sitk.GetArrayFromImage(img).astype(np.float32)
 
     etiqueta = None
     if dir_etiquetas is not None:
-        lb = _leer(Path(dir_etiquetas) / f"{id_caso}.mha")
+        lb = _leer(resolver_volumen(dir_etiquetas, id_caso))
         verificar_alineacion(img, lb, id_caso)
         raw_lb = sitk.GetArrayFromImage(lb)
         unicos = np.unique(raw_lb)
@@ -93,7 +110,7 @@ def verificar_alineacion(img: sitk.Image, lb: sitk.Image, id_caso: str, tol: flo
     for nombre, a, b in [("spacing", img.GetSpacing(), lb.GetSpacing()),
                          ("origen", img.GetOrigin(), lb.GetOrigin()),
                          ("dirección", img.GetDirection(), lb.GetDirection())]:
-        if not np.allclose(a, b, atol=tol):
+        if not np.allclose(a, b, atol=tol, rtol=0):
             raise ValueError(f"{id_caso}: {nombre} CT {a} != máscara {b}")
 
 
@@ -136,3 +153,19 @@ def ventana_hu(ct: np.ndarray, nivel: float = 400, ancho: float = 1800) -> np.nd
 def mascara_hueso_hu(ct: np.ndarray, umbral: float = 200) -> np.ndarray:
     """Umbral clásico de hueso en HU (sin modelo). Base del visualizador 1."""
     return ct >= umbral
+
+
+def resolver_volumen(directory, case):
+    paths = [p for suffix in ('.mha', '.nii', '.nii.gz') for p in Path(directory).rglob(str(case)+suffix)]
+    if len(paths) != 1: raise ValueError(f'{case}: se esperaba un volumen, encontrados {len(paths)}')
+    return paths[0]
+
+
+def rutas_dataset():
+    import json
+    root = Path(__file__).resolve().parents[1]
+    cfg = root / 'config_datos.local.json'
+    if cfg.exists():
+        data = json.loads(cfg.read_text(encoding='utf-8'))
+        return Path(data['images']), Path(data['labels'])
+    return root / 'data/raw/images', root / 'data/raw/labels'

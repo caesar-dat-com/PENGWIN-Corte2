@@ -13,7 +13,7 @@ def reconstruir(semantic,boundary,cores,spacing,policy):
     if method=='interiores':
         return reconstruir_fragmentos(semantic,boundary,cores,spacing,min_volume_mm3=minimum,seed_min_volume_mm3=policy.get('seed_mm3',50.))
     if method=='interfaces':
-        return reconstruct_instances(semantic,boundary,spacing,threshold=policy['threshold'],min_volume_mm3=minimum,seed_min_volume_mm3=policy.get('seed_mm3',50.))
+        return reconstruct_instances(semantic,boundary,spacing,threshold=policy['threshold'],min_volume_mm3=minimum,seed_min_volume_mm3=policy.get('seed_mm3',50.),fusionar=policy.get('fusionar',False))
     if method!='componentes':raise ValueError('Método de instancias desconocido')
     sp=np.asarray(spacing)
     if semantic.ndim!=3 or sp.shape!=(3,) or not np.isfinite(sp).all() or (sp<=0).any():raise ValueError('Volumen/spacing inválido')

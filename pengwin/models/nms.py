@@ -57,12 +57,12 @@ def nms_propio(
         Tensor con los índices (LongTensor) de las cajas seleccionadas
     """
     if boxes.numel() == 0:
-        return torch.empty(0, dtype=torch.long)
+        return torch.empty(0, dtype=torch.long, device=boxes.device)
 
     # 1. Filtrar cajas con score inferior al umbral
     valid_mask = scores >= score_threshold
     if not valid_mask.any():
-        return torch.empty(0, dtype=torch.long)
+        return torch.empty(0, dtype=torch.long, device=boxes.device)
 
     indices = torch.nonzero(valid_mask, as_tuple=False).squeeze(1)
     boxes = boxes[indices]
@@ -90,9 +90,9 @@ def nms_propio(
         orden = orden[1:][ious < iou_threshold]
 
     if len(seleccionados) == 0:
-        return torch.empty(0, dtype=torch.long)
+        return torch.empty(0, dtype=torch.long, device=boxes.device)
 
-    return torch.tensor(seleccionados, dtype=torch.long)
+    return torch.stack(seleccionados).to(dtype=torch.long, device=boxes.device)
 
 
 def nms_por_clase(
@@ -122,10 +122,10 @@ def nms_por_clase(
         if keep.numel() > 0:
             cajas_finales.append(c_boxes[keep])
             scores_finales.append(c_scores[keep])
-            labels_finales.append(torch.full((len(keep),), c.item(), dtype=labels.dtype))
+            labels_finales.append(torch.full((len(keep),), c.item(), dtype=labels.dtype, device=labels.device))
 
     if len(cajas_finales) == 0:
-        return torch.empty((0, 4)), torch.empty(0), torch.empty(0, dtype=torch.long)
+        return boxes.new_empty((0, 4)), scores.new_empty(0), labels.new_empty(0)
 
     return (
         torch.cat(cajas_finales, dim=0),

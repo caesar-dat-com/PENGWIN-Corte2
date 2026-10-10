@@ -12,13 +12,16 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-def focal_loss_binaria(logits: torch.Tensor, targets: torch.Tensor, gamma: float = 0.5, alpha: float = 0.25) -> torch.Tensor:
+def focal_loss_binaria(logits: torch.Tensor, targets: torch.Tensor, gamma: float = 0.5, alpha: float = 0.25, balanced: bool = False) -> torch.Tensor:
     """Focal Loss binaria para manejar el severo desbalance de celdas de fondo vs. regiones óseas."""
     probs = torch.sigmoid(logits)
     bce = F.binary_cross_entropy_with_logits(logits, targets, reduction="none")
     p_t = probs * targets + (1.0 - probs) * (1.0 - targets)
     alpha_t = alpha * targets + (1.0 - alpha) * (1.0 - targets)
     loss = alpha_t * ((1.0 - p_t) ** gamma) * bce
+    if balanced:
+        pos=targets.bool()
+        return (loss[pos].mean() if pos.any() else logits.sum()*0) + (loss[~pos].mean() if (~pos).any() else logits.sum()*0)
     return loss.mean()
 
 
@@ -35,6 +38,7 @@ class PelvisDetectionLoss(nn.Module):
         lambda_cls: float = 1.0,
         lambda_slice: float = 1.0,
         gamma: float = 0.5,
+        balancear_obj: bool = False,
     ):
         super().__init__()
         self.lambda_obj = lambda_obj
@@ -42,6 +46,7 @@ class PelvisDetectionLoss(nn.Module):
         self.lambda_cls = lambda_cls
         self.lambda_slice = lambda_slice
         self.gamma = gamma
+        self.balancear_obj = balancear_obj
 
         self.box_loss_fn = nn.SmoothL1Loss(reduction="mean")
         self.slice_loss_fn = nn.BCEWithLogitsLoss()
@@ -71,7 +76,11 @@ class PelvisDetectionLoss(nn.Module):
 
         # Asignar cada caja Ground Truth a su celda correspondiente en el grid
         if boxes_gt.numel() > 0:
-            for caja in boxes_gt:
+            # Cajas grandes primero: si dos regiones caen en la misma celda de 16 px
+            # (cortes caudales con trozos mínimos) se conserva la mayor y se cuenta
+            # la colisión en self.colisiones, en vez de abortar el entrenamiento.
+            area = (boxes_gt[:, 4] - boxes_gt[:, 2]) * (boxes_gt[:, 5] - boxes_gt[:, 3])
+            for caja in boxes_gt[torch.argsort(area, descending=True)]:
                 b_idx = int(caja[0].item())
                 c_idx = int(caja[1].item())
                 xmin, ymin, xmax, ymax = caja[2:].tolist()
@@ -86,6 +95,9 @@ class PelvisDetectionLoss(nn.Module):
                 gi = min(int(cx * s_w), s_w - 1)
                 gj = min(int(cy * s_h), s_h - 1)
 
+                if mask_pos[b_idx, gj, gi]:
+                    self.colisiones = getattr(self, 'colisiones', 0) + 1
+                    continue
                 target_obj[b_idx, gj, gi] = 1.0
                 mask_pos[b_idx, gj, gi] = True
 
@@ -101,7 +113,7 @@ class PelvisDetectionLoss(nn.Module):
 
         # 1. Pérdida de objetidad (Focal Loss)
         pred_obj_logits = grid[:, 0]  # (B, S, S)
-        loss_obj = focal_loss_binaria(pred_obj_logits, target_obj, gamma=self.gamma)
+        loss_obj = focal_loss_binaria(pred_obj_logits, target_obj, gamma=self.gamma, balanced=self.balancear_obj)
 
         # 2. Pérdida de cajas y de clasificación en celdas positivas
         if mask_pos.any():
