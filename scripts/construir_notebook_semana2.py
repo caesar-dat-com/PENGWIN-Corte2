@@ -14,6 +14,8 @@ def code(s):
 md(r"""
 # Proyecto Integrador Corte 2 — PENGWIN · Semana 2 (Semana 9 del curso)
 
+Revisión 08/10/2026: cuaderno corregido, pendiente de reejecución completa. La ejecución anterior está en `historico/Semana2_antes_revision.ipynb`; sus salidas no pertenecen a esta versión.
+
 **Arquitectura Propia: Backbone FundidoraPC + Atención CBAM + Cabeza de Detección (Grid Propio) + NMS Propio + Overfit de Batch**  
 Analítica de Datos · UAO 2026-2 · Prof. Carlos A. Ferro
 
@@ -77,38 +79,29 @@ La arquitectura opera **corte a corte en 2D**, manteniendo la coherencia espacia
   * **Sacro (SA):** etiqueta 1..10 (clase 0)
   * **Coxal Izquierdo (LI):** etiqueta 11..20 (clase 1)
   * **Coxal Derecho (RI):** etiqueta 21..30 (clase 2)
-- **Filtrado riguroso de ruido espurio ($N < 15$ vóxeles):**
-  * Demostración empírica: el fragmento conminuto más diminuto en todo el dataset 3D tiene **468 vóxeles** ($0.313\text{ mL}$, Caso 85).
-  * En cortes 2D axiales, los componentes con $N < 15$ vóxeles corresponden exclusivamente a ruido de volumen parcial o artefactos de alta densidad.
-  * Se ignoran 1,506 micro-manchas ($2.40\%$) y se conservan **61,232 instancias anatómicas reales ($97.60\%$)**, garantizando que la red no aprenda a colocar cajas sobre ruido.
+- **Auditoría real del área por región y corte:** 62.738 apariciones en 100 máscaras.
+  El umbral 15 excluiría 255 cajas (0,41 %). No demuestra que sean ruido.
+  Se conservan todas las regiones anotadas por defecto (`min_pixeles=0`).
+  El filtro mide área total de la región, no cada componente conexa.
+  Una región puede incluir varios fragmentos dentro de una misma caja.
 """)
 
 code(r"""
 import pandas as pd
 from pengwin.dataset import PelvisSliceDataset, extraer_bboxes_region, collate_deteccion
+print(pd.read_csv(RAIZ / "salidas/revision_oct08/auditoria_umbral.csv").to_string(index=False))
 
-# 1. Tabla de inventario y análisis de sensibilidad de filtrado de ruido
-df_sensibilidad = pd.read_csv(RAIZ / "salidas/inventario_ruido_componentes.csv")
-print("=== ANÁLISIS DE SENSIBILIDAD DEL FILTRO DE RUIDO ESPURIO (N VÓXELES) ===")
-print(df_sensibilidad.to_string(index=False))
+# Ejemplo geométrico artificial para comprobar el comportamiento del filtro.
+# No es una imagen sintética usada para entrenar.
+corte_demo = np.zeros((256,256),dtype=np.uint8)
+corte_demo[50:110,100:156]=1
+corte_demo[10:12,10:14]=1
+cajas0=extraer_bboxes_region(corte_demo,min_pixeles=0)
+cajas15=extraer_bboxes_region(corte_demo,min_pixeles=15)
+assert cajas0==cajas15
+print("El área total del sacro supera 15: el filtro no elimina el componente aislado.")
+print(cajas0)
 
-# 2. Demostración práctica: rechazo de ruido vs detección anatómica
-corte_demo = np.zeros((256, 256), dtype=np.uint8)
-# Regiones anatómicas reales:
-corte_demo[50:110, 100:156] = 1    # Sacro (60x56 = 3360 px)
-corte_demo[110:200, 30:95] = 21    # Coxal Derecho (90x65 = 5850 px)
-corte_demo[110:200, 160:225] = 11  # Coxal Izquierdo (90x65 = 5850 px)
-
-# Artefacto espurio de segmentación (ejemplo: mancha de 8 vóxeles):
-corte_demo[10:12, 10:14] = 1       # 8 px de Sacro espurio
-
-cajas_sin_filtro = extraer_bboxes_region(corte_demo, min_pixeles=0, normalizado=True)
-cajas_con_filtro = extraer_bboxes_region(corte_demo, min_pixeles=15, normalizado=True)
-
-print(f"\nCajas con N=0 (sin filtro): {len(cajas_sin_filtro)} (¡incluye la mancha espurio distorsionando la caja!)")
-print(f"Cajas con N=15 (calibrado) : {len(cajas_con_filtro)} (conserva exactamente las 3 estructuras anatómicas)")
-for c in cajas_con_filtro:
-    print(f" - {c['sigla']} (Clase {c['clase_idx']}): bbox={c['bbox']}, píxeles={c['n_pixeles']}")
 """)
 
 # --- 2. CBAM
@@ -119,7 +112,7 @@ Requerimiento explícito (Sección 4.1):
 > *"Bloque de atención CBAM: deberá incorporarse atención de canal y espacial en el backbone, antes de la bifurcación hacia las tres cabezas."*
 
 - **Channel Attention (CAM):** Combina MaxPool y AvgPool procesadas por un MLP compartido con factor de reducción $r=16$. Determina *qué* canales con características óseas priorizar.
-- **Spatial Attention (SAM):** Comprime los canales mediante convolución $7 \times 7$ con activación sigmoide. Determina *dónde* enfocar la atención espacialmente en la pelvis.
+- **Spatial Attention (SAM):** Comprime los canales mediante convolución $9 \times 9$ con activación sigmoide. Determina *dónde* enfocar la atención espacialmente en la pelvis.
 - **Residual:** $F_{out} = F + \text{SAM}(\text{CAM}(F))$.
 """)
 
@@ -174,7 +167,7 @@ $$c_x = \frac{g_x + \sigma(t_x)}{S}, \quad c_y = \frac{g_y + \sigma(t_y)}{S}, \q
 code(r"""
 from pengwin.models.detector import PelvisDetector, decodificar_grid
 
-modelo = PelvisDetector(backbone_tipo="fundidora", in_channels=3, usar_cbam=True).to(device)
+modelo = PelvisDetector(backbone_tipo="fundidora", in_channels=3, usar_cbam=True, con_segmentacion=False).to(device)
 salidas_modelo = modelo(entrada)
 
 print(f"Mapa del Grid de Detección: {salidas_modelo['grid'].shape} (B, 8, S, S)")
@@ -229,7 +222,7 @@ code(r"""
 from pengwin.models.loss import PelvisDetectionLoss
 
 criterio = PelvisDetectionLoss(lambda_obj=2.0, lambda_box=5.0, lambda_cls=1.0, lambda_slice=1.0, gamma=0.5)
-print(f"Pesos de pérdida calibrados: obj={criterio.lambda_obj}, box={criterio.lambda_box}, cls={criterio.lambda_cls}, gamma={criterio.gamma}")
+print(f"Pesos iniciales (requieren comparación en validación): obj={criterio.lambda_obj}, box={criterio.lambda_box}, cls={criterio.lambda_cls}, gamma={criterio.gamma}")
 """)
 
 # --- 7. Overfit Batch
@@ -248,8 +241,7 @@ code(r"""
 import cv2
 from pengwin import io, dataset
 
-DIR_IMG = RAIZ / "data/raw/images"
-DIR_LBL = RAIZ / "data/raw/labels"
+DIR_IMG, DIR_LBL = io.rutas_dataset()
 
 caso = io.cargar_caso("001", DIR_IMG, DIR_LBL)
 assert caso.etiqueta is not None, "El caso 001 debe contener la máscara de anotación"
@@ -274,7 +266,7 @@ for b_idx, z in enumerate(Z_INDICES):
     imagenes_batch[b_idx] = torch.from_numpy(np.repeat(ct_256[np.newaxis, :, :], 3, axis=0))
 
     # Cajas Ground Truth reales extraídas de la máscara anotada
-    cajas = dataset.extraer_bboxes_region(caso.etiqueta[z], min_pixeles=15, normalizado=True)
+    cajas = dataset.extraer_bboxes_region(caso.etiqueta[z], min_pixeles=0, normalizado=True)
     clase_presente = [0.0, 0.0, 0.0]
     for c in cajas:
         c_idx = c["clase_idx"]
@@ -293,7 +285,7 @@ imagenes_batch = imagenes_batch.to(device)
 boxes_gt = boxes_gt.to(device)
 clases_slice = clases_slice.to(device)
 
-modelo = PelvisDetector(backbone_tipo="fundidora", in_channels=3, usar_cbam=True).to(device)
+modelo = PelvisDetector(backbone_tipo="fundidora", in_channels=3, usar_cbam=True, con_segmentacion=False).to(device)
 optimizador = optim.AdamW(modelo.parameters(), lr=1e-3, weight_decay=1e-4)
 
 # Entrenamiento de overfit
@@ -380,8 +372,8 @@ md(r"""
 4. ✅ **Cabeza de Detección (`pengwin/models/detector.py`):** Grid propio $16 \times 16$ prediciendo 8 canales por celda.
 5. ✅ **NMS Propio (`pengwin/models/nms.py`):** Supresión de no máximos sin librerías de alto nivel.
 6. ✅ **Pérdida Compuesta (`pengwin/models/loss.py`):** Focal Loss con $\gamma=0.5$ + Smooth L1 + CrossEntropy.
-7. ✅ **Prueba de Correctitud:** Overfit exitoso con pérdida descendiendo de $3.169$ a $0.077$.
-8. ✅ **Detección visualmente razonable:** Bounding boxes predichas coinciden con alta precisión frente al Ground Truth.
+7. ✅ **Prueba de Correctitud:** Revisar la pérdida de la ejecución realizada; no fijar cifras de otra ejecución.
+8. ✅ **Detección visualmente razonable:** Comparar cajas con GT y reportar IoU; la inspección visual no mide precisión física.
 
 ### Próxima Semana (Semana 10):
 - Integrar la cabeza de segmentación de fragmentos.

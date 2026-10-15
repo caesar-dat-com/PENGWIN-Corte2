@@ -37,8 +37,7 @@ SALIDAS = Path("salidas")
 SALIDAS.mkdir(exist_ok=True)
 
 # 1. Cargar volumen y máscaras REALES de Caso 001
-DIR_IMG = Path("data/raw/images")
-DIR_LBL = Path("data/raw/labels")
+DIR_IMG, DIR_LBL = io.rutas_dataset()
 
 print("Cargando Caso 001 real desde data/raw...")
 caso = io.cargar_caso("001", DIR_IMG, DIR_LBL)
@@ -62,7 +61,7 @@ for b_idx, z in enumerate(Z_INDICES):
     imagenes_batch[b_idx] = torch.from_numpy(np.repeat(ct_256[np.newaxis, :, :], 3, axis=0))
 
     # Extracción de cajas Ground Truth reales
-    cajas = dataset.extraer_bboxes_region(caso.etiqueta[z], min_pixeles=15, normalizado=True)
+    cajas = dataset.extraer_bboxes_region(caso.etiqueta[z], min_pixeles=0, normalizado=True)
     clase_presente = [0.0, 0.0, 0.0]  # SA, LI, RI
     for c in cajas:
         c_idx = c["clase_idx"]
@@ -79,7 +78,7 @@ clases_slice = torch.tensor(clases_slice_list, dtype=torch.float32)
 
 # 3. Inicializar Modelo con Backbone FundidoraPC + CBAM (kernel 9x9)
 print("\nInicializando PelvisDetector (FundidoraPC + CBAM kernel 9x9)...")
-modelo = PelvisDetector(backbone_tipo="fundidora", in_channels=3, usar_cbam=True)
+modelo = PelvisDetector(backbone_tipo="fundidora", in_channels=3, usar_cbam=True, con_segmentacion=False)
 criterio = PelvisDetectionLoss(lambda_obj=2.0, lambda_box=5.0, lambda_cls=1.0, lambda_slice=1.0, gamma=0.5)
 optimizador = optim.AdamW(modelo.parameters(), lr=1e-3, weight_decay=1e-4)
 

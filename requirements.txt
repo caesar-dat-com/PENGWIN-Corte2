@@ -6,6 +6,9 @@ matplotlib>=3.8
 plotly>=5.20
 scikit-image>=0.22
 nbformat>=5.9
-torch>=2.0.0
-torchvision>=0.15.0
+torch>=2.3
+torchvision>=0.18
 opencv-python>=4.8.0
+
+Pillow>=10
+segment-anything==1.0

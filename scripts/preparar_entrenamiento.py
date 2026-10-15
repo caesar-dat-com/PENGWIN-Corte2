@@ -1,4 +1,9 @@
-"""Muestreo uniforme de train/val con IDs originales, sin abrir test."""
+"""Muestreo de cortes train/val con IDs originales, sin abrir test.
+
+--modo uniforme: N cortes equiespaciados por paciente (avance oct-08).
+--modo hueso: todos los cortes con hueso (cada --paso) + una fracción --vacios
+de cortes sin hueso. Con 8 cortes/paciente el sacro solo aparecía en 52/120
+cortes de val y el decoder colapsaba el coxal izquierdo."""
 import sys,json,hashlib,argparse
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
@@ -7,12 +12,15 @@ from pengwin.io import rutas_dataset,resolver_volumen,verificar_alineacion,venta
 from pengwin.dataset import extraer_bboxes_region
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--cortes',type=int,default=8);args=p.parse_args()
-    out=ROOT/'salidas/revision_oct08/datos';out.mkdir(parents=True,exist_ok=True)
+    p=argparse.ArgumentParser();p.add_argument('--cortes',type=int,default=8)
+    p.add_argument('--modo',choices=('uniforme','hueso'),default='uniforme');p.add_argument('--paso',type=int,default=1)
+    p.add_argument('--vacios',type=float,default=.15);p.add_argument('--salida',type=Path,default=ROOT/'salidas/revision_oct08/datos');args=p.parse_args()
+    out=args.salida;out.mkdir(parents=True,exist_ok=True)
     images,labels=rutas_dataset();spfile=ROOT/'splits/splits.json';splits=json.loads(spfile.read_text())
     ids=[cid for s in ('train','val','test') for cid in splits[s]]
     if len(ids)!=len(set(ids)):raise ValueError('Splits solapados')
-    proto={'cortes_por_paciente':args.cortes,'split_sha256':hashlib.sha256(spfile.read_bytes()).hexdigest(),'resolucion':256,'muestreo':'uniforme 0..100%, independiente de anotaciones, incluye negativos','images':str(images),'labels':str(labels)}
+    muestreo='uniforme 0..100%, independiente de anotaciones, incluye negativos' if args.modo=='uniforme' else f'todos los cortes con hueso cada {args.paso} + {args.vacios:.0%} de cortes vacíos (semilla 42)'
+    proto={'cortes_por_paciente':args.cortes if args.modo=='uniforme' else None,'modo':args.modo,'split_sha256':hashlib.sha256(spfile.read_bytes()).hexdigest(),'resolucion':256,'muestreo':muestreo,'images':str(images),'labels':str(labels)}
     if (out/'protocolo.json').exists() and json.loads((out/'protocolo.json').read_text())!=proto:raise ValueError('Preparación incompatible')
     (out/'protocolo.json').write_text(json.dumps(proto,indent=2),encoding='utf-8');rows=[]
     for split in ('train','val'):
@@ -23,7 +31,11 @@ def main():
                 label=sitk.DICOMOrient(sitk.ReadImage(str(resolver_volumen(labels,cid))),'LPS');verificar_alineacion(image,label,cid)
                 x,y=sitk.GetArrayFromImage(image),sitk.GetArrayFromImage(label)
                 if not np.isin(y,np.arange(31)).all():raise ValueError('Etiquetas inválidas')
-                zz=np.unique(np.rint(np.linspace(0,len(x)-1,args.cortes)).astype(int))
+                if args.modo=='uniforme':zz=np.unique(np.rint(np.linspace(0,len(x)-1,args.cortes)).astype(int))
+                else:
+                    con=np.flatnonzero(y.reshape(len(y),-1).any(1));sin=np.setdiff1d(np.arange(len(y)),con)
+                    rng=np.random.default_rng(int(cid)+42);k=min(len(sin),int(round(len(con)/args.paso*args.vacios)))
+                    zz=np.sort(np.concatenate([con[::args.paso],rng.choice(sin,k,replace=False) if k else np.array([],int)])).astype(int)
                 xx=np.stack([cv2.resize(ventana_hu(x[z]),(256,256),interpolation=cv2.INTER_AREA) for z in zz])
                 yy=np.stack([cv2.resize(y[z].astype(np.uint8),(256,256),interpolation=cv2.INTER_NEAREST) for z in zz])
                 boxes=np.full((len(zz),3,5),-1.,np.float32)

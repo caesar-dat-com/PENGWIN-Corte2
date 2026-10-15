@@ -17,7 +17,23 @@ def fragment_boundaries(ids):
         edge[a]|=change;edge[b]|=change
     return edge.astype(np.float32)
 
-def reconstruct_instances(semantic,boundary,spacing_zyx,threshold=.5,min_volume_mm3=20.,seed_min_volume_mm3=0.):
+def _fusionar_pequenas(assigned,mask,minimo_vox,structure):
+    """Instancias bajo el mínimo se unen al vecino con más contacto en vez de borrarse:
+    borrar dejaba GT omitidos y huecos dentro del hueso; un fragmento pequeño suele
+    ser un trozo del vecino partido por un borde espurio."""
+    for _ in range(3):
+        labels,counts=np.unique(assigned[assigned>0],return_counts=True);small=labels[counts<minimo_vox]
+        if not len(small) or len(labels)==len(small): break
+        changed=False
+        for label in small[np.argsort(counts[counts<minimo_vox])]:
+            obj=assigned==label
+            if not obj.any(): continue
+            ring=ndi.binary_dilation(obj,structure)&~obj&mask;neigh=assigned[ring];neigh=neigh[(neigh>0)&(neigh!=label)]
+            if len(neigh): assigned[obj]=np.bincount(neigh).argmax();changed=True
+        if not changed: break
+    return assigned
+
+def reconstruct_instances(semantic,boundary,spacing_zyx,threshold=.5,min_volume_mm3=20.,seed_min_volume_mm3=0.,fusionar=False):
     if semantic.ndim!=3 or semantic.shape!=boundary.shape: raise ValueError('Se requiere volumen 3D contiguo')
     spacing=np.asarray(spacing_zyx,float)
     if spacing.shape!=(3,) or not np.isfinite(spacing).all() or (spacing<=0).any(): raise ValueError('Spacing inválido')
@@ -41,6 +57,7 @@ def reconstruct_instances(semantic,boundary,spacing_zyx,threshold=.5,min_volume_
             for point in locations:
                 n+=1;markers[point]=n
         assigned=watershed(boundary.astype(np.float32),markers,mask=mask,connectivity=structure)
+        if fusionar: assigned=_fusionar_pequenas(assigned,mask,min_volume_mm3/np.prod(spacing),structure)
         labels,counts=np.unique(assigned[assigned>0],return_counts=True)
         lookup=np.zeros(int(assigned.max())+1,np.int32)
         for label,count in zip(labels,counts):

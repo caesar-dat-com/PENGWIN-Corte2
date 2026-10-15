@@ -43,11 +43,14 @@ def classification_metrics(truth,prob):
     aucs=[r['auc'] for r in rows if r['auc'] is not None]
     return {'per_class':rows,'macro_f1':float(np.mean([r['f1'] for r in rows])),'macro_auc':float(np.mean(aucs)) if aucs else None}
 
-def gate_semantic(prob,boxes,labels):
-    """Cada región solo puede ocupar píxeles dentro de su bbox predicha tras NMS."""
+def gate_semantic(prob,boxes,labels,margen=0.):
+    """Cada región solo puede ocupar píxeles dentro de su bbox predicha tras NMS.
+
+    `margen` dilata cada caja una fracción de su ancho/alto: con IoU de caja
+    ~0,5 la compuerta estricta recortaba hueso real en los bordes."""
     h,w=prob.shape[-2:];allowed=np.zeros((4,h,w),bool);allowed[0]=True
     for box,c in zip(boxes,labels):
-        x1,y1,x2,y2=box
+        x1,y1,x2,y2=box;mx,my=(x2-x1)*margen,(y2-y1)*margen;x1,y1,x2,y2=x1-mx,y1-my,x2+mx,y2+my
         left,top=max(0,int(np.floor(x1*w))),max(0,int(np.floor(y1*h)))
         right,bottom=min(w,int(np.ceil(x2*w))),min(h,int(np.ceil(y2*h)))
         allowed[int(c)+1,top:bottom,left:right]=True
