@@ -34,7 +34,7 @@ def detection_metrics(records):
             'definition':'AP 101 puntos, IoU 0.50:0.05:0.95, NMS propio, sin filtros COCO por área'}
 
 def classification_metrics(truth,prob):
-    y=np.asarray(truth,bool);p=np.asarray(prob);pred=p>=.5;rows=[]
+    y=np.asarray(truth,bool);p=np.nan_to_num(np.asarray(prob,dtype=np.float64),nan=0.0,posinf=1.0,neginf=0.0);pred=p>=.5;rows=[]
     for c in range(3):
         tp=int((y[:,c]&pred[:,c]).sum());fp=int((~y[:,c]&pred[:,c]).sum());fn=int((y[:,c]&~pred[:,c]).sum());tn=int((~y[:,c]&~pred[:,c]).sum())
         pos=int(y[:,c].sum());neg=len(y)-pos

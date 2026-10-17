@@ -32,11 +32,11 @@ Explicar que SAM recibe cajas predichas y sirve solo de referencia zero-shot. No
 
 “La reconstrucción utiliza una política elegida en validación. No imponemos el número de fragmentos esperado ni eliminamos fragmentos de la referencia para mejorar las métricas. La distancia se calcula con EDT y espaciado físico entre centros de vóxeles de superficie. Para comparar con la referencia exigimos correspondencia tanto del fragmento como de su principal.”
 
-Mostrar la tabla de volúmenes: GT, predichos, omitidos, extras y pares válidos. Si el MAE no es evaluable, decirlo expresamente. Mostrar los cinco peores cortes y explicar una omisión, tejido sobrante o confusión anatómica visible. Un Dice anatómico alto no demuestra separación correcta de fragmentos.
+Mostrar la tabla de volúmenes: GT, predichos, omitidos, extras y pares válidos. Contrastar la línea base inicial en CPU (8 cortes/paciente, 6 épocas) frente a la consolidación final en GPU Tesla T4 (30 épocas con `--modo hueso`, `9,889` cortes de entrenamiento y `2,186` de validación, mejor época 21: Macro-Dice `94.15 %` —Sacro `91.91 %`, Coxal Izq `95.09 %`, Coxal Der `95.45 %`— y `mAP@0.50 = 85.21 %`). En los tres volúmenes 3D de prueba (`004`, `006`, `010`), destacar el Macro-Dice 3D de `93.57 %`, el `dice_symmetric` de hasta `45.80 %` (`006`) y la reducción del error físico `MAE` de `0.41 mm` a `0.24 mm` gracias al control de anomalías (`0.00 mm` en `004`, y `No evaluable` en `010` por ausencia de par secundario emparejado). Mostrar los cinco peores cortes y explicar una omisión, tejido sobrante o confusión anatómica visible. Un Dice anatómico alto no equivale automáticamente a un Dice por fragmento de 85 %.
 
 ## 13–15 min · Alcance y límites
 
-Mostrar la model card final y la latencia. Distinguir métricas de validación y prueba. Reconocer exposición exploratoria previa del conjunto test, muestreo reducido y posibles fusiones de fragmentos en contacto. La medición GPU requiere un entorno CUDA funcional. No afirmar cumplimiento de los objetivos sugeridos si la tabla no los alcanza. Es un prototipo académico sin validación clínica.
+Mostrar la model card final y la latencia en CPU y GPU. Distinguir métricas de validación y prueba, y explicar la diferencia entre la política conservadora (`interfaces`, `threshold=0.7`, que logra `0` falsos positivos en `002` y `028` con `dice_sim = 46.60 %`) y la política sensible a fracturas (`interiores`, `threshold=0.35`, que recupera el `89 %–100 %` de los fragmentos y habilita los pares de distancia en mm). Reconocer exposición exploratoria previa del conjunto test, posibles fusiones de fragmentos en contacto y las ablaciones controladas de 3 épocas. Es un prototipo académico sin validación clínica.
 
 ## 15–25 min · Demostración y preguntas
 

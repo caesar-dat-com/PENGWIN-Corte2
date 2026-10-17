@@ -1,0 +1,14 @@
+2026-10-17T21:39:58Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-10-17T21:39:58Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-10-17T21:40:04Z INF +--------------------------------------------------------------------------------------------+
+2026-10-17T21:40:04Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-10-17T21:40:04Z INF |  https://receipt-services-departure-restaurants.trycloudflare.com                          |
+2026-10-17T21:40:04Z INF +--------------------------------------------------------------------------------------------+
+2026-10-17T21:40:04Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp]
+2026-10-17T21:40:04Z INF Version 2026.10.1 (Checksum 4d2490e74082c5d48dbfedaf92576fa5bd1702379ab88eb7faa0cfbe8dc891b6)
+2026-10-17T21:40:04Z INF GOOS: windows, GOVersion: go1.27.2, GoArch: amd64
+2026-10-17T21:40:04Z INF Settings: map[ha-connections:1 no-autoupdate:true p:http2 protocol:http2 url:http://127.0.0.1:8765]
+2026-10-17T21:40:04Z INF cloudflared will not automatically update on Windows systems.
+2026-10-17T21:40:04Z INF Generated Connector ID: 852df5d0-1e4d-4646-8a48-b5e21a748487
+2026-10-17T21:40:04Z INF Initial protocol http2
+2026-10-17T21:40:04Z INF ICMP proxy will use 192.168.1.9 as source for IPv4

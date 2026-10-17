@@ -129,3 +129,16 @@ Usuario: «adelante», autorizando mejorar la identificación anatómica. Se pre
 
 ## Ensayo CLAHE solicitado
 Usuario: «has la prueba». Se comparó inferencia con y sin CLAHE y adaptación de tres épocas del decoder con CLAHE consistente en train/val, reutilizando control idéntico sin CLAHE. Se recalcularon cajas para evitar evaluación con cajas de otra entrada. No se reentrenaron encoder/detector/RPN; esta limitación se documentó. El resultado fue peor y no se desplegó. Ver doc/PRUEBA_CLAHE.md y salidas/clahe_revision/decision.json.
+
+
+## Consolidación en GPU (30 épocas, modo hueso) y corrección de estabilidad numérica AMP — 16–17 de octubre de 2026
+Herramienta: Antigravity (Gemini / Claude). Prompts principales del equipo:
+- «en el colab, me salen una serie de errores: TypeError: RNG state must be a torch.ByteTensor ... dime a que se debe? porque veo que quizas por esto es que no llega a las 30 epocas»
+- «volvi ejecutar, y me salio esto: Epoch 4/30 ... ValueError: Out of range float values are not JSON compliant: nan»
+- «Validemos otra vez a full detalle, de manera exacta, analitica y demas, los resultados veraces, recuerda que todo debe coincidir exactamente con la rubrica y objetivo del proyecto.»
+
+### Qué se obtuvo y qué corrigió el equipo
+1. **Diagnóstico de interrupción en la época 3 (`cuda_rng`):** Al cargar `last.pth` con `map_location=device` en GPU, los tensores de estado RNG quedaban en memoria CUDA (`torch.cuda.ByteTensor`), mientras que `torch.cuda.set_rng_state_all` exige tensores en CPU (`[s.cpu().byte() for s in ck['cuda_rng']]`). Se corrigió en `scripts/entrenar_sesion2.py`.
+2. **Diagnóstico de divergencia y `NaN` en precisión mixta (`torch.amp.autocast`):** En `pengwin/models/loss.py`, `focal_loss_binaria` con `gamma = 0.5` evaluada en `float16` redondeaba `p_t = 1.0` cuando `|logits| > 8.0`, haciendo `1.0 - p_t = 0.0`. Aunque el forward daba `0.0` finito, la derivada en `.backward()` ($0.5 / \sqrt{1 - p_t}$) divergía a `inf`/`NaN`, agotando el factor de escala del `GradScaler` alrededor del batch 160 de la época 4. Se corrigió evaluando las funciones de pérdida (`focal_loss_binaria` y `seg_loss`) en `float32` con `.clamp(min=1e-6)` en la base de la potencia focal y reemplazando `logits.sum() * 0` por `logits.new_zeros(())`.
+3. **Entrenamiento completo de 30 épocas en Tesla T4 (`--modo hueso`):** Con `9,889` cortes de entrenamiento (70 pacientes) y `2,186` de validación (15 pacientes), el modelo alcanzó su mejor época en la **época 21** con `Macro-Dice = 94.15 %` (Sacro `91.91 %`, Coxal Izq `95.09 %`, Coxal Der `95.45 %`) y `mAP@0.50 = 85.21 %`. En los volúmenes 3D de prueba (`004`, `006`, `010`) alcanzó `Macro-Dice 3D = 93.57 %` corregido (`94.02 %` crudo) y redujo el error físico de separación inter-fragmento (`MAE`) de `0.41 mm` a `0.24 mm` en el caso `006`.
+

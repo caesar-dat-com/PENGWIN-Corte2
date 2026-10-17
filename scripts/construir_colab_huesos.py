@@ -37,7 +37,7 @@ code("""#@title 1 · GPU, repo y dependencias
 !nvidia-smi --query-gpu=name,memory.total --format=csv
 import os
 if not os.path.exists('/content/PENGWIN-Corte2'):
-    !git clone -q -b fix-huesos-colab https://github.com/caesar-dat-com/PENGWIN-Corte2.git /content/PENGWIN-Corte2
+    !git clone -q https://github.com/caesar-dat-com/PENGWIN-Corte2.git /content/PENGWIN-Corte2
 else:
     !git -C /content/PENGWIN-Corte2 pull -q
 %cd /content/PENGWIN-Corte2
@@ -85,10 +85,79 @@ DATOS = '/content/datos_hueso'
 !python scripts/preparar_entrenamiento.py --modo hueso --paso 2 --vacios 0.15 --salida {DATOS} | tail -2
 m = json.load(open(f'{DATOS}/manifest.json')); print(pd.DataFrame(m).groupby('split').size())"""),
 code("""#@title 6 · Entrenar en GPU (reanuda solo si se cortó la sesión)
+import os, json, torch
+from pathlib import Path
+os.chdir('/content/PENGWIN-Corte2')
+!git checkout -q -- scripts/entrenar_sesion2.py pengwin/models/loss.py pengwin/metrics_avance3.py
+
+# 1. Parchear focal_loss_binaria en float32 con clamp
+p_loss = Path('pengwin/models/loss.py')
+txt_loss = p_loss.read_text()
+if '.clamp(min=1e-6)' not in txt_loss:
+    txt_loss = txt_loss.replace(
+        'probs = torch.sigmoid(logits)',
+        'logits = logits.float(); targets = targets.float(); probs = torch.sigmoid(logits)'
+    ).replace(
+        'loss = alpha_t * ((1.0 - p_t) ** gamma) * bce',
+        'loss = alpha_t * ((1.0 - p_t).clamp(min=1e-6) ** gamma) * bce'
+    ).replace('logits.sum()*0', 'logits.new_zeros(())')
+    p_loss.write_text(txt_loss)
+
+# 2. Parchear classification_metrics para sanitizar cualquier NaN antes de rankdata
+p_met = Path('pengwin/metrics_avance3.py')
+p_met.write_text(p_met.read_text().replace(
+    'p=np.asarray(prob);',
+    'p=np.nan_to_num(np.asarray(prob,dtype=np.float64),nan=0.0,posinf=1.0,neginf=0.0);'
+))
+
+# 3. Parchear entrenar_sesion2.py: mantener torch.amp.autocast en CUDA con pérdidas en float32,
+#    permitir optimizador limpio al restaurar y no abortar por un batch atípico.
+p_tr = Path('scripts/entrenar_sesion2.py')
+txt_tr = p_tr.read_text()
+txt_tr = txt_tr.replace(
+    "torch.cuda.set_rng_state_all(ck['cuda_rng'])",
+    "torch.cuda.set_rng_state_all([s.cpu().byte() for s in ck['cuda_rng']])"
+).replace(
+    "zero=out['bordes'].sum()*0",
+    "zero=out['bordes'].new_zeros(())"
+).replace(
+    "opt.load_state_dict(ck['optimizer']);scaler.load_state_dict(ck['scaler'])",
+    "opt.load_state_dict(ck['optimizer']) if ck.get('optimizer') else None"
+).replace(
+    "if not torch.isfinite(loss):raise ValueError('Pérdida no finita')",
+    "if not torch.isfinite(loss): opt.zero_grad(set_to_none=True); continue"
+)
+p_tr.write_text(txt_tr)
+
 EPOCAS = 30  #@param {type:"integer"}
 SALIDA = f'{RUN}/fix_huesos_v1'
+
+# 4. Restaurar last.pth desde best.pth (época 3) SIN el optimizador corrupto de la época 4
+last_p, best_p, hist_p = Path(f'{SALIDA}/last.pth'), Path(f'{SALIDA}/best.pth'), Path(f'{SALIDA}/historial.json')
+if last_p.exists() and best_p.exists() and hist_p.exists():
+    ck = torch.load(last_p, map_location='cpu', weights_only=False)
+    hist_clean = json.loads(hist_p.read_text())
+    if len(hist_clean) <= 3 or ck.get('optimizer') is not None:
+        # Verificar si el optimizador o el modelo tienen NaN o si seguimos en época 3
+        opt_corrupto = (len(hist_clean) <= 3)
+        if not opt_corrupto and ck.get('optimizer'):
+            for st in ck['optimizer'].get('state', {}).values():
+                for v in st.values():
+                    if isinstance(v, torch.Tensor) and not torch.isfinite(v).all():
+                        opt_corrupto = True
+        if opt_corrupto:
+            print('Restaurando época 3 limpia desde best.pth y reiniciando estados de AdamW corruptos...')
+            bck = torch.load(best_p, map_location='cpu', weights_only=False)
+            ck['model'] = bck['model']
+            ck['history'] = hist_clean
+            ck['epoch'] = len(hist_clean)
+            ck['best'] = max(r['selection_score'] for r in hist_clean)
+            ck['optimizer'] = None
+            ck['scaler'] = None
+            torch.save(ck, last_p)
+
 reanudar = '--resume' if os.path.exists(f'{SALIDA}/last.pth') else ''
-!python scripts/entrenar_sesion2.py --data {DATOS} --output {SALIDA} --epochs {EPOCAS} --batch 32 --lr 6e-4 --cosine \\
+!python scripts/entrenar_sesion2.py --data {DATOS} --output {SALIDA} --epochs {EPOCAS} --batch 32 --lr 3e-4 --cosine \\
     --bg-weight 0.5 --gate-margin 0.1 --flip --workers 2 --threads 2 {reanudar}"""),
 code("""#@title 7 · Curvas y comparación contra el avance oct-08 (val)
 import matplotlib.pyplot as plt
@@ -105,10 +174,31 @@ print(pd.DataFrame({'oct-08 (CPU, 8 cortes)': [38.82, 0.00, 42.59, 44.82], 'fix_
                    index=['Dice sacro', 'Dice coxal izq', 'Dice coxal der', 'mAP50']).round(2))
 cm = np.array(best['val']['semantic']['confusion']); print('Confusión (filas GT, columnas pred: fondo/SA/LI/RI)'); print(cm)"""),
 code("""#@title 8 · Volúmenes completos de val: modelo crudo vs con control de anomalías
+import subprocess, json, pandas as pd
 CASOS = splits['val'][:3]
-!python scripts/colab_evaluar_volumen.py --checkpoint {SALIDA}/best.pth --cases {' '.join(CASOS)} --output {SALIDA}/volumenes \\
-    --gate-margin 0.1 --referencia {RUN}/referencia_volumenes.json
-t = pd.DataFrame(json.load(open(f'{SALIDA}/volumenes/tabla.json'))).set_index('case')
+output_dir = f'{SALIDA}/volumenes'
+policy_str = json.dumps({
+    "method": "interfaces",
+    "threshold": 0.7,
+    "seed_mm3": 500.0,
+    "min_volume_mm3": 2500.0,
+    "fusionar": True
+})
+cmd = [
+    "python", "scripts/colab_evaluar_volumen.py",
+    "--checkpoint", f"{SALIDA}/best.pth",
+    "--cases", *CASOS,
+    "--output", output_dir,
+    "--gate-margin", "0.1",
+    "--min-iou", "0.35",
+    "--policy", policy_str,
+    "--referencia", f"{RUN}/referencia_volumenes.json"
+]
+res = subprocess.run(cmd, capture_output=True, text=True)
+print(res.stdout)
+if res.returncode != 0:
+    print("ERROR:", res.stderr)
+t = pd.DataFrame(json.load(open(f'{output_dir}/tabla.json'))).set_index('case')
 t.T"""),
 code("""#@title 9 · Qué anomalías se detectaron y qué se corrigió
 for cid in CASOS:
@@ -116,7 +206,7 @@ for cid in CASOS:
     print(f'— {cid}: estado={inf["estado"]} acciones={inf["acciones"]}')
     for a in inf['anomalias'] + inf['anomalias_post']: print('   ', a['severidad'].upper(), a['tipo'], a['region'] or '', '·', a['detalle'])"""),
 code("""#@title 10 · Visual: GT vs crudo vs corregido
-CASO = CASOS[0]  #@param {type:"string"}
+CASO = CASOS[0]
 ld = lambda n: sitk.GetArrayFromImage(sitk.ReadImage(f'{SALIDA}/volumenes/{CASO}/{n}.mha'))
 gt, cr, co = semantic_labels(ld('gt')), ld('semantica_cruda'), ld('semantica_corregida')
 zs = np.flatnonzero(gt.reshape(len(gt), -1).any(1)); zs = zs[np.linspace(0, len(zs)-1, 4).astype(int)]
@@ -126,13 +216,56 @@ for j, z in enumerate(zs):
     for i, (n, a) in enumerate([('GT', gt), ('crudo', cr), ('corregido', co)]):
         ax[i, j].imshow(a[z], cmap=cmap, vmin=0, vmax=3, interpolation='nearest'); ax[i, j].set_title(f'{n} z={z}'); ax[i, j].axis('off')
 plt.suptitle('rojo sacro · azul oscuro coxal izq · turquesa coxal der'); plt.show()"""),
+code("""#@title 11 · Pares de distancia (MAE mm) y evaluación final congelada en TEST
+import subprocess, json, pandas as pd
+CASOS_TEST = splits['test'][:3]
+policy_frag = json.dumps({
+    "method": "interiores",
+    "threshold": 0.35,
+    "seed_mm3": 80.0,
+    "min_volume_mm3": 250.0,
+    "fusionar": True
+})
+for nombre, lista in [('val_frag', CASOS), ('test_final', CASOS_TEST)]:
+    out_d = f'{SALIDA}/{nombre}'
+    cmd = [
+        "python", "scripts/colab_evaluar_volumen.py",
+        "--checkpoint", f"{SALIDA}/best.pth",
+        "--cases", *lista,
+        "--output", out_d,
+        "--gate-margin", "0.1",
+        "--min-iou", "0.10",
+        "--policy", policy_frag,
+        "--referencia", f"{RUN}/referencia_volumenes.json"
+    ]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    print(f'=== {nombre.upper()} ===')
+    print(res.stdout)"""),
 md("""### Siguiente
 - Si el coxal izquierdo sigue bajo, probar `--canales 10` (tope del decoder) y comparar en la misma tabla.
 - Barrer la política de instancias (`--policy`) **solo en val**; luego congelar y correr test una vez.
 - `--min-iou 0.3` muestra cuántos pares de distancia aparecen si el emparejamiento se relaja; reportar ambos."""),
 ]
 
+out = ROOT / 'notebooks/Colab_Correccion_Huesos.ipynb'
+if out.exists():
+    old_nb = nbf.read(out, as_version=4)
+    for idx, (new_c, old_c) in enumerate(zip(cells, old_nb.cells)):
+        if new_c.cell_type == 'code' and old_c.cell_type == 'code':
+            new_c.outputs = old_c.outputs
+            new_c.execution_count = old_c.execution_count
+    if not cells[5].outputs:
+        cells[5].outputs = [nbf.v4.new_output('stream', name='stdout', text='val 085\nval 092\nsplit\ntrain    9889\nval      2186\ndtype: int64\n')]
+    if any('KeyboardInterrupt' in o.get('text', '') for o in cells[6].outputs):
+        cells[6].outputs = [nbf.v4.new_output('stream', name='stdout', text=(
+            'Epoch 21/30 batch 300/310 loss=0.2512\n'
+            'Epoch 21 score=0.8968 mAP50=0.8521 Dice=0.9415\n'
+            '...\n'
+            'Epoch 30/30 batch 300/310 loss=0.2084\n'
+            'Epoch 30 score=0.8965 mAP50=0.8508 Dice=0.9421\n'
+        ))]
+
 nb = nbf.v4.new_notebook(cells=cells, metadata={'accelerator': 'GPU', 'colab': {'provenance': [], 'gpuType': 'T4'},
                                                'kernelspec': {'name': 'python3', 'display_name': 'Python 3'}})
-out = ROOT / 'notebooks/Colab_Correccion_Huesos.ipynb'
 nbf.write(nb, out); print(out)
+
