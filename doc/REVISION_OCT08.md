@@ -88,7 +88,6 @@ SAM recibió únicamente cajas del modelo, nunca cajas GT. Se conservaron omisio
 - `salidas/revision_oct08/volumenes/`: máscaras 3D, emparejamientos y distancias.
 - `salidas/revision_oct08/comparacion_test/`: protocolo congelado, hashes y comparación SAM cuando se complete.
 - `tests/test_revision.py`: pruebas funcionales y geométricas; registro en `salidas/revision_oct08/pruebas.txt`.
-- `GUION_SUSTENTACION_SEMANA9.md`: guion corregido, Yesenia presenta primero.
 - `notebooks/historico/Semana2_antes_revision.ipynb`: original preservado, con afirmaciones obsoletas. El cuaderno corregido requiere reejecución.
 
 Consultar README para las órdenes locales. Resultados académicos preliminares; no demuestran validez clínica.

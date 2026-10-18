@@ -17,3 +17,5 @@ salidas/revision_oct08/datos/
 /dashboard-fragmentos/
 /dashboard/assets/demo_respaldo.webm
 /salidas/cierre/demo_respaldo.webm
+# Checkpoint GPU final verificado, requerido para reproducir la entrega.
+!/salidas/fix_huesos_v1/best.pth

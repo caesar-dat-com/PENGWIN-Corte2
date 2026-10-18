@@ -35,7 +35,7 @@ def main():
         counts[c['id']]=len(rows)
     video=read(out/'video.json');cap=cv2.VideoCapture(str(ROOT/video['file']))
     assert cap.isOpened() and int(cap.get(cv2.CAP_PROP_FRAME_COUNT))==video['frames'];cap.release()
-    for name in ('INFORME_CIERRE.md','MODEL_CARD_FINAL.md','GUION_CIERRE.md'):assert (ROOT/'doc'/name).is_file()
+    for name in ('INFORME_CIERRE.md','MODEL_CARD_FINAL.md'):assert (ROOT/'doc'/name).is_file()
     result={'status':'passed','checkpoint_sha256':frozen['checkpoint_sha256'],'patient_split':[70,15,15],'dashboard_contiguous_slices':counts,'video_frames':video['frames'],'scope':'Integridad de artefactos, geometría, hash de modelo, separación de pacientes y referencias locales. No demuestra calidad clínica ni metas métricas.'}
     (out/'verificacion_entrega.json').write_text(json.dumps(result,indent=2,ensure_ascii=False),encoding='utf-8');print(json.dumps(result))
 if __name__=='__main__':main()

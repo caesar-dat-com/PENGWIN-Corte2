@@ -23,7 +23,7 @@ def write_plot(fig,path):
     path.write_text(html,encoding='utf-8')
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--cases',nargs='+',required=True);p.add_argument('--results-root',default='salidas/cierre/volumenes');p.add_argument('--output',default='dashboard');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--cases',nargs='+',required=True);p.add_argument('--results-root',required=True);p.add_argument('--output',default='dashboard');a=p.parse_args()
     dest=ROOT/a.output;(dest/'assets').mkdir(parents=True,exist_ok=True)
     (dest/'assets/plotly.min.js').write_text(get_plotlyjs(),encoding='utf-8')
     cfg=json.loads((ROOT/'config_datos.local.json').read_text(encoding='utf-8'));catalog=[]
@@ -76,7 +76,7 @@ def main():
         mip=figura_mip(ct,image.GetSpacing()[::-1],cid,mm=3.,paso_grados=30)
         mip.update_layout(template='plotly_dark',paper_bgcolor='#111d2c',plot_bgcolor='#111d2c')
         write_plot(mip,out/'mip.html');del image,ct
-        catalog.append({'id':cid,'detector':meta.get('detector','grid anterior'),'split':meta['split'],'slices':len(gray),'summary':summary,'latency_ms':meta['latency_mean_ms'],'device':meta['device'],'spacing_xyz':meta['spacing_xyz'],'distances':ds})
+        catalog.append({'id':cid,'detector':meta.get('detector','grid anterior'),'split':meta['split'],'slices':len(gray),'summary':summary,'latency_ms':meta['latency_mean_ms'],'device':meta['device'],'spacing_xyz':meta['spacing_xyz'],'distances':ds,'checkpoint_sha256':meta['sha256']})
         print('DASHBOARD',cid,len(gray),'cortes',flush=True)
     save(dest/'data/catalogo.json',catalog)
     report=ROOT/'doc/INFORME_CIERRE.md'

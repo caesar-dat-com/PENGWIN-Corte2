@@ -15,6 +15,7 @@ from pengwin.metrics_avance3 import gate_semantic
 from pengwin.instancias_estables import reconstruir,resumen_fragmentos
 from pengwin.instances import match_instances,separation_distances,semantic_labels
 from pengwin import anomalias
+from pengwin.evaluacion_distancias import comparar_distancias
 from entrenar_sesion2 import decode
 from inferir_macro_3d import reference_grid
 
@@ -64,6 +65,9 @@ def evaluar(sem,edge,core,gt,sp,policy,min_iou):
                      'absolute_error_mm':float(err_val) if err_val is not None else None})
     err=[c['absolute_error_mm'] for c in comp if c['valid_pair']]
     r.update(distance_min_iou=min_iou,distance_valid_pairs=len(err),distance_MAE_mm=float(np.mean(err)) if err else None)
+    r['distance_by_iou']={str(t):comparar_distancias(matches,dist,gd_list,t) for t in (.1,.5)}
+    tp=r['matches_iou05'];fp=r['pred']-tp;fn=r['gt']-tp
+    r['instances_iou05']={'tp':tp,'fp':fp,'fn':fn,'precision':tp/(tp+fp) if tp+fp else None,'recall':tp/(tp+fn) if tp+fn else None}
     return r,pred,mapping,matches,dist,gd_list,comp
 
 def main():

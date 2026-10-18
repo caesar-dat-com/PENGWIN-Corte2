@@ -153,3 +153,12 @@ Uso exclusivamente académico. No es un dispositivo médico, no está validado c
 - Pesos oficiales de backbone ImageNet: https://download.pytorch.org/models/resnet18-f37072fd.pth (SHA256 registrado en ablaciones).
 - SimpleITK DICOMOrient: https://simpleitk.org/doxygen/latest/html/classitk_1_1simple_1_1DICOMOrientImageFilter.html
 - Cloudflare Quick Tunnels: https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/
+
+
+## Alcance de los resultados y pendientes de reproducción
+
+Las métricas de validación se toman de salidas/fix_huesos_v1/metricas_val.json: mAP50 85.21%, mAP50:95 49.70%, IoU medio GT 77.27%, Macro-F1 98.77%, Macro-AUC 99.78% y Macro-Dice semántico 94.15%. Son resultados registrados, no una nueva ejecución independiente.
+
+Persisten 8, 9 y 11 instancias sobrantes en test 004, 006 y 010; su Dice simétrico de instancias es 31.99%, 23.86% y 17.70%. La buena segmentación anatómica no demuestra separación correcta de fragmentos. Los MAE históricos usan IoU mínimo 0.10; la evaluación a 0.50 está pendiente. No interpretar ausencia de pares como error cero.
+
+La versión actual del evaluador añadirá ambos umbrales a la misma inferencia. El checkpoint GPU fue recuperado y su SHA256 verificado. Falta regenerar los recursos del dashboard. El README documenta cómo comprobar y empaquetar estos artefactos.

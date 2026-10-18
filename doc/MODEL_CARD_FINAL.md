@@ -10,11 +10,11 @@ Uso exclusivamente académico. No es un dispositivo médico, no está validado c
 - **Cómo reproducir / obtener el checkpoint GPU:** ejecutar `notebooks/Colab_Correccion_Huesos.ipynb` (o `python scripts/preparar_entrenamiento.py --modo hueso --paso 2 --vacios 0.15 --salida /content/datos_hueso` seguido de `python scripts/entrenar_sesion2.py --data /content/datos_hueso --output salidas/fix_huesos_v1 --epochs 30 --batch 32 --lr 3e-4 --cosine --bg-weight 0.5 --gate-margin 0.1 --flip`).
 - **Referencia histórica en CPU (6 épocas, 8 cortes/paciente):** `salidas/cierre/ajuste/contorno/best.pth` (`SHA256: 2a5e9f1daeec2328da2b78f263aa8edc1d10aa62593bfe5f18f56f494fc7297d`), conservada únicamente como línea base comparativa previa al entrenamiento en GPU.
 
-## Desempeño verificado del modelo GPU (`3d68d466...`, época 21)
+## Resultados registrados del modelo GPU (`3d68d466...`, época 21)
 
 - **Validación 2D por corte (`15` pacientes, `2,186` cortes, `salidas/fix_huesos_v1/metricas_val.json`):**
-  - Detección: `mAP@0.50 = 85.21%`, `mAP@0.50:0.95 = 65.43%`, `IoU medio GT = 80.59%`.
-  - Clasificación por corte: `Macro-F1 = 96.46%`, `Macro-AUC = 99.64%`.
+  - Detección: `mAP@0.50 = 85.21%`, `mAP@0.50:0.95 = 49.70%`, `IoU medio GT = 77.27%`.
+  - Clasificación por corte: `Macro-F1 = 98.77%`, `Macro-AUC = 99.78%`.
   - Segmentación anatómica: `Macro-Dice = 94.15%` (Sacro `91.91%`, Coxal Izq `95.09%`, Coxal Der `95.45%`).
 - **Validación volumétrica 3D (`002`, `012`, `028`):**
   1. Política conservadora (`interfaces`, `threshold=0.7`, `seed_mm3=500`, `min_volume_mm3=2500`, `fusionar=True`, `min_iou=0.35`, `salidas/fix_huesos_v1/volumenes/tabla.json`):
@@ -33,3 +33,12 @@ Uso exclusivamente académico. No es un dispositivo médico, no está validado c
 ## Limitaciones y uso responsable
 
 No usar para decisiones clínicas. Uso exclusivamente académico. Las alertas de `pengwin/anomalias.py` son control de calidad geométrico/anatómico y no diagnóstico médico. La separación de fragmentos por `interiores` incrementa la sensibilidad a fracturas y permite evaluar distancias EDT con `spacing` físico, pero mantiene sobresegmentación (`extra` de `6` a `20` instancias), por lo que las distancias deben interpretarse siempre junto con el conteo de instancias sobrantes y omitidas.
+
+
+## Alcance de los resultados y pendientes de reproducción
+
+Las métricas de validación se toman de salidas/fix_huesos_v1/metricas_val.json: mAP50 85.21%, mAP50:95 49.70%, IoU medio GT 77.27%, Macro-F1 98.77%, Macro-AUC 99.78% y Macro-Dice semántico 94.15%. Son resultados registrados, no una nueva ejecución independiente.
+
+Persisten 8, 9 y 11 instancias sobrantes en test 004, 006 y 010; su Dice simétrico de instancias es 31.99%, 23.86% y 17.70%. La buena segmentación anatómica no demuestra separación correcta de fragmentos. Los MAE históricos usan IoU mínimo 0.10; la evaluación a 0.50 está pendiente. No interpretar ausencia de pares como error cero.
+
+La versión actual del evaluador añadirá ambos umbrales a la misma inferencia. El checkpoint GPU fue recuperado y su SHA256 verificado. Falta regenerar los recursos del dashboard. El README documenta cómo comprobar y empaquetar estos artefactos.

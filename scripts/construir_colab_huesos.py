@@ -252,13 +252,6 @@ md("""### Siguiente
 ]
 
 out = ROOT / 'notebooks/Colab_Correccion_Huesos.ipynb'
-if out.exists():
-    old_nb = nbf.read(out, as_version=4)
-    for new_c, old_c in zip(cells, old_nb.cells):
-        if new_c.cell_type == 'code' and old_c.cell_type == 'code':
-            new_c.outputs = old_c.outputs
-            new_c.execution_count = old_c.execution_count
-
 nb = nbf.v4.new_notebook(cells=cells, metadata={'accelerator': 'GPU', 'colab': {'provenance': [], 'gpuType': 'T4'},
                                                'kernelspec': {'name': 'python3', 'display_name': 'Python 3'}})
 nbf.write(nb, out); print(out)
