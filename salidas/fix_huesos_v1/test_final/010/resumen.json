@@ -1,0 +1,97 @@
+{
+  "crudo": {
+    "gt": 5,
+    "pred": 16,
+    "missed": 0,
+    "extra": 11,
+    "matches_iou05": 1,
+    "dice_gt": 0.5664391839381943,
+    "iou_gt": 0.4008689059132274,
+    "dice_symmetric": 0.1770122449806857,
+    "semantic_dice": [
+      0.9016477745989208,
+      0.9191850866733926,
+      0.944670859538784
+    ],
+    "confusion": [
+      [
+        22673757,
+        7878,
+        9290,
+        7227
+      ],
+      [
+        5063,
+        62243,
+        0,
+        33
+      ],
+      [
+        4209,
+        599,
+        80175,
+        0
+      ],
+      [
+        2631,
+        6,
+        0,
+        84489
+      ]
+    ],
+    "distance_min_iou": 0.1,
+    "distance_valid_pairs": 2,
+    "distance_MAE_mm": 0.0
+  },
+  "corregido": {
+    "gt": 5,
+    "pred": 16,
+    "missed": 0,
+    "extra": 11,
+    "matches_iou05": 1,
+    "dice_gt": 0.5665420925685927,
+    "iou_gt": 0.4009912943706785,
+    "dice_symmetric": 0.17704440392768522,
+    "semantic_dice": [
+      0.9027715399214754,
+      0.9195443156995511,
+      0.9446037735849057
+    ],
+    "confusion": [
+      [
+        22673868,
+        7804,
+        9243,
+        7237
+      ],
+      [
+        4998,
+        62312,
+        0,
+        29
+      ],
+      [
+        4204,
+        586,
+        80193,
+        0
+      ],
+      [
+        2638,
+        5,
+        0,
+        84483
+      ]
+    ],
+    "distance_min_iou": 0.1,
+    "distance_valid_pairs": 2,
+    "distance_MAE_mm": 0.0
+  },
+  "policy": {
+    "method": "interiores",
+    "threshold": 0.35,
+    "seed_mm3": 80.0,
+    "min_volume_mm3": 250.0,
+    "fusionar": true
+  }
+}

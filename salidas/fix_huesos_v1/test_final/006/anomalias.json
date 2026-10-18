@@ -1,0 +1,30 @@
+{
+  "anomalias": [
+    {
+      "tipo": "islas_z",
+      "severidad": "media",
+      "region": null,
+      "detalle": "42 vóxeles en componentes de < 3 cortes"
+    }
+  ],
+  "acciones": {
+    "islas_z": 42,
+    "suavizado_z": 2458
+  },
+  "puntaje": 2,
+  "estado": "ok",
+  "volumenes_mm3": {
+    "1": 142424.66850793362,
+    "2": 201601.76448905468,
+    "3": 203650.23926496506
+  },
+  "anomalias_post": [
+    {
+      "tipo": "islas_z",
+      "severidad": "media",
+      "region": null,
+      "detalle": "14 vóxeles en componentes de < 3 cortes"
+    }
+  ],
+  "entrada": []
+}

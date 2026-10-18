@@ -1,0 +1,37 @@
+{
+  "anomalias": [
+    {
+      "tipo": "lateralidad",
+      "severidad": "alta",
+      "region": null,
+      "detalle": "92 vóxeles de coxal del lado contrario a la línea media"
+    },
+    {
+      "tipo": "islas_z",
+      "severidad": "media",
+      "region": null,
+      "detalle": "380 vóxeles en componentes de < 3 cortes"
+    }
+  ],
+  "acciones": {
+    "lateralidad": 92,
+    "islas_z": 380,
+    "suavizado_z": 4487
+  },
+  "puntaje": 5,
+  "estado": "revisar",
+  "volumenes_mm3": {
+    "1": 219564.20719313202,
+    "2": 307582.92948397575,
+    "3": 318007.51096204855
+  },
+  "anomalias_post": [
+    {
+      "tipo": "islas_z",
+      "severidad": "media",
+      "region": null,
+      "detalle": "19 vóxeles en componentes de < 3 cortes"
+    }
+  ],
+  "entrada": []
+}

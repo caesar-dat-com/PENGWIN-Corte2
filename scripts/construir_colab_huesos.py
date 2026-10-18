@@ -110,7 +110,17 @@ p_met.write_text(p_met.read_text().replace(
     'p=np.nan_to_num(np.asarray(prob,dtype=np.float64),nan=0.0,posinf=1.0,neginf=0.0);'
 ))
 
-# 3. Parchear entrenar_sesion2.py: mantener torch.amp.autocast en CUDA con pérdidas en float32,
+# 3. Parchear instancias_estables.py para transmitir threshold y fusionar en method=='interiores'
+p_inst = Path('pengwin/instancias_estables.py')
+txt_inst = p_inst.read_text()
+if "threshold=policy.get('threshold',.5)" not in txt_inst:
+    txt_inst = txt_inst.replace(
+        "return reconstruir_fragmentos(semantic,boundary,cores,spacing,min_volume_mm3=minimum,seed_min_volume_mm3=policy.get('seed_mm3',50.))",
+        "return reconstruir_fragmentos(semantic,boundary,cores,spacing,threshold=policy.get('threshold',.5),min_volume_mm3=minimum,seed_min_volume_mm3=policy.get('seed_mm3',50.),fusionar=policy.get('fusionar',False))"
+    )
+    p_inst.write_text(txt_inst)
+
+# 4. Parchear entrenar_sesion2.py: mantener torch.amp.autocast en CUDA con pérdidas en float32,
 #    permitir optimizador limpio al restaurar y no abortar por un batch atípico.
 p_tr = Path('scripts/entrenar_sesion2.py')
 txt_tr = p_tr.read_text()
@@ -132,36 +142,27 @@ p_tr.write_text(txt_tr)
 EPOCAS = 30  #@param {type:"integer"}
 SALIDA = f'{RUN}/fix_huesos_v1'
 
-# 4. Restaurar last.pth desde best.pth (época 3) SIN el optimizador corrupto de la época 4
-last_p, best_p, hist_p = Path(f'{SALIDA}/last.pth'), Path(f'{SALIDA}/best.pth'), Path(f'{SALIDA}/historial.json')
-if last_p.exists() and best_p.exists() and hist_p.exists():
-    ck = torch.load(last_p, map_location='cpu', weights_only=False)
-    hist_clean = json.loads(hist_p.read_text())
-    if len(hist_clean) <= 3 or ck.get('optimizer') is not None:
-        # Verificar si el optimizador o el modelo tienen NaN o si seguimos en época 3
-        opt_corrupto = (len(hist_clean) <= 3)
-        if not opt_corrupto and ck.get('optimizer'):
-            for st in ck['optimizer'].get('state', {}).values():
-                for v in st.values():
-                    if isinstance(v, torch.Tensor) and not torch.isfinite(v).all():
-                        opt_corrupto = True
-        if opt_corrupto:
-            print('Restaurando época 3 limpia desde best.pth y reiniciando estados de AdamW corruptos...')
-            bck = torch.load(best_p, map_location='cpu', weights_only=False)
-            ck['model'] = bck['model']
-            ck['history'] = hist_clean
-            ck['epoch'] = len(hist_clean)
-            ck['best'] = max(r['selection_score'] for r in hist_clean)
-            ck['optimizer'] = None
-            ck['scaler'] = None
-            torch.save(ck, last_p)
-
-reanudar = '--resume' if os.path.exists(f'{SALIDA}/last.pth') else ''
-!python scripts/entrenar_sesion2.py --data {DATOS} --output {SALIDA} --epochs {EPOCAS} --batch 32 --lr 3e-4 --cosine \\
-    --bg-weight 0.5 --gate-margin 0.1 --flip --workers 2 --threads 2 {reanudar}"""),
+# 5. Si ya se completaron las 30 épocas en SALIDA, mostrar el resumen verificable desde historial.json y best.pth
+hist_p, best_p, cfg_p = Path(f'{SALIDA}/historial.json'), Path(f'{SALIDA}/best.pth'), Path(f'{SALIDA}/config.json')
+if hist_p.exists() and best_p.exists() and len(json.loads(hist_p.read_text())) >= EPOCAS:
+    import hashlib
+    h_done = json.loads(hist_p.read_text())
+    sha_best = hashlib.sha256(best_p.read_bytes()).hexdigest()
+    b_row = max(h_done, key=lambda r: r['selection_score'])
+    print(f'Entrenamiento previamente completado: {len(h_done)}/{EPOCAS} épocas registradas en {hist_p}')
+    print(f'Checkpoint best.pth SHA256: {sha_best}')
+    print(f'Mejor época: {b_row["epoch"]} | score={b_row["selection_score"]:.4f} | mAP50={b_row["val"]["detection"]["mAP50"]:.4f} | Macro-Dice={b_row["val"]["semantic"]["macro_dice"]:.4f}')
+    print(f'Época final {h_done[-1]["epoch"]}: score={h_done[-1]["selection_score"]:.4f} | mAP50={h_done[-1]["val"]["detection"]["mAP50"]:.4f} | Macro-Dice={h_done[-1]["val"]["semantic"]["macro_dice"]:.4f}')
+else:
+    reanudar = '--resume' if os.path.exists(f'{SALIDA}/last.pth') else ''
+    !python scripts/entrenar_sesion2.py --data {DATOS} --output {SALIDA} --epochs {EPOCAS} --batch 32 --lr 3e-4 --cosine \\
+        --bg-weight 0.5 --gate-margin 0.1 --flip --workers 2 --threads 2 {reanudar}"""),
 code("""#@title 7 · Curvas y comparación contra el avance oct-08 (val)
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt, hashlib
+from pathlib import Path
 h = json.load(open(f'{SALIDA}/historial.json'))
+sha_best = hashlib.sha256(Path(f'{SALIDA}/best.pth').read_bytes()).hexdigest()
+print('SHA256 best.pth:', sha_best)
 ep = [r['epoch'] for r in h]; dice = np.array([r['val']['semantic']['dice'] for r in h])
 fig, ax = plt.subplots(1, 3, figsize=(16, 4))
 ax[0].plot(ep, [r['loss']['total'] for r in h]); ax[0].set_title('pérdida train')
@@ -169,7 +170,7 @@ for i, n in enumerate(['sacro', 'coxal izq', 'coxal der']): ax[1].plot(ep, dice[
 ax[1].axhline(0.0, ls=':', c='k'); ax[1].set_title('Dice val por hueso'); ax[1].legend()
 ax[2].plot(ep, [r['val']['detection']['mAP50'] for r in h]); ax[2].set_title('mAP50 val'); plt.show()
 best = max(h, key=lambda r: r['selection_score'])
-print('Mejor época', best['epoch'])
+print('Mejor época', best['epoch'], 'de', len(h), 'épocas completadas')
 print(pd.DataFrame({'oct-08 (CPU, 8 cortes)': [38.82, 0.00, 42.59, 44.82], 'fix_huesos_v1': [*(100*np.array(best['val']['semantic']['dice'])), 100*best['val']['detection']['mAP50']]},
                    index=['Dice sacro', 'Dice coxal izq', 'Dice coxal der', 'mAP50']).round(2))
 cm = np.array(best['val']['semantic']['confusion']); print('Confusión (filas GT, columnas pred: fondo/SA/LI/RI)'); print(cm)"""),
@@ -216,8 +217,9 @@ for j, z in enumerate(zs):
     for i, (n, a) in enumerate([('GT', gt), ('crudo', cr), ('corregido', co)]):
         ax[i, j].imshow(a[z], cmap=cmap, vmin=0, vmax=3, interpolation='nearest'); ax[i, j].set_title(f'{n} z={z}'); ax[i, j].axis('off')
 plt.suptitle('rojo sacro · azul oscuro coxal izq · turquesa coxal der'); plt.show()"""),
-code("""#@title 11 · Pares de distancia (MAE mm) y evaluación final congelada en TEST
-import subprocess, json, pandas as pd
+code("""#@title 11 · Pares de distancia (MAE mm), evaluación final en TEST y construcción de Dashboard verificable
+import subprocess, json, shutil, pandas as pd
+from pathlib import Path
 CASOS_TEST = splits['test'][:3]
 policy_frag = json.dumps({
     "method": "interiores",
@@ -240,7 +242,9 @@ for nombre, lista in [('val_frag', CASOS), ('test_final', CASOS_TEST)]:
     ]
     res = subprocess.run(cmd, capture_output=True, text=True)
     print(f'=== {nombre.upper()} ===')
-    print(res.stdout)"""),
+    print(res.stdout)
+    if res.returncode != 0:
+        print("ERROR:", res.stderr)"""),
 md("""### Siguiente
 - Si el coxal izquierdo sigue bajo, probar `--canales 10` (tope del decoder) y comparar en la misma tabla.
 - Barrer la política de instancias (`--policy`) **solo en val**; luego congelar y correr test una vez.
@@ -250,20 +254,10 @@ md("""### Siguiente
 out = ROOT / 'notebooks/Colab_Correccion_Huesos.ipynb'
 if out.exists():
     old_nb = nbf.read(out, as_version=4)
-    for idx, (new_c, old_c) in enumerate(zip(cells, old_nb.cells)):
+    for new_c, old_c in zip(cells, old_nb.cells):
         if new_c.cell_type == 'code' and old_c.cell_type == 'code':
             new_c.outputs = old_c.outputs
             new_c.execution_count = old_c.execution_count
-    if not cells[5].outputs:
-        cells[5].outputs = [nbf.v4.new_output('stream', name='stdout', text='val 085\nval 092\nsplit\ntrain    9889\nval      2186\ndtype: int64\n')]
-    if any('KeyboardInterrupt' in o.get('text', '') for o in cells[6].outputs):
-        cells[6].outputs = [nbf.v4.new_output('stream', name='stdout', text=(
-            'Epoch 21/30 batch 300/310 loss=0.2512\n'
-            'Epoch 21 score=0.8968 mAP50=0.8521 Dice=0.9415\n'
-            '...\n'
-            'Epoch 30/30 batch 300/310 loss=0.2084\n'
-            'Epoch 30 score=0.8965 mAP50=0.8508 Dice=0.9421\n'
-        ))]
 
 nb = nbf.v4.new_notebook(cells=cells, metadata={'accelerator': 'GPU', 'colab': {'provenance': [], 'gpuType': 'T4'},
                                                'kernelspec': {'name': 'python3', 'display_name': 'Python 3'}})

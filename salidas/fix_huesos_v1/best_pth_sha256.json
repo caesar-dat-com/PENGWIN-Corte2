@@ -1,0 +1,7 @@
+{
+  "checkpoint": "salidas/fix_huesos_v1/best.pth",
+  "drive_path": "/content/drive/MyDrive/PENGWIN_runs/fix_huesos_v1/best.pth",
+  "sha256": "3d68d4668e6b550a171cf112d0bd22dfddebcdbad013db55044148b562ed72c7",
+  "best_epoch": 21,
+  "epochs_completed": 30
+}

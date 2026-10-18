@@ -21,6 +21,20 @@ class CierreTests(unittest.TestCase):
         edge=np.zeros_like(sem,float);edge[:,:,5:7]=1
         pred,m=reconstruir(sem,edge,np.ones_like(edge),(1,1,1),{'method':'interfaces','threshold':.5,'min_volume_mm3':0,'seed_mm3':0})
         self.assertEqual(len(m),2);self.assertTrue(np.all(pred[sem>0]>0))
+    def test_interiores_forwards_threshold_and_fusionar(self):
+        sem=np.zeros((7,9,12),np.uint8);sem[1:6,1:8,1:11]=1
+        edge=np.zeros_like(sem,float);edge[:,:,8:9]=0.6
+        cores=np.ones_like(edge,float)
+        # Con threshold=0.5 (por defecto), barrier=0.6 >= 0.5 separa en 2 fragmentos.
+        # Con threshold=0.7, barrier=0.6 < 0.7 mantiene 1 sola semilla conectada.
+        pred_split,_=reconstruir(sem,edge,cores,(1,1,1),{'method':'interiores','threshold':.5,'min_volume_mm3':0,'seed_mm3':0,'fusionar':False})
+        pred_unsplit,_=reconstruir(sem,edge,cores,(1,1,1),{'method':'interiores','threshold':.7,'min_volume_mm3':0,'seed_mm3':0,'fusionar':False})
+        self.assertEqual(int(pred_split.max()),2)
+        self.assertEqual(int(pred_unsplit.max()),1)
+        # Con fusionar=True y min_volume_mm3=100, el trozo pequeño (<100 vox) se fusiona al vecino mayor (350 vox total) sin perder vóxeles.
+        pred_merged,_=reconstruir(sem,edge,cores,(1,1,1),{'method':'interiores','threshold':.5,'min_volume_mm3':100,'seed_mm3':0,'fusionar':True})
+        self.assertEqual(len(np.unique(pred_merged[pred_merged>0])),1)
+        self.assertEqual(int(np.count_nonzero(pred_merged>0)),int(np.count_nonzero(sem>0)))
     def test_volume_filter_uses_physical_spacing(self):
         sem=np.zeros((5,5,5),np.uint8);sem[2,2,2]=1
         a,_=reconstruir(sem,sem*0,sem*0,(1,1,1),{'method':'componentes','min_volume_mm3':2})
