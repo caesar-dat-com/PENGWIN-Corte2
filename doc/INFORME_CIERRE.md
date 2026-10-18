@@ -99,9 +99,9 @@ Pares de distancia válidos totales (corrida CPU inicial, 8 cortes/paciente): **
 
 ### Consolidación final en GPU (30 épocas, modo hueso + control de anomalías 3D)
 
-Para superar la limitación del submuestreo en CPU (8 cortes por paciente, donde el coxal izquierdo quedaba en `0.00%` de Dice), se entrenó la arquitectura `PelvisSesion2` (8 canales en el decoder, `FundidoraPC + CBAM9`) en GPU Tesla T4 durante **30 épocas** empleando `--modo hueso --paso 2 --vacios 0.15` (`9,889` cortes en `train` de 70 pacientes y `2,186` cortes en `val` de 15 pacientes), flip horizontal con intercambio explícito de lateralidad (`11..20 <-> 21..30`), `--bg-weight 0.5` y `--gate-margin 0.1`.
+Para superar la limitación del submuestreo en CPU (8 cortes por paciente, donde el coxal izquierdo quedaba en `0.00%` de Dice), se entrenó la arquitectura `PelvisSesion2` (8 canales en el decoder, `FundidoraPC + CBAM9`) en GPU Tesla T4 durante **30 épocas** empleando `--modo hueso --paso 2 --vacios 0.15` (`9,889` cortes en `train` de 70 pacientes y `2,186` cortes en `val` de 15 pacientes), flip horizontal con intercambio explícito de lateralidad (`11..20 <-> 21..30`), `--bg-weight 0.5` y `--gate-margin 0.1`. Checkpoint: `salidas/fix_huesos_v1/best.pth` (`SHA256: 3d68d4668e6b550a171cf112d0bd22dfddebcdbad013db55044148b562ed72c7`, historial completo en `salidas/fix_huesos_v1/historial.json`).
 
-El mejor punto de validación se alcanzó en la **época 21** (`Macro-Dice = 94.15%`, `mAP@0.50 = 85.21%`), superando ampliamente las metas de la rúbrica (`Dice ≥ 85%`, `mAP@0.50 ≥ 65%`):
+El mejor punto de validación se alcanzó en la **época 21** (`Macro-Dice = 94.15%`, `mAP@0.50 = 85.21%`), superando las metas sugeridas (`Dice ≥ 85%`, `mAP@0.50 ≥ 65%`):
 
 | Métrica en Validación (`2,186` cortes, 15 pacientes) | Línea base CPU (8 cortes, 6 épocas) | **Consolidación GPU (modo hueso, 30 épocas)** | Meta sugerida rúbrica |
 |---|---:|---:|---:|
@@ -111,16 +111,16 @@ El mejor punto de validación se alcanzó en la **época 21** (`Macro-Dice = 94.
 | **Macro-Dice Semántico** | 27.14% | **94.15%** | ≥ 85% |
 | **Detección `mAP@0.50`** | 44.82% | **85.21%** | ≥ 65% |
 
-En evaluación volumétrica 3D completa sobre los volúmenes de validación (`002`, `012`, `028`) y los tres volúmenes reservados de prueba (`004`, `006`, `010`), junto con el módulo de control de anomalías (`pengwin/anomalias.py`):
+En evaluación volumétrica 3D completa sobre los volúmenes de validación (`002`, `012`, `028`) y los tres volúmenes reservados de prueba (`004`, `006`, `010`), tras asegurar la transmisión de `threshold=0.35` y `fusionar=True` en `pengwin/instancias_estables.py` para el modo `interiores` (`salidas/fix_huesos_v1/val_frag/tabla.json` y `salidas/fix_huesos_v1/test_final/tabla.json`):
 
-| Caso (Split) | GT Frag. | Dice 3D Sacro (corr) | Dice 3D Coxal Izq (corr) | Dice 3D Coxal Der (corr) | Dice simétrico (interiores / interfaces) | Pares distancia (`interiores`) | MAE físico (mm, crudo → corr) |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| **002 (`val`)** | 6 | **94.56%** | **96.97%** | **96.77%** | 28.96% / **46.60%** | **2** | **0.00 mm → 0.00 mm** |
-| **012 (`val`)** | 5 | **68.21%** | **82.20%** | **89.67%** | 8.18% / **29.62%** | **1** | **0.00 mm → 0.00 mm** |
-| **028 (`val`)** | 7 | **92.39%** | **96.36%** | **95.68%** | 20.20% / **38.19%** | **3** | **0.00 mm → 0.00 mm** |
-| **004 (`test`)** | 6 | **92.30%** | **94.76%** | **94.83%** | **30.73%** (37.01% crudo) | **2** | **0.00 mm → 0.00 mm** |
-| **006 (`test`)** | 7 | **89.96%** | **96.81%** | **96.75%** | **42.06%** (45.80% crudo) | **3** | 0.41 mm → **0.24 mm** |
-| **010 (`test`)** | 5 | **90.28%** | **91.95%** | **94.46%** | **17.16%** | 0 | No evaluable |
+| Caso (Split) | GT | Pred (`interiores` corr) | Extra (`interiores` corr) | Omitidos | Dice 3D SA / LI / RI (corr) | Dice simétrico (`interiores` / `interfaces`) | Pares distancia (`interiores`) | MAE físico (mm, crudo → corr) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **002 (`val`)** | 6 | 11 | 6 | 1 | 94.56% / 96.97% / 96.77% | **33.88%** / **46.60%** | **2** | **5.14 mm → 5.14 mm** |
+| **012 (`val`)** | 5 | 24 | 20 | 1 | 68.21% / 82.20% / 89.67% | **10.00%** / **29.62%** | **1** | **5.00 mm → 5.00 mm** |
+| **028 (`val`)** | 7 | 15 | 9 | 1 | 92.39% / 96.36% / 95.68% | **30.07%** / **38.19%** | **3** | **12.05 mm → 12.59 mm** |
+| **004 (`test`)** | 6 | 14 | 8 | **0** | 92.30% / 94.76% / 94.83% | **31.99%** (33.31% crudo) | **3** | **0.00 mm → 0.00 mm** |
+| **006 (`test`)** | 7 | 14 | 9 | 2 | 89.96% / 96.81% / 96.75% | **23.86%** (25.15% crudo) | **2** | 0.62 mm → **0.36 mm** |
+| **010 (`test`)** | 5 | 16 | 11 | **0** | 90.28% / 91.95% / 94.46% | **17.70%** (17.70% crudo) | **2** | **0.00 mm → 0.00 mm** |
 
 ## Cinco peores casos y análisis de errores
 

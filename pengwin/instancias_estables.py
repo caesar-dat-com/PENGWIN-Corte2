@@ -11,7 +11,7 @@ from .fragmentos_sesion2 import reconstruir_fragmentos
 def reconstruir(semantic,boundary,cores,spacing,policy):
     method=policy['method'];minimum=policy.get('min_volume_mm3',20.)
     if method=='interiores':
-        return reconstruir_fragmentos(semantic,boundary,cores,spacing,min_volume_mm3=minimum,seed_min_volume_mm3=policy.get('seed_mm3',50.))
+        return reconstruir_fragmentos(semantic,boundary,cores,spacing,threshold=policy.get('threshold',.5),min_volume_mm3=minimum,seed_min_volume_mm3=policy.get('seed_mm3',50.),fusionar=policy.get('fusionar',False))
     if method=='interfaces':
         return reconstruct_instances(semantic,boundary,spacing,threshold=policy['threshold'],min_volume_mm3=minimum,seed_min_volume_mm3=policy.get('seed_mm3',50.),fusionar=policy.get('fusionar',False))
     if method!='componentes':raise ValueError('Método de instancias desconocido')

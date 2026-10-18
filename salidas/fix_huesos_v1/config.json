@@ -1,0 +1,31 @@
+{
+  "seed": 42,
+  "train_patients": 70,
+  "val_patients": 15,
+  "train_slices": 9889,
+  "val_slices": 2186,
+  "device": "cuda",
+  "seg_weight": 1.2,
+  "batch": 32,
+  "threads": 2,
+  "data_protocol": {
+    "cortes_por_paciente": null,
+    "modo": "hueso",
+    "split_sha256": "394aa1ae9e25f57f858996936eae688dd3dc8e645a36e3354a1c26cbb310e162",
+    "resolucion": 256,
+    "muestreo": "todos los cortes con hueso cada 2 + 15% de cortes vacíos (semilla 42)",
+    "images": "/content/data/images",
+    "labels": "/content/data/labels"
+  },
+  "architecture": "sesion2_skips8_interiores_ds_v1",
+  "canales": 8,
+  "bg_weight": 0.5,
+  "gate_margin": 0.1,
+  "flip_lr_swap": true,
+  "lr": 0.0003,
+  "cosine": true,
+  "status": "completed",
+  "selection": "media de mAP50 y Dice semántico en val",
+  "boundary_threshold": 0.5,
+  "epochs": 30
+}
