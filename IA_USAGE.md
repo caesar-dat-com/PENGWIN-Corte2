@@ -142,3 +142,16 @@ Herramienta: Antigravity (Gemini / Claude). Prompts principales del equipo:
 2. **Diagnóstico de divergencia y `NaN` en precisión mixta (`torch.amp.autocast`):** En `pengwin/models/loss.py`, `focal_loss_binaria` con `gamma = 0.5` evaluada en `float16` redondeaba `p_t = 1.0` cuando `|logits| > 8.0`, haciendo `1.0 - p_t = 0.0`. Aunque el forward daba `0.0` finito, la derivada en `.backward()` ($0.5 / \sqrt{1 - p_t}$) divergía a `inf`/`NaN`, agotando el factor de escala del `GradScaler` alrededor del batch 160 de la época 4. Se corrigió evaluando las funciones de pérdida (`focal_loss_binaria` y `seg_loss`) en `float32` con `.clamp(min=1e-6)` en la base de la potencia focal y reemplazando `logits.sum() * 0` por `logits.new_zeros(())`.
 3. **Entrenamiento completo de 30 épocas en Tesla T4 (`--modo hueso`):** Con `9,889` cortes de entrenamiento (70 pacientes) y `2,186` de validación (15 pacientes), el modelo alcanzó su mejor época en la **época 21** con `Macro-Dice = 94.15 %` (Sacro `91.91 %`, Coxal Izq `95.09 %`, Coxal Der `95.45 %`) y `mAP@0.50 = 85.21 %`. En los volúmenes 3D de prueba (`004`, `006`, `010`) alcanzó `Macro-Dice 3D = 93.57 %` corregido (`94.02 %` crudo) y redujo el error físico de separación inter-fragmento (`MAE`) de `0.41 mm` a `0.24 mm` en el caso `006`.
 
+
+
+## Actualización posterior al PR #9
+
+Herramienta: asistente Codex de OpenAI; identificador exacto del modelo no expuesto en esta sesión.
+Prompts exactos: «haz esas actalizaciones» y «tambien quita los guines q se generaron y cualquier informacion adicional que no se soliciete en el proyecto».
+Aporte: corrección de cifras desde metricas_val.json, limpieza de salidas de notebook, comparación de distancia a dos umbrales, comprobación de recursos y checkpoint, instrucciones de reproducción y retiro de guiones/recibos.
+Verificación: cuatro pruebas nuevas y seis pruebas de cierre pasaron. Se comprobó sintaxis Python/JavaScript. El comprobador detectó la ausencia de los recursos del dashboard y del checkpoint en la copia descargada.
+Límites: no se ejecutó una nueva inferencia GPU, no se optimizó la separación de fragmentos y no se certificaron nuevas métricas. No se publicó ni integró en GitHub. No se atribuyen modificaciones manuales del equipo no observadas. Revisión humana y recuperación de artefactos pendientes.
+
+
+Actualización autorizada por el equipo: «genera unas visualizaciones de toda la informacion relevante, agregalas en las carpetas ya creadas», «tambien ya esta el archivo q me pediste», «haz un pull y sube esta ultima actualizacion a github» y «debe quedar completo con lo q estamos haciendo , incluido el archivo best».
+Se generaron nueve gráficas EDA en PNG/SVG desde los CSV, con comprobaciones de conteos y separación entre datos completos y cortes seleccionados. Se recuperó best.pth desde el archivo suministrado best.pth.zip; SHA256 exacto 3d68d4668e6b550a171cf112d0bd22dfddebcdbad013db55044148b562ed72c7, carga segura weights_only=True, época 21. No se reentrenó ni se atribuyeron métricas nuevas a esta operación. Los recursos del dashboard todavía requieren regeneración.

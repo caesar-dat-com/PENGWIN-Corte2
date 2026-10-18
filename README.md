@@ -131,7 +131,7 @@ Se añadió supervisión de la unión de huesos y sus contornos mediante Sobel, 
 
 ## Integración actual: cierre de semana 10
 
-Entrada actual: [informe con resultados y límites](doc/INFORME_CIERRE.md), [modelo seleccionado](doc/MODEL_CARD_FINAL.md) y [guion de 25 minutos](doc/GUION_CIERRE.md). Los resultados actuales están separados en `salidas/cierre/`; los avances anteriores se conservan como históricos.
+Entrada actual: [informe con resultados y límites](doc/INFORME_CIERRE.md), [modelo seleccionado](doc/MODEL_CARD_FINAL.md). Los resultados actuales están separados en `salidas/cierre/`; los avances anteriores se conservan como históricos.
 
 ### Explorar resultados locales
 
@@ -155,10 +155,39 @@ Secuencia implementada:
 3. `scripts/estudio_ablacion.py`: comparaciones con/sin CBAM y con/sin transferencia, tres épocas por variante.
 4. `scripts/predecir_volumen_cierre.py --cases 002 012 028` y `scripts/evaluar_instancias_cierre.py`: selección de reconstrucción en validación y congelación del protocolo.
 5. `scripts/predecir_volumen_cierre.py --cases 004 006 010 --include-test`, `scripts/evaluar_instancias_cierre.py --test` y `scripts/comparar_sam_cierre.py --include-test`: evaluación sin reajuste posterior.
-6. `scripts/medir_latencia.py`, `scripts/documentar_cierre.py`, `scripts/construir_dashboard.py --cases 002 012 028 004 006 010` y `scripts/video_respaldo.py`: evidencia, visualizadores y respaldo.
+6. `scripts/medir_latencia.py`, `scripts/documentar_cierre.py`, `scripts/construir_dashboard.py --results-root RUTA_RESULTADOS --cases 002 012 028 004 006 010` y `scripts/video_respaldo.py`: evidencia, visualizadores y respaldo.
 
 Los scripts experimentales preservan salidas y pueden rechazar carpetas existentes. Para repetir desde cero, usar una copia separada del proyecto y una carpeta nueva de resultados; no borrar la evidencia de esta entrega. El supervisor `scripts/ejecutar_cierre.py` fue creado para la secuencia inicial y **no es un comando para sobrescribir resultados ya terminados**. El entrenamiento inicial que proporciona el checkpoint de partida se documenta en `doc/MEJORAS_MACRO_SOBEL.md` y sus configuraciones.
 
 Pruebas: `& $cfgPengwin.python -m unittest discover -s tests -v`. Las imágenes sintéticas de los tests comprueban funciones; no se incorporaron como datos de entrenamiento.
 
 La evaluación volumétrica cubre tres pacientes val y tres test; no 100 inferencias completas. Los 100 casos sí están inventariados y divididos por paciente. Las medidas se calculan con geometría física y solo se comparan cuando principal y fragmento están correctamente emparejados. GPU queda pendiente si `torch.cuda.is_available()` es falso. El entrenamiento original soporta AMP en CUDA; esta ejecución y los ajustes adicionales se realizaron en CPU. Git y los trámites de colaboración remota se mantienen pendientes por indicación del usuario.
+
+
+## Reproducción de la entrega GPU y recursos externos
+
+Los resultados numéricos están en `salidas/fix_huesos_v1/`. El historial y las métricas de la época 21 coinciden; esto no sustituye ejecutar la inferencia con el checkpoint.
+
+1. El checkpoint GPU exacto está incluido en `salidas/fix_huesos_v1/best.pth`. Su SHA256 coincide con `best_pth_sha256.json`; corresponde a la época 21. Verificarlo con el comando de comprobación inferior. No sustituirlo por pesos CPU.
+2. Configurar `config_datos.local.json` para las CT y máscaras originales.
+3. Ejecutar `scripts/colab_evaluar_volumen.py` con el checkpoint y la política congelada. Usar carpetas nuevas para conservar resultados previos. La versión actual reporta distancias a IoU 0.10 y 0.50 sobre la misma inferencia y precision/recall por instancias a IoU 0.50. Elegir políticas solamente en validación.
+4. Construir un dashboard para cada grupo de resultados; no mezclar las carpetas antiguas CPU:
+
+```powershell
+python scripts/construir_dashboard.py --results-root salidas/fix_huesos_v1/val_frag --cases 002 012 028 --output dashboard_val
+python scripts/construir_dashboard.py --results-root salidas/fix_huesos_v1/test_final --cases 004 006 010 --output dashboard_test
+python scripts/comprobar_paquete.py --dashboard dashboard_test --checkpoint salidas/fix_huesos_v1/best.pth --package entrega_test.zip
+```
+
+El constructor requiere los MHA, boxes.json, instancias.json, distancias.json y prediccion.json exportados por el evaluador. Los JSON del repositorio por sí solos no permiten reconstruir imágenes. El comprobador rechaza recursos ausentes y un checkpoint con SHA256 distinto; solo crea el ZIP cuando todo está presente. El ZIP contiene el dashboard y el checkpoint, no las CT originales.
+
+5. Extraer el paquete en otra carpeta, servir el dashboard con `python -m http.server 8766 --directory dashboard` y comprobar los tres visualizadores. Después ejecutar y comprobar el túnel Cloudflare desde computador y teléfono. Conservar el video de respaldo exigido en el enunciado.
+
+El checkpoint ya está incluido; mientras falten los volúmenes exportados y recursos visuales, estos pasos están pendientes; no se deben declarar completados.
+
+
+### Visualizaciones del EDA
+
+Las figuras `salidas/eda_01_panorama` a `salidas/eda_09_intensidades_hu` se entregan en PNG y SVG: pacientes/splits, cortes disponibles y seleccionados, cortes por paciente, fragmentos por región, complejidad por caso, volumen, separación/contacto, geometría y HU. Se generan con `python scripts/graficar_eda_entrega.py` a partir de los CSV del EDA y configuración registrada. Son estadísticas de referencia, no métricas de predicción.
+
+El conjunto inventariado contiene 100 pacientes, 32.106 cortes, 24.316 cortes con hueso etiquetado y 575 instancias (300 principales y 275 no principales). El entrenamiento GPU registrado seleccionó 9.889 cortes train y 2.186 val; no se confunden con el total del dataset.

@@ -10,7 +10,9 @@ async function loadCase(){
   $('slice').max=slices.length-1;$('slice').value=Math.floor(slices.length/2);
   $('scope').textContent=(current.split==='test'?'Prueba':'Validación')+' · '+current.slices+' cortes contiguos · orientación LPS · proporciones físicas';
   const s=current.summary;
-  $('stats').innerHTML=[['Instancias predichas',s.pred],['Fragmentos de referencia',s.gt],['Dice de fragmentos',pct(s.dice_gt)],['Error de distancia',s.distance_MAE_mm==null?'No evaluable':s.distance_MAE_mm.toFixed(2)+' mm']].map(([label,value])=>'<div class="stat"><small>'+label+'</small><strong>'+value+'</strong></div>').join('');
+  const strict=s.distance_by_iou?.['0.5'];
+  const strictText=strict ? (strict.distance_MAE_mm==null?'No evaluable':strict.distance_MAE_mm.toFixed(2)+' mm')+' ('+strict.distance_valid_pairs+' pares)' : 'Pendiente de evaluación';
+  $('stats').innerHTML=[['Instancias predichas',s.pred],['Fragmentos de referencia',s.gt],['Dice de fragmentos',pct(s.dice_gt)],['Error distancia (IoU ≥ '+s.distance_min_iou+')',s.distance_MAE_mm==null?'No evaluable':s.distance_MAE_mm.toFixed(2)+' mm'],['Distancia con IoU ≥ 0.50',strictText]].map(([label,value])=>'<div class="stat"><small>'+label+'</small><strong>'+value+'</strong></div>').join('');
   $('quality').textContent='En este volumen se detectaron '+s.extra+' instancias sobrantes y '+s.missed+' fragmentos omitidos. Hay '+s.distance_valid_pairs+' pares válidos para evaluar distancias. Latencia media del modelo y posprocesado 2D en '+current.device.toUpperCase()+': '+current.latency_ms.toFixed(1)+' ms por corte; no incluye lectura ni reconstrucción 3D.';
   $('mipframe').removeAttribute('src');$('meshframe').removeAttribute('src');showTab(document.querySelector('nav button.active').dataset.tab);draw();
 }
