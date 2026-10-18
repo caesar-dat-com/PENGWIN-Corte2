@@ -95,7 +95,32 @@ En el caso 002, la versión anterior produjo 96 instancias para seis fragmentos 
 
 Dice GT promedia los fragmentos de referencia, incluyendo omitidos como cero; no penaliza directamente cada predicción extra. Dice simétrico incluye además esas predicciones sin correspondencia como cero y revela la sobresegmentación. El objetivo sugerido de Dice por fragmento 85 % / IoU 70 % no debe confundirse con el Dice anatómico.
 
-Pares de distancia válidos totales: **0**. MAE agregado: **no evaluable**. Solo se comparan distancias si fragmento y principal se emparejan correctamente con IoU ≥ 0,5. Un valor no evaluable nunca se transforma en cero. El principal predicho es la instancia mayor de la región; el GT usa IDs 1/11/21. La distancia se calcula mediante `distance_transform_edt` con espaciado físico, entre centros de vóxeles superficiales; es una aproximación discreta de borde a borde. Contacto 26 se informa aparte. La reducción XY a 256 conserva campo físico y todos los cortes Z, pero puede perder fragmentos pequeños.
+Pares de distancia válidos totales (corrida CPU inicial, 8 cortes/paciente): **0**. MAE agregado: **no evaluable**. Solo se comparan distancias si fragmento y principal se emparejan correctamente con IoU ≥ 0,5. Un valor no evaluable nunca se transforma en cero. El principal predicho es la instancia mayor de la región; el GT usa IDs 1/11/21. La distancia se calcula mediante `distance_transform_edt` con espaciado físico, entre centros de vóxeles superficiales; es una aproximación discreta de borde a borde. Contacto 26 se informa aparte. La reducción XY a 256 conserva campo físico y todos los cortes Z, pero puede perder fragmentos pequeños.
+
+### Consolidación final en GPU (30 épocas, modo hueso + control de anomalías 3D)
+
+Para superar la limitación del submuestreo en CPU (8 cortes por paciente, donde el coxal izquierdo quedaba en `0.00%` de Dice), se entrenó la arquitectura `PelvisSesion2` (8 canales en el decoder, `FundidoraPC + CBAM9`) en GPU Tesla T4 durante **30 épocas** empleando `--modo hueso --paso 2 --vacios 0.15` (`9,889` cortes en `train` de 70 pacientes y `2,186` cortes en `val` de 15 pacientes), flip horizontal con intercambio explícito de lateralidad (`11..20 <-> 21..30`), `--bg-weight 0.5` y `--gate-margin 0.1`.
+
+El mejor punto de validación se alcanzó en la **época 21** (`Macro-Dice = 94.15%`, `mAP@0.50 = 85.21%`), superando ampliamente las metas de la rúbrica (`Dice ≥ 85%`, `mAP@0.50 ≥ 65%`):
+
+| Métrica en Validación (`2,186` cortes, 15 pacientes) | Línea base CPU (8 cortes, 6 épocas) | **Consolidación GPU (modo hueso, 30 épocas)** | Meta sugerida rúbrica |
+|---|---:|---:|---:|
+| **Dice Sacro (`SA`)** | 38.82% | **91.91%** | ≥ 85% |
+| **Dice Coxal Izquierdo (`LI`)** | 0.00% | **95.09%** | ≥ 85% |
+| **Dice Coxal Derecho (`RI`)** | 42.59% | **95.45%** | ≥ 85% |
+| **Macro-Dice Semántico** | 27.14% | **94.15%** | ≥ 85% |
+| **Detección `mAP@0.50`** | 44.82% | **85.21%** | ≥ 65% |
+
+En evaluación volumétrica 3D completa sobre los volúmenes de validación (`002`, `012`, `028`) y los tres volúmenes reservados de prueba (`004`, `006`, `010`), junto con el módulo de control de anomalías (`pengwin/anomalias.py`):
+
+| Caso (Split) | GT Frag. | Dice 3D Sacro (corr) | Dice 3D Coxal Izq (corr) | Dice 3D Coxal Der (corr) | Dice simétrico (interiores / interfaces) | Pares distancia (`interiores`) | MAE físico (mm, crudo → corr) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| **002 (`val`)** | 6 | **94.56%** | **96.97%** | **96.77%** | 28.96% / **46.60%** | **2** | **0.00 mm → 0.00 mm** |
+| **012 (`val`)** | 5 | **68.21%** | **82.20%** | **89.67%** | 8.18% / **29.62%** | **1** | **0.00 mm → 0.00 mm** |
+| **028 (`val`)** | 7 | **92.39%** | **96.36%** | **95.68%** | 20.20% / **38.19%** | **3** | **0.00 mm → 0.00 mm** |
+| **004 (`test`)** | 6 | **92.30%** | **94.76%** | **94.83%** | **30.73%** (37.01% crudo) | **2** | **0.00 mm → 0.00 mm** |
+| **006 (`test`)** | 7 | **89.96%** | **96.81%** | **96.75%** | **42.06%** (45.80% crudo) | **3** | 0.41 mm → **0.24 mm** |
+| **010 (`test`)** | 5 | **90.28%** | **91.95%** | **94.46%** | **17.16%** | 0 | No evaluable |
 
 ## Cinco peores casos y análisis de errores
 

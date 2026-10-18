@@ -39,10 +39,60 @@ Ninguna regla usa el GT. La referencia de volúmenes se ajusta solo con train.
 - Augmentación espejo verificada: tras el flip el coxal izquierdo permanece del lado izquierdo en LPS, con cajas y clases coherentes.
 - Entrenamiento de 2 épocas y evaluación volumétrica completa corren de punta a punta.
 
-### Estado y siguiente paso
-El entrenamiento completo (todos los cortes con hueso, 30 épocas) se ejecuta en Google Colab con GPU. Las métricas finales por hueso, la comparación modelo crudo frente a corregido por el control de anomalías y los pares de distancia se reportan en el notebook al terminar la ejecución.
+### Resultados del entrenamiento completo en GPU (30 épocas, Tesla T4)
+El entrenamiento se ejecutó sobre `9,889` cortes de entrenamiento (70 pacientes) y `2,186` cortes de validación (15 pacientes) bajo `--modo hueso --paso 2 --vacios 0.15`, alcanzando su mejor punto de selección en la **época 21** (`selection_score = 0.8968`, Macro-Dice `94.15 %`, `mAP@0.50 = 85.21 %`):
+
+| Métrica (Validación, 15 pacientes) | Avance oct-08 (CPU, 8 cortes) | Época 3 (GPU parcial) | **Final 30 épocas (Mejor: Época 21)** | Mejora total |
+|---|---:|---:|---:|---:|
+| **Dice Sacro (SA)** | 38,82 % | 55,27 % | **91,91 %** | **+53,09 pts** |
+| **Dice Coxal Izquierdo (LI)** | 0,00 % | 82,28 % | **95,09 %** | **+95,09 pts** |
+| **Dice Coxal Derecho (RI)** | 42,59 % | 83,39 % | **95,45 %** | **+52,86 pts** |
+| **Macro-Dice Semántico** | 27,14 % | 73,65 % | **94,15 %** | **+67,01 pts** |
+| **mAP@0.50 (Detección)** | 44,82 % | 51,51 % | **85,21 %** | **+40,39 pts** |
+
+#### Matriz de confusión en validación (filas = GT, columnas = predicción: Fondo / SA / LI / RI)
+```text
+[[139092540     78075     67998     77534]
+ [    74248    918421      2487      2608]
+ [    70538      1839   1399811      1527]
+ [    51284      2463        35   1420288]]
+```
+- La confusión cruzada entre coxal izquierdo (`LI`) y coxal derecho (`RI`) quedó prácticamente eliminada (`1,527 / 1,473,715 = 0,10 %` en LI y `35 / 1,474,070 = 0,002 %` en RI).
+
+#### Evaluación sobre volúmenes 3D completos de validación (`002`, `012`, `028`)
+1. **Política conservadora de baja sobresegmentación** (`{"method": "interfaces", "threshold": 0.7, "seed_mm3": 500.0, "min_volume_mm3": 2500.0, "fusionar": true}`):
+
+| Métrica 3D | Caso `002` (GT=6) | Caso `012` (GT=5) | Caso `028` (GT=7) |
+|---|---:|---:|---:|
+| **Dice 3D Sacro (crudo → corregido)** | 94,45 % → **94,56 %** | 68,77 % → **68,21 %** | 92,16 % → **92,39 %** |
+| **Dice 3D Coxal Izq (crudo → corregido)** | 97,04 % → **96,97 %** | 81,59 % → **82,20 %** | 96,34 % → **96,36 %** |
+| **Dice 3D Coxal Der (crudo → corregido)** | 96,63 % → **96,77 %** | 89,35 % → **89,67 %** | 95,58 % → **95,68 %** |
+| **Instancias predichas (crudo → corregido)** | 3 → **3** (`extra=0`) | 9 → **8** (`extra=4`) | 3 → **3** (`extra=0`) |
+| **Dice simétrico por instancia (`dice_sim`)** | 46,58 % → **46,60 %** | 26,51 % → **29,62 %** | 38,14 % → **38,19 %** |
+| **Vóxeles corregidos (lateralidad / islas z / suavizado z)** | 749 / 253 / 1874 | 865 / 1488 / 2778 | 92 / 380 / 4487 |
+| **Anomalías post-corrección (lateralidad / exceso frag.)** | **0 / 0** | **0 / 0** | **0 / 0** |
+
+2. **Política sensible a fracturas y pares de distancia (`VAL_FRAG`)** (`{"method": "interiores", "threshold": 0.35, "seed_mm3": 80.0, "min_volume_mm3": 250.0, "fusionar": true}`, `--min-iou 0.10`):
+   - **Caso `002` (`GT=6`):** `corr_missed = 0` (6/6 fragmentos detectados), `corr_pares = 2`, **`corr_MAE = 0.00 mm`**, `corr_dice_sim = 28.96 %`.
+   - **Caso `012` (`GT=5`):** `corr_missed = 1` (4/5 fragmentos detectados), `corr_pares = 1`, **`corr_MAE = 0.00 mm`**, `corr_dice_sim = 8.18 %` (mejora frente a `6.74 %` crudo).
+   - **Caso `028` (`GT=7`):** `corr_missed = 0` (7/7 fragmentos detectados), `corr_pares = 3`, **`corr_MAE = 0.00 mm`**, `corr_dice_sim = 20.20 %`.
+
+#### Evaluación final congelada sobre volúmenes 3D de prueba (`TEST_FINAL`: `004`, `006`, `010`)
+Evaluación única sobre los tres pacientes reservados de `test` con el modelo congelado (`best.pth`, época 21):
+
+| Métrica 3D (`TEST_FINAL`) | Caso `004` (GT=6) | Caso `006` (GT=7) | Caso `010` (GT=5) | Promedio Test 3D |
+|---|---:|---:|---:|---:|
+| **Estado control de anomalías** | `revisar` (2 anom.) | **`ok` (1 anom.)** | **`ok` (1 anom.)** | 2/3 casos `ok` |
+| **Dice 3D Sacro (crudo → corregido)** | 92,17 % → **92,30 %** | 89,92 % → **89,96 %** | 90,16 % → **90,28 %** | **90,85 %** |
+| **Dice 3D Coxal Izq (crudo → corregido)** | 96,56 % → **94,76 %** | 96,81 % → **96,81 %** | 91,92 % → **91,95 %** | **94,51 %** (95,10 % crudo) |
+| **Dice 3D Coxal Der (crudo → corregido)** | 96,73 % → **94,83 %** | 96,73 % → **96,75 %** | 94,47 % → **94,46 %** | **95,35 %** (95,98 % crudo) |
+| **Fragmentos omitidos (`corr_missed`)** | 1 (5/6 detectados) | 1 (6/7 detectados) | **0 (5/5 detectados)** | **0,67** (89 % recall frag.) |
+| **Dice simétrico (`crudo → corr`)** | 37,01 % → 30,73 % | **45,80 % → 42,06 %** | 17,16 % → **17,16 %** | **33,33 % crudo / 29,98 % corr** |
+| **Pares válidos de distancia (`pares`)** | **2** | **3** | 0 | **5 pares totales** |
+| **Error físico de separación (`MAE` mm)** | **0,00 mm** → **0,00 mm** | 0,41 mm → **0,24 mm** (−41 %) | No evaluable | **0,15 mm (corregido)** |
 
 ### Enlaces
-- Repositorio (rama de corrección): https://github.com/caesar-dat-com/PENGWIN-Corte2/tree/fix-huesos-colab
-- Notebook Colab: https://colab.research.google.com/github/caesar-dat-com/PENGWIN-Corte2/blob/fix-huesos-colab/notebooks/Colab_Correccion_Huesos.ipynb
+- Repositorio: https://github.com/caesar-dat-com/PENGWIN-Corte2
+- Notebook Colab: [`notebooks/Colab_Correccion_Huesos.ipynb`](../notebooks/Colab_Correccion_Huesos.ipynb)
 - Módulo de anomalías: `pengwin/anomalias.py` · Evaluación: `scripts/colab_evaluar_volumen.py`
+

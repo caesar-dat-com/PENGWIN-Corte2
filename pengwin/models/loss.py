@@ -14,14 +14,18 @@ import torch.nn.functional as F
 
 def focal_loss_binaria(logits: torch.Tensor, targets: torch.Tensor, gamma: float = 0.5, alpha: float = 0.25, balanced: bool = False) -> torch.Tensor:
     """Focal Loss binaria para manejar el severo desbalance de celdas de fondo vs. regiones óseas."""
+    logits = logits.float()
+    targets = targets.float()
     probs = torch.sigmoid(logits)
     bce = F.binary_cross_entropy_with_logits(logits, targets, reduction="none")
     p_t = probs * targets + (1.0 - probs) * (1.0 - targets)
     alpha_t = alpha * targets + (1.0 - alpha) * (1.0 - targets)
-    loss = alpha_t * ((1.0 - p_t) ** gamma) * bce
+    # Clamp (1 - p_t) >= 1e-6: con gamma=0.5 la derivada 0.5 / sqrt(1 - p_t) diverge en p_t=1.0 (float16)
+    loss = alpha_t * ((1.0 - p_t).clamp(min=1e-6) ** gamma) * bce
+    zero = logits.new_zeros(())
     if balanced:
-        pos=targets.bool()
-        return (loss[pos].mean() if pos.any() else logits.sum()*0) + (loss[~pos].mean() if (~pos).any() else logits.sum()*0)
+        pos = targets.bool()
+        return (loss[pos].mean() if pos.any() else zero) + (loss[~pos].mean() if (~pos).any() else zero)
     return loss.mean()
 
 

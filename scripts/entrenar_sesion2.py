@@ -55,19 +55,21 @@ def decode(out,i=0,conf=.25):
 
 BG_WEIGHT=.2
 def seg_loss(out,target,edge,cores):
-    # Fondo 0,2 empujaba a pintar hueso: ~81k px de fondo predichos como hueso vs ~170k de hueso real.
-    ce=F.cross_entropy(out['mascaras'],target,weight=out['mascaras'].new_tensor([BG_WEIGHT,1.,1.,1.]))
-    probs=out['mascaras'].float().softmax(1);gt=F.one_hot(target,4).permute(0,3,1,2).float();dims=(0,2,3)
+    # Cálculo en float32 para evitar overflow/underflow en float16 bajo AMP
+    mascaras=out['mascaras'].float();bordes=out['bordes'].float();interiores=out['interiores'].float()
+    ce=F.cross_entropy(mascaras,target,weight=mascaras.new_tensor([BG_WEIGHT,1.,1.,1.]))
+    probs=mascaras.softmax(1);gt=F.one_hot(target,4).permute(0,3,1,2).float();dims=(0,2,3)
     dice=1-((2*(probs*gt).sum(dims)+1)/(probs.sum(dims)+gt.sum(dims)+1))[1:].mean()
-    raw=F.binary_cross_entropy_with_logits(out['bordes'],edge,reduction='none');positive=edge.bool();negative=(target>0)&~positive
-    zero=out['bordes'].sum()*0
+    raw=F.binary_cross_entropy_with_logits(bordes,edge.float(),reduction='none');positive=edge.bool();negative=(target>0)&~positive
+    zero=bordes.new_zeros(())
     # Equilibrar interfaces raras con interiores anotados, en vez de perderlas en el fondo.
     boundary=(raw[positive].mean() if positive.any() else zero)+(raw[negative].mean() if negative.any() else zero)
     fg=target>0
-    raw_core=(out['interiores'].sigmoid()-cores).square()
+    raw_core=(interiores.sigmoid()-cores.float()).square()
     interior=(raw_core[fg].mean() if fg.any() else zero)+(raw_core[~fg].mean() if (~fg).any() else zero)
     aux_losses=[]
     for logits in out.get('auxiliares',[]):
+        logits=logits.float()
         labels=F.interpolate(target[:,None].float(),size=logits.shape[-2:],mode='nearest')[:,0].long()
         aux_losses.append(F.cross_entropy(logits,labels,weight=logits.new_tensor([BG_WEIGHT,1.,1.,1.])))
     aux=torch.stack(aux_losses).mean() if aux_losses else zero
@@ -113,33 +115,58 @@ def main():
         ck=torch.load(out/'last.pth',map_location=device,weights_only=False)
         for k in ('architecture','seg_weight','batch','data_protocol'):
             if ck['config'][k]!=config[k]:raise ValueError('Reanudación incompatible')
-        model.load_state_dict(ck['model']);opt.load_state_dict(ck['optimizer']);scaler.load_state_dict(ck['scaler']);hist=ck['history'];best=ck['best'];start=ck['epoch']+1
-        if sched is not None and ck.get('sched'):sched.load_state_dict(ck['sched'])
-        gen.set_state(ck['loader_rng'].cpu());torch.set_rng_state(ck['torch_rng'].cpu())
-        if device.type=='cuda' and ck.get('cuda_rng') is not None:torch.cuda.set_rng_state_all(ck['cuda_rng'])
+        corrupto=ck.get('optimizer') is None
+        try:json.dumps(ck['history'],allow_nan=False)
+        except ValueError:corrupto=True
+        if not all(torch.isfinite(t).all() for t in ck['model'].values()):corrupto=True
+        if not corrupto and ck.get('optimizer'):
+            for st in ck['optimizer'].get('state',{}).values():
+                for v in st.values():
+                    if isinstance(v,torch.Tensor) and not torch.isfinite(v).all():corrupto=True
+        if corrupto and (out/'best.pth').exists() and (out/'historial.json').exists():
+            print('Restaurando pesos limpios desde best.pth e historial.json con optimizador limpio...',flush=True)
+            bck=torch.load(out/'best.pth',map_location=device,weights_only=False)
+            model.load_state_dict(bck['model']);hist=json.loads((out/'historial.json').read_text())
+            best=max(r['selection_score'] for r in hist);start=len(hist)+1
+            if sched is not None:
+                for _ in range((start-1)*len(tl)):sched.step()
+        else:
+            model.load_state_dict(ck['model'])
+            if ck.get('optimizer') is not None:opt.load_state_dict(ck['optimizer'])
+            if ck.get('scaler') is not None:scaler.load_state_dict(ck['scaler'])
+            hist=ck['history'];best=ck['best'];start=ck['epoch']+1
+            if sched is not None and ck.get('sched'):sched.load_state_dict(ck['sched'])
+            if ck.get('loader_rng') is not None:gen.set_state(ck['loader_rng'].cpu().byte())
+            if ck.get('torch_rng') is not None:torch.set_rng_state(ck['torch_rng'].cpu().byte())
+            if device.type=='cuda' and ck.get('cuda_rng') is not None:torch.cuda.set_rng_state_all([s.cpu().byte() for s in ck['cuda_rng']])
     save(out/'config.json',config)
     for epoch in range(start,a.epochs+1):
         model.train();totals={};seen=0;began=time.perf_counter()
         for step,b in enumerate(tl,1):
             opt.zero_grad(set_to_none=True)
             with torch.amp.autocast(device_type=device.type,enabled=device.type=='cuda'):
-                pred=model(b['x'].to(device));ld=criterion(pred,b['boxes'].to(device),b['classes'].to(device))['loss_total']
-                ls,terms=seg_loss(pred,b['semantic'].to(device),b['boundary'].to(device),b['cores'].to(device));loss=ld+a.seg_weight*ls
-            if not torch.isfinite(loss):raise ValueError('Pérdida no finita')
-            scaler.scale(loss).backward();scaler.unscale_(opt);torch.nn.utils.clip_grad_norm_(model.parameters(),5.);scaler.step(opt);scaler.update()
+                pred=model(b['x'].to(device))
+            pred_fp32={k:v.float() if isinstance(v,torch.Tensor) else [t.float() for t in v] for k,v in pred.items()}
+            ld=criterion(pred_fp32,b['boxes'].to(device),b['classes'].to(device))['loss_total']
+            ls,terms=seg_loss(pred_fp32,b['semantic'].to(device),b['boundary'].to(device),b['cores'].to(device));loss=ld+a.seg_weight*ls
+            if not torch.isfinite(loss):
+                print(f'  [Aviso] Batch {step} con pérdida no finita; se omite el paso.',flush=True)
+                opt.zero_grad(set_to_none=True);continue
+            scaler.scale(loss).backward();scaler.unscale_(opt);torch.nn.utils.clip_grad_norm_(model.parameters(),1.0);scaler.step(opt);scaler.update()
             if sched is not None:sched.step()
             n=len(b['x']);seen+=n
             for k,v in {'total':loss,'det':ld,'seg':ls,**terms}.items():totals[k]=totals.get(k,0)+float(v.detach())*n
-            if step%20==0:print(f'Epoch {epoch}/{a.epochs} batch {step}/{len(tl)} loss={totals["total"]/seen:.4f}',flush=True)
+            if step%20==0 and seen>0:print(f'Epoch {epoch}/{a.epochs} batch {step}/{len(tl)} loss={totals["total"]/seen:.4f}',flush=True)
         metrics,records=evaluate(model,vl,device);score=(metrics['detection']['mAP50']+metrics['semantic']['macro_dice'])/2
-        row={'epoch':epoch,'seconds':time.perf_counter()-began,'loss':{k:v/seen for k,v in totals.items()},'val':metrics,'selection_score':score};hist.append(row)
+        row={'epoch':epoch,'seconds':time.perf_counter()-began,'loss':{k:v/max(seen,1) for k,v in totals.items()},'val':metrics,'selection_score':score};hist.append(row)
+        save(out/'historial.json',hist)
         improved=score>best;best=max(best,score)
         ck={'model':model.state_dict(),'optimizer':opt.state_dict(),'scaler':scaler.state_dict(),'history':hist,'best':best,'epoch':epoch,'config':config,'loader_rng':gen.get_state(),'sched':sched.state_dict() if sched is not None else None,'torch_rng':torch.get_rng_state(),'cuda_rng':torch.cuda.get_rng_state_all() if device.type=='cuda' else None}
         torch.save(ck,out/'last.tmp.pth');(out/'last.tmp.pth').replace(out/'last.pth')
         if improved:
             torch.save({'model':ck['model'],'config':config,'epoch':epoch,'val':metrics},out/'best.tmp.pth');(out/'best.tmp.pth').replace(out/'best.pth')
             save(out/'metricas_val.json',metrics);save(out/'predicciones_val.json',records)
-        save(out/'historial.json',hist);print(f'Epoch {epoch} score={score:.4f} mAP50={metrics["detection"]["mAP50"]:.4f} Dice={metrics["semantic"]["macro_dice"]:.4f}',flush=True)
+        print(f'Epoch {epoch} score={score:.4f} mAP50={metrics["detection"]["mAP50"]:.4f} Dice={metrics["semantic"]["macro_dice"]:.4f}',flush=True)
     config['status']='completed';config['epochs']=len(hist);save(out/'config.json',config)
 
 if __name__=='__main__':main()
